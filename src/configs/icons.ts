@@ -3,7 +3,7 @@ const icons = {
   bca: require("../assets/icons/banks/bca.png"),
   atmBersama: require("../assets/icons/banks/bersama.png"),
   bni: require("../assets/icons/banks/bni.png"),
-  gopay: require("../assets/icons/banks/GoPay.png"),
+  gopay: require("../assets/icons/banks/gopay.png"),
   mandiri: require("../assets/icons/banks/mandiri.png"),
   permata: require("../assets/icons/banks/permata.png"),
   qris: require("../assets/icons/banks/qris.png"),
@@ -18,11 +18,11 @@ const icons = {
     appColorWhite: require("../assets/icons/logo/app-color-white.png"),
     appColor: require("../assets/icons/logo/app-color.png"),
     appWhite: require("../assets/icons/logo/app-white.png"),
-    longWaveColor: require("../assets/icons/logo/long-wave-color.png"),
-    longWaveWhite: require("../assets/icons/logo/long-wave-white.png"),
-    longWave: require("../assets/icons/logo/long-wave.png"),
-    waveRounded: require("../assets/icons/logo/wave-rounded.png"),
-    waveTextOut: require("../assets/icons/logo/wave-text-out.png"),
+    longWaveColor: require("../assets/icons/logo/Long-Wave-Color.png"),
+    longWaveWhite: require("../assets/icons/logo/Long-Wave-White.png"),
+    longWave: require("../assets/icons/logo/Long-Wave.png"),
+    waveRounded: require("../assets/icons/logo/Wave-Rounded.png"),
+    waveTextOut: require("../assets/icons/logo/Wave-Text-Out.png"),
   },
 
   arrowDown: require("../assets/icons/arrow-down.png"),
@@ -44,6 +44,13 @@ const icons = {
   arrowSmallLeft: require("../assets/icons/arrow-small-left.png"),
   arrowSmallRight: require("../assets/icons/arrow-small-right.png"),
   arrowSmallUp: require("../assets/icons/arrow-small-up.png"),
+
+  home: require("../assets/icons/home.png"),
+  diamond: require("../assets/icons/diamond.png"),
+  explore: require("../assets/icons/squares-2x2.png"),
+  user: require("../assets/icons/user.png"),
+  bookBookmark: require("../assets/icons/book-bookmark.png"),
+  bookOpen: require("../assets/icons/book-open.png"),
 };
 
 export default icons;

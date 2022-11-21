@@ -2,18 +2,18 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import LoginScreen from "screens/LoginScreen/LoginScreen";
 
-const Category = createStackNavigator();
+const Explore = createStackNavigator();
 
-const CategoryTab = () => {
+const ExploreTab = () => {
   return (
-    <Category.Navigator>
-      <Category.Screen
+    <Explore.Navigator>
+      <Explore.Screen
         options={{ headerShown: false }}
-        name="CategoryScreen"
+        name="ExploreScreen"
         component={LoginScreen}
       />
-    </Category.Navigator>
+    </Explore.Navigator>
   );
 };
 
-export default CategoryTab;
+export default ExploreTab;
