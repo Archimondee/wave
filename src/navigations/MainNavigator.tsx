@@ -5,7 +5,6 @@ import type { RootStackParamList } from "types/NavigatorTypes";
 import RegisterScreen from "screens/RegisterScreen/RegisterScreen";
 import LoginScreen from "screens/LoginScreen/LoginScreen";
 import TabNavigator from "./TabNavigator";
-import CollectionScreen from "screens/CollectionScreen/CollectionScreen";
 
 const Main = createStackNavigator<RootStackParamList>();
 const options: StackNavigationOptions = {
