@@ -51,6 +51,11 @@ const icons = {
   user: require("../assets/icons/user.png"),
   bookBookmark: require("../assets/icons/book-bookmark.png"),
   bookOpen: require("../assets/icons/book-open.png"),
+
+  search: require("../assets/icons/magnifying-glass.png"),
+  xmark: require("../assets/icons/x-mark.png"),
+  xcircleRed: require("../assets/icons/x-circle-red.png"),
+  bell: require("../assets/icons/bell.png"),
 };
 
 export default icons;

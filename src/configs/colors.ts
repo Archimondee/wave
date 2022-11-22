@@ -9,15 +9,15 @@ const color = {
   primary800: "#104062",
   primary900: "#092E51",
 
-  seconday100: "#C8F1FA",
-  seconday200: "#93DDF6",
-  seconday300: "#5BBBE5",
-  seconday400: "#3394CC",
-  seconday500: "#0063AB",
-  seconday600: "#004C93",
-  seconday700: "#00397B",
-  seconday800: "#002863",
-  seconday900: "#001C52",
+  secondary100: "#C8F1FA",
+  secondary200: "#93DDF6",
+  secondary300: "#5BBBE5",
+  secondary400: "#3394CC",
+  secondary500: "#0063AB",
+  secondary600: "#004C93",
+  secondary700: "#00397B",
+  secondary800: "#002863",
+  secondary900: "#001C52",
 
   neutral50: "#FFFFFF",
   neutral100: "#F3F3F3",
@@ -77,6 +77,8 @@ const color = {
   darkMode500: "#E2E2E2",
   darkMode600: "#DDDDDD",
   darkMode700: "#191919",
+
+  black: "#000000",
 };
 
 export default color;

@@ -6,17 +6,18 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
-import { ButtonExample } from "components";
+import { ButtonExample, Header } from "components";
 import { useTestData } from "hooks";
 import { getDataTest } from "stores/user/actions";
 import "../../i18n";
 
 import styles from "./LoginScreenStyles";
+import globalStyles from "utils/GlobalStyles";
 
 const LoginScreen = () => {
-  const testData = useTestData();
+  //const testData = useTestData();
   const dispatch: any = useDispatch();
-  const { i18n } = useTranslation();
+  //const { i18n } = useTranslation();
 
   useEffect(() => {
     dispatch(getDataTest());
@@ -26,8 +27,20 @@ const LoginScreen = () => {
   //   i18n.changeLanguage(lng);
   // };
   return (
-    <View style={styles.container}>
-      <Text>LoginScreen</Text>
+    <View style={[globalStyles().container]}>
+      <Header isNavigateSearchScreen withSearchBar placeholder="Cari novel" />
+      <Header withSearchBar placeholder="Cari novel" />
+      <Header withBackIcon title="Top Up Berlian" titleOn="left" />
+      <Header title="Pencarian" titleOn="left" withCloseIcon />
+      <Header
+        isNavigateSearchScreen
+        withSearchBar
+        placeholder="Cari novel"
+        withGiftIcon
+        withNotificationIcon
+      />
+
+      {/* <Text>LoginScreen</Text>
       <ButtonExample
         title="Testing Button"
         onPress={() => NavigationService.navigate("RegisterScreen")}
@@ -51,7 +64,7 @@ const LoginScreen = () => {
       <Text>Data Test </Text>
       <Text>CODE : {testData.data?.bpi.GBP.code}</Text>
       <Text>Rate : {testData.data?.bpi.GBP.rate}</Text>
-      <Text>Disclaimer : {testData.data?.disclaimer}</Text>
+      <Text>Disclaimer : {testData.data?.disclaimer}</Text> */}
     </View>
   );
 };
