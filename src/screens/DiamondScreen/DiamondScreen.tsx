@@ -1,8 +1,8 @@
 import { DiamondCard, Header, Space, TabList } from "components";
-
 import React, { useState } from "react";
 import { View } from "react-native";
 import globalStyles from "utils/GlobalStyles";
+
 import GiftScreen from "./GiftScreen/GiftScreen";
 import SuccessScreen from "./SuccessScreen/SuccessScreen";
 import WaitingScreen from "./WaitingScreen/WaitingScreen";

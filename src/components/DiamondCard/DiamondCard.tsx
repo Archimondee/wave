@@ -3,6 +3,7 @@ import images from "configs/images";
 import React from "react";
 import { Image, View } from "react-native";
 import { scaledHorizontal, scaledVertical } from "utils/ScaledService";
+
 import Button from "../Button/Button";
 import Space from "../Space/Space";
 import Text from "../Text/Text";
