@@ -1,33 +1,33 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   StyleSheet,
   SafeAreaView,
   Image,
   View,
-  ActivityIndicator,
+  // ActivityIndicator,
 } from "react-native";
 import { useForm, Controller } from "react-hook-form";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 import colors from "configs/colors";
 import images from "configs/images";
 import height from "utils/HeightPercent";
 import { Button, Input, Space, Text } from "components";
-import NavigationService from "utils/NavigationService";
-import { scaledVertical } from "utils/ScaledService";
+// import NavigationService from "utils/NavigationService";
+// import { scaledVertical } from "utils/ScaledService";
 import icons from "configs/icons";
 
 const ForgotPasswordScreen = () => {
-  const dispatch: any = useDispatch();
-  const [modalError, setModalError] = useState(false);
-  const [errorMsg, setErrorMsg] = useState("");
+  // const dispatch: any = useDispatch();
+  // const [modalError, setModalError] = useState(false);
+  // const [errorMsg, setErrorMsg] = useState("");
 
-  const [isLoading, setLoading] = useState(false);
+  // const [isLoading, setLoading] = useState(false);
 
   const {
     control,
-    handleSubmit,
+    // handleSubmit,
     formState: { errors },
-    reset,
+    // reset,
   } = useForm({
     defaultValues: {
       email: "",
