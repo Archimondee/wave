@@ -1,4 +1,6 @@
-import ButtonExample from "./Button/ButtonExample";
-import Space from "./Space/Space";
+import Button from "./Button";
+import Space from "./Space";
+import Input from "./Input";
+import Text from "./Text";
 
-export { ButtonExample, Space };
+export { Button, Space, Input, Text };

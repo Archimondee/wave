@@ -15,6 +15,7 @@ const icons = {
 
   //logo
   logo: {
+    logo: require("../assets/icons/logo/Logo.png"),
     appColorWhite: require("../assets/icons/logo/app-color-white.png"),
     appColor: require("../assets/icons/logo/app-color.png"),
     appWhite: require("../assets/icons/logo/app-white.png"),
@@ -45,6 +46,8 @@ const icons = {
   arrowSmallRight: require("../assets/icons/arrow-small-right.png"),
   arrowSmallUp: require("../assets/icons/arrow-small-up.png"),
 
+  eye: require("../assets/icons/eye.png"),
+  eyeSlash: require("../assets/icons/eye-slash.png"),
   home: require("../assets/icons/home.png"),
   diamond: require("../assets/icons/diamond.png"),
   explore: require("../assets/icons/squares-2x2.png"),

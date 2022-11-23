@@ -1,58 +1,178 @@
+import icons from "configs/icons";
 import * as React from "react";
-import { Text, View } from "react-native";
-import NavigationService from "utils/NavigationService";
-import Config from "react-native-config";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import moment from "moment";
-import { useTranslation } from "react-i18next";
-import { ButtonExample } from "components";
-import { useTestData } from "hooks";
-import { getDataTest } from "stores/user/actions";
+import images from "configs/images";
+import {
+  View,
+  SafeAreaView,
+  Image,
+  TextInput,
+  Alert,
+  TouchableOpacity,
+} from "react-native";
+// eslint-disable-next-line import/order
+import { useForm, Controller } from "react-hook-form";
 import "../../i18n";
+
+import { Button, Input, Space, Text } from "components";
+import colors from "configs/colors";
+import NavigationService from "utils/NavigationService";
 
 import styles from "./LoginScreenStyles";
 
 const LoginScreen = () => {
-  const testData = useTestData();
-  const dispatch: any = useDispatch();
-  const { i18n } = useTranslation();
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
 
-  useEffect(() => {
-    dispatch(getDataTest());
-  }, [dispatch]);
+  const onSubmit = (data: any) => {
+    // console.warn(data);
+  };
 
-  // const changeLanguage = (lng: string) => {
-  //   i18n.changeLanguage(lng);
-  // };
   return (
-    <View style={styles.container}>
-      <Text>LoginScreen</Text>
-      <ButtonExample
-        title="Testing Button"
-        onPress={() => NavigationService.navigate("RegisterScreen")}
-      />
-      <ButtonExample
-        title="Change language"
-        onPress={() => {
-          i18n.changeLanguage("id");
+    <SafeAreaView style={styles.container}>
+      <View
+        style={{
+          width: "100%",
+          height: 150,
         }}
-      />
-      <Text>Status : {Config.STATUS}</Text>
-
-      <Text>Today : {moment().format("MMMM Do YYYY, h:mm:ss a")}</Text>
-      <Text>From branch master</Text>
-      <Text>Translation : {i18n.t("home")}</Text>
-
-      <Text>Data Test </Text>
-      <Text>CODE : {testData.data?.bpi.EUR.code}</Text>
-      <Text>Rate : {testData.data?.bpi.EUR.rate}</Text>
-      <Text />
-      <Text>Data Test </Text>
-      <Text>CODE : {testData.data?.bpi.GBP.code}</Text>
-      <Text>Rate : {testData.data?.bpi.GBP.rate}</Text>
-      <Text>Disclaimer : {testData.data?.disclaimer}</Text>
-    </View>
+      >
+        <Image
+          source={images.ellipse}
+          style={{
+            width: "100%",
+            height: "100%",
+            top: -50,
+          }}
+        />
+        <Image
+          source={icons.logo.appWhite}
+          style={{
+            position: "absolute",
+            justifyContent: "center",
+            alignItems: "center",
+            top: -20,
+            transform: [{ scale: 0.4 }],
+          }}
+        />
+      </View>
+      <View style={{ margin: 16 }}>
+        <Text size={24} type={"bold"} color={colors.primary700}>
+          Masuk
+        </Text>
+        <Space height={40} />
+        <Controller
+          name="email"
+          control={control}
+          rules={{
+            required: {
+              value: true,
+              message: "Ini wajib diisi.",
+            },
+          }}
+          render={({ field: { onChange, value } }) => (
+            <Input
+              placeholder="example@mail.com"
+              title="Email atau nomor telfon"
+              onChange={onChange}
+              value={value}
+              error={errors.email && errors.email.message}
+            />
+          )}
+        />
+        <Controller
+          name="password"
+          control={control}
+          rules={{
+            required: {
+              value: true,
+              message: "Ini wajib diisi.",
+            },
+            minLength: {
+              value: 3,
+              message: "Min 8 Character.",
+            },
+          }}
+          render={({ field: { onChange, value } }) => (
+            <Input
+              placeholder="Masukkan kata sandi"
+              title="Kata Sandi"
+              onChange={onChange}
+              value={value}
+              secureTextEntry
+              error={errors.password && errors.password.message}
+            />
+          )}
+        />
+        <Space height={20} />
+        <Button
+          buttonColor={colors.primary500}
+          type={"dark"}
+          title="Masuk"
+          onPress={() => {
+            handleSubmit(onSubmit);
+            // NavigationService.navigate("TabNavigator");
+          }}
+        />
+        <Space height={30} />
+        <Button
+          fontType={"reguler"}
+          fontColor={colors.secondary300}
+          type={"light"}
+          title="Masuk dengan akun google"
+        />
+        <View style={styles.wrapFooter}>
+          <Text size={14} color={colors.neutral400}>
+            Belum Punya Akun?
+          </Text>
+          <TouchableOpacity
+            onPress={() => {
+              NavigationService.navigate("RegisterScreen");
+            }}
+          >
+            <Text
+              size={14}
+              color={colors.secondary400}
+              style={{ marginLeft: 8 }}
+            >
+              Daftar
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <Space height={50} />
+        <View style={styles.wrapOr}>
+          <View style={styles.lining} />
+          <View style={styles.textOr}>
+            <Text size={12} color={colors.neutral300}>
+              Atau
+            </Text>
+          </View>
+          <View style={styles.lining} />
+        </View>
+        <Space height={50} />
+        <View style={{ justifyContent: "center", alignItems: "center" }}>
+          <TouchableOpacity
+            onPress={() => {
+              NavigationService.navigate("TabNavigator");
+            }}
+          >
+            <Text
+              size={14}
+              color={colors.secondary400}
+              style={{ marginLeft: 8 }}
+            >
+              Lewati dulu
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </SafeAreaView>
   );
 };
 
