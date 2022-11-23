@@ -12,7 +12,7 @@ import colors from "configs/colors";
 import images from "configs/images";
 import height from "utils/HeightPercent";
 import { Button, Input, Space, Text } from "components";
-// import NavigationService from "utils/NavigationService";
+import NavigationService from "utils/NavigationService";
 // import { scaledVertical } from "utils/ScaledService";
 import icons from "configs/icons";
 
@@ -132,7 +132,7 @@ const ForgotPasswordScreen = () => {
           title="Lanjut"
           type="dark"
           // onPress={handleSubmit()}
-          // onPress={() => NavigationService.navigate("ChangePasswordScreen")}
+          onPress={() => NavigationService.navigate("EmailVerifyScreen")}
         />
       </View>
     </SafeAreaView>

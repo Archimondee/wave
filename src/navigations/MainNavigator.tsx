@@ -7,6 +7,8 @@ import LoginScreen from "screens/LoginScreen/LoginScreen";
 import SplashScreen from "screens/SplashScreen/";
 import OtpScreen from "screens/OtpScreen/OtpScreen";
 import ForgotPasswordScreen from "screens/ForgotPassword/ForgotPasswordScreen";
+import ChangePasswordScreen from "screens/ChangePassword/ChangePasswordScreen";
+import EmailVerifyScreen from "screens/EmailVerify/EmailVerifyScreen";
 
 import TabNavigator from "./TabNavigator";
 
@@ -86,6 +88,16 @@ const MainNavigator = () => {
       <Main.Screen
         name="ForgotPasswordScreen"
         component={ForgotPasswordScreen}
+        options={{ headerShown: false, gestureEnabled: false }}
+      />
+      <Main.Screen
+        name="ChangePasswordScreen"
+        component={ChangePasswordScreen}
+        options={{ headerShown: false, gestureEnabled: false }}
+      />
+      <Main.Screen
+        name="EmailVerifyScreen"
+        component={EmailVerifyScreen}
         options={{ headerShown: false, gestureEnabled: false }}
       />
     </Main.Navigator>

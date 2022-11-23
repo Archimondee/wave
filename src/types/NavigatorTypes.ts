@@ -6,6 +6,8 @@ export type RootStackParamList = {
   SplashScreen: undefined;
   OtpScreen: undefined;
   ForgotPasswordScreen: undefined;
+  ChangePasswordScreen: undefined;
+  EmailVerifyScreen: undefined;
 };
 
 export type RootType =
@@ -14,4 +16,6 @@ export type RootType =
   | "TabNavigator"
   | "SplashScreen"
   | "OtpScreen"
-  | "ForgotPasswordScreen";
+  | "ForgotPasswordScreen"
+  | "ChangePasswordScreen"
+  | "EmailVerifyScreen";
