@@ -159,7 +159,12 @@ const HeaderCustom = ({
         ) : null}
       </View>
 
-      <View style={{ flexDirection: "row", alignItems: "center" }}>
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+        }}
+      >
         {withSearchBar ? (
           <TouchableOpacity
             style={[styles.containerSearch, { marginTop: 5, flex: 1 }]}

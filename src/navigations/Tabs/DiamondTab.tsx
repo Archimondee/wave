@@ -1,7 +1,6 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-
-import RegisterScreen from "screens/RegisterScreen/RegisterScreen";
+import DiamondScreen from "screens/DiamondScreen/DiamondScreen";
 
 const Diamond = createStackNavigator();
 
@@ -11,7 +10,7 @@ const DiamondTab = () => {
       <Diamond.Screen
         options={{ headerShown: false }}
         name="DiamondScreen"
-        component={RegisterScreen}
+        component={DiamondScreen}
       />
     </Diamond.Navigator>
   );
