@@ -114,7 +114,7 @@ const RegisterScreen = () => {
         />
         <Space height={10} />
         <Button
-          buttonColor={colors.primary500}
+          // buttonColor={colors.primary500}
           type={"dark"}
           title="Lanjut"
           onPress={() => {

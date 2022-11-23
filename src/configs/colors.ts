@@ -77,6 +77,8 @@ const color = {
   darkMode500: "#E2E2E2",
   darkMode600: "#DDDDDD",
   darkMode700: "#191919",
+
+  black: "#000000",
 };
 
 export default color;

@@ -10,7 +10,7 @@ import fonts from "configs/fonts";
 
 import WidthPercent from "../../utils/WidthPercent";
 import Text from "../Text";
-import Space from "../Space";
+import Space from "../Space/Space";
 import icons from "../../configs/icons";
 import { scaledFontSize, scaledVertical } from "../../utils/ScaledService";
 import colors from "../../configs/colors";

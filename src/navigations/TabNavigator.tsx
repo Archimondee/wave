@@ -85,7 +85,18 @@ const TabNavigator = () => {
   return (
     <View style={styles.container}>
       <CurvedBottomBar.Navigator
-        //style={[type === "down" && { backgroundColor: "#F5F5F5" }]}
+        style={{
+          shadowColor: "#000",
+          shadowOffset: {
+            width: 0,
+            height: 2,
+          },
+          shadowOpacity: 0.25,
+          shadowRadius: 3.84,
+          marginHorizontal: 0,
+
+          elevation: 5,
+        }}
         type={"DOWN"}
         height={100}
         circleWidth={60}
@@ -204,11 +215,13 @@ const styles = StyleSheet.create({
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 1,
+      height: 2,
     },
-    shadowOpacity: 0.2,
-    shadowRadius: 1.41,
-    elevation: 1,
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    marginHorizontal: 0,
+
+    elevation: 5,
     bottom: 15,
   },
   // btnCircleUp: {

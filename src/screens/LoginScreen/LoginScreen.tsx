@@ -14,9 +14,11 @@ import { useForm, Controller } from "react-hook-form";
 import "../../i18n";
 
 import { Button, Input, Space, Text } from "components";
-import colors from "configs/colors";
 import NavigationService from "utils/NavigationService";
+// import globalStyles from "utils/GlobalStyles";
+import colors from "configs/colors";
 
+// import { scaledVertical } from "utils/ScaledService";
 import styles from "./LoginScreenStyles";
 
 const LoginScreen = () => {
@@ -128,7 +130,7 @@ const LoginScreen = () => {
         />
         <Space height={20} />
         <Button
-          buttonColor={colors.primary500}
+          // buttonColor={colors.primary500}
           type={"dark"}
           title="Masuk"
           onPress={() => {
@@ -136,12 +138,7 @@ const LoginScreen = () => {
           }}
         />
         <Space height={30} />
-        <Button
-          fontType={"reguler"}
-          fontColor={colors.secondary300}
-          type={"light"}
-          title="Masuk dengan akun google"
-        />
+        <Button type={"light"} title="Masuk dengan akun google" />
         <View style={styles.wrapFooter}>
           <Text size={14} color={colors.neutral400}>
             Belum Punya Akun?
