@@ -86,6 +86,22 @@ const LoginScreen = () => {
             />
           )}
         />
+        <Text
+          size={14}
+          color={colors.secondary500}
+          style={{
+            textDecorationLine: "underline",
+            alignSelf: "flex-end",
+            position: "absolute",
+            top: 173,
+            zIndex: 2,
+          }}
+          onPress={() => {
+            NavigationService.navigate("ForgotPasswordScreen");
+          }}
+        >
+          Lupa Kata Sandi?
+        </Text>
         <Controller
           name="password"
           control={control}
