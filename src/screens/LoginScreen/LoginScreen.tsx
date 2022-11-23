@@ -1,18 +1,20 @@
 import * as React from "react";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import NavigationService from "utils/NavigationService";
 import Config from "react-native-config";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
-import { ButtonExample, Header } from "components";
+import { ButtonExample, Header, Text, Title } from "components";
 import { useTestData } from "hooks";
 import { getDataTest } from "stores/user/actions";
 import "../../i18n";
 
 import styles from "./LoginScreenStyles";
 import globalStyles from "utils/GlobalStyles";
+import color from "configs/colors";
+import { scaledVertical } from "utils/ScaledService";
 
 const LoginScreen = () => {
   //const testData = useTestData();
@@ -39,7 +41,7 @@ const LoginScreen = () => {
         withGiftIcon
         withNotificationIcon
       />
-
+      <Title title="Baru Rilis" />
       {/* <Text>LoginScreen</Text>
       <ButtonExample
         title="Testing Button"
