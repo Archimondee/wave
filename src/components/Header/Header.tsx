@@ -14,6 +14,7 @@ import FastImage from "react-native-fast-image";
 import NavigationService from "utils/NavigationService";
 import { scale } from "utils/Responsive";
 import { scaledHorizontal, scaledVertical } from "utils/ScaledService";
+
 import Text from "../Text/Text";
 
 interface HeaderCustomProps {

@@ -11,6 +11,7 @@ import {
   View,
 } from "react-native";
 import { CurvedBottomBar } from "react-native-curved-bottom-bar";
+
 import CollectionTab from "./Tabs/CollectionTab";
 import DiamondTab from "./Tabs/DiamondTab";
 import ExploreTab from "./Tabs/ExploreTab";
@@ -223,32 +224,30 @@ const styles = StyleSheet.create({
     elevation: 5,
     bottom: 15,
   },
-  btnCircleUp: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    alignItems: "center",
-    justifyContent: "center",
-    //backgroundColor: "#E8E8E8",
-    bottom: 12,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    marginHorizontal: 0,
-
-    elevation: 5,
-  },
-  imgCircle: {
-    width: 30,
-    height: 30,
-    tintColor: "#48CEF6",
-  },
-  img: {
-    width: 30,
-    height: 30,
-  },
+  // btnCircleUp: {
+  //   width: 60,
+  //   height: 60,
+  //   borderRadius: 30,
+  //   alignItems: "center",
+  //   justifyContent: "center",
+  //   backgroundColor: "#E8E8E8",
+  //   bottom: 12,
+  //   shadowColor: "#000",
+  //   shadowOffset: {
+  //     width: 0,
+  //     height: 1,
+  //   },
+  //   shadowOpacity: 0.2,
+  //   shadowRadius: 1.41,
+  //   elevation: 1,
+  // },
+  // imgCircle: {
+  //   width: 30,
+  //   height: 30,
+  //   tintColor: "#48CEF6",
+  // },
+  // img: {
+  //   width: 30,
+  //   height: 30,
+  // },
 });

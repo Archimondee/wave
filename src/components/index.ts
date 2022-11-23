@@ -1,8 +1,9 @@
+import Countdown from "./Countdown";
 import Button from "./Button/Button";
-import ButtonExample from "./Button/ButtonExample";
 import DiamondCard from "./DiamondCard/DiamondCard";
 import DiamondList from "./DiamondList/DiamondList";
 import Header from "./Header/Header";
+import Input from "./Input";
 import { HorizontalList, VerticalList, VirtualizedView } from "./List/List";
 import SideBarText from "./SidebarText/SidebarText";
 import Space from "./Space/Space";
@@ -11,7 +12,6 @@ import Text from "./Text/Text";
 import Title from "./Title/Title";
 
 export {
-  ButtonExample,
   Space,
   Header,
   Text,
@@ -24,4 +24,6 @@ export {
   TabList,
   DiamondList,
   Title,
+  Countdown,
+  Input,
 };

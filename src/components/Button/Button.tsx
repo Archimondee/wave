@@ -47,9 +47,9 @@ const Component = ({
         // disabled && { backgroundColor: color.underlay },
         // type === "disabled" && { backgroundColor: color.underlay },
         type === "light" && {
-          backgroundColor: color.neutral200,
+          backgroundColor: color.neutral50,
           borderWidth: 1,
-          //borderColor: color.burtuqaliOrange,
+          borderColor: color.primary500,
         },
         style,
       ]}

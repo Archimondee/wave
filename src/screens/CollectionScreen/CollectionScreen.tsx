@@ -58,7 +58,7 @@ const CollectionScreen = () => {
             backgroundColor: "yellow",
           }}
           showsVerticalScrollIndicator={false}
-        ></ScrollView>
+        />
       </View>
     </View>
   );

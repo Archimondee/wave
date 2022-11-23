@@ -1,96 +1,164 @@
-import { ExampleSkeleton } from "assets";
-import { ButtonExample } from "components";
-import React, { useState } from "react";
-import { Text, TextInput, View, Alert } from "react-native";
-import { exampleValidation } from "utils/validations/ValidationService";
+import icons from "configs/icons";
+import * as React from "react";
+import images from "configs/images";
+import {
+  View,
+  SafeAreaView,
+  Image,
+  // TextInput,
+  // Alert,
+  TouchableOpacity,
+} from "react-native";
+import { useForm, Controller } from "react-hook-form";
+import "../../i18n";
+import { Button, Input, Space, Text } from "components";
+import colors from "configs/colors";
+import NavigationService from "utils/NavigationService";
+
+import styles from "./RegisterScreenStyles";
 
 const RegisterScreen = () => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [fullname, setFullname] = useState("");
-
-  const [fullnameErr, setFullnameErr] = useState("");
-  const [lastnameErr, setLastnameErr] = useState("");
-  const [firstnameErr, setFirstnameErr] = useState("");
-
-  const fullNameHandler = (value: string) => {
-    setFullname(value);
-  };
-
-  const firstNameHandler = (value: string) => {
-    setFirstName(value);
-  };
-
-  const lastNameHandler = (value: string) => {
-    setLastName(value);
-  };
-
-  const example = () => {
-    exampleValidation({
-      fullname: fullname,
-      lastName: lastName,
-      firstName: firstName,
-    }).then((validation: any) => {
-      switch (validation.type) {
-        case "fullname":
-          setFullnameErr(validation.message);
-          break;
-        case "firstname":
-          setFullnameErr("");
-          setFirstnameErr(validation.message);
-          break;
-        case "lastname":
-          setFullnameErr("");
-          setFirstnameErr("");
-          setLastnameErr(validation.message);
-          break;
-        default:
-          setFullnameErr("");
-          setFirstnameErr("");
-          setLastnameErr("");
-          Alert.alert("Success input");
-      }
-    });
-  };
+  const {
+    control,
+    // handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      fullname: "",
+      email: "",
+      password: "",
+    },
+  });
+  // const onSubmit = data => console.log(data);
 
   return (
-    <View style={{ paddingHorizontal: 20 }}>
-      <Text>RegisterScreennn</Text>
-
-      <View style={{ paddingVertical: 20 }}>
-        <Text style={{ paddingTop: 20 }}>Fullname</Text>
-        <TextInput
-          value={fullname}
-          underlineColorAndroid="transparent"
-          onChangeText={fullNameHandler}
-          keyboardType={"default"}
-          style={{ borderBottomColor: "red", borderBottomWidth: 1 }}
+    <SafeAreaView style={styles.container}>
+      <View
+        style={{
+          width: "100%",
+          height: 150,
+        }}
+      >
+        <Image
+          source={images.ellipse}
+          style={{
+            width: "100%",
+            height: "100%",
+            top: -50,
+          }}
         />
-        <Text>{fullnameErr}</Text>
-        <Text style={{ paddingTop: 20 }}>Firstname</Text>
-        <TextInput
-          value={firstName}
-          underlineColorAndroid="transparent"
-          onChangeText={firstNameHandler}
-          keyboardType={"default"}
-          style={{ borderBottomColor: "red", borderBottomWidth: 1 }}
+        <Image
+          source={icons.logo.appWhite}
+          style={{
+            position: "absolute",
+            justifyContent: "center",
+            alignItems: "center",
+            top: -20,
+            transform: [{ scale: 0.4 }],
+          }}
         />
-        <Text>{firstnameErr}</Text>
-        <Text style={{ paddingTop: 20 }}>Lastname</Text>
-        <TextInput
-          value={lastName}
-          underlineColorAndroid="transparent"
-          onChangeText={lastNameHandler}
-          keyboardType={"default"}
-          style={{ borderBottomColor: "red", borderBottomWidth: 1 }}
-        />
-        <Text>{lastnameErr}</Text>
       </View>
-      <ButtonExample title="Submit" onPress={example} />
-      <View style={{ paddingTop: 30 }}>
-        <ExampleSkeleton />
+      <View style={{ margin: 16 }}>
+        <Text size={24} type={"bold"} color={colors.primary700}>
+          Buat Aku Baru
+        </Text>
+        <Space height={40} />
+        <Controller
+          control={control}
+          rules={{
+            maxLength: 100,
+          }}
+          render={({ field: { onChange, value } }) => (
+            <Input
+              placeholder="Eg. John Doe"
+              title="Nama Lengkap"
+              onChange={onChange}
+              value={value}
+              // error={errors.password && errors.password.message}
+            />
+          )}
+          name="fullname"
+        />
+        <Controller
+          control={control}
+          rules={{
+            maxLength: 100,
+          }}
+          render={({ field: { onChange, value } }) => (
+            <Input
+              placeholder="example@mail.com"
+              title="Email"
+              onChange={onChange}
+              value={value}
+              error={errors.password && errors.password.message}
+            />
+          )}
+          name="email"
+        />
+        <Controller
+          control={control}
+          rules={{
+            maxLength: 100,
+          }}
+          render={({ field: { onChange, value } }) => (
+            <Input
+              placeholder="Masukkan kata sandi"
+              title="Kata Sandi"
+              onChange={onChange}
+              value={value}
+              secureTextEntry
+              error={errors.password && errors.password.message}
+            />
+          )}
+          name="password"
+        />
+        <Space height={10} />
+        <Button
+          // buttonColor={colors.primary500}
+          type={"dark"}
+          title="Lanjut"
+          onPress={() => {
+            NavigationService.navigate("TabNavigator");
+          }}
+        />
+        <Space height={30} />
+        {/* <Button
+          fontType={"reguler"}
+          fontColor={colors.secondary300}
+          type={"light"}
+          title="Daftar lewat nomor telepon"
+        />
+        <Space height={30} /> */}
+        <View style={styles.wrapOr}>
+          <View style={styles.lining} />
+          <View style={styles.textOr}>
+            <Text size={12} color={colors.neutral300}>
+              Atau
+            </Text>
+          </View>
+          <View style={styles.lining} />
+        </View>
+        <Space height={10} />
+        <View style={styles.wrapFooter}>
+          <Text size={14} color={colors.neutral400}>
+            Sudah Punya Akun?
+          </Text>
+          <TouchableOpacity
+            onPress={() => {
+              NavigationService.navigate("LoginScreen");
+            }}
+          >
+            <Text
+              size={14}
+              color={colors.secondary400}
+              style={{ marginLeft: 8 }}
+            >
+              Masuk
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

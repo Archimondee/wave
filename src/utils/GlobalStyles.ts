@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { StyleSheet } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+
 import { scaledVertical } from "./ScaledService";
 
 const globalStyles = (backgroundColor?: string) => {

@@ -3,7 +3,6 @@ import color from "configs/colors";
 import images from "configs/images";
 import React from "react";
 import { View, StyleSheet, Image } from "react-native";
-
 import { scaledVertical } from "utils/ScaledService";
 
 const GiftScreen = () => {

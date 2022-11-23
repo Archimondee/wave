@@ -2,6 +2,7 @@ import color from "configs/colors";
 import React from "react";
 import { TouchableOpacity, View } from "react-native";
 import { scaledVertical } from "utils/ScaledService";
+
 import Text from "../Text/Text";
 
 interface SideBarTextProps {

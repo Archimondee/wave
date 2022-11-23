@@ -4,6 +4,12 @@ import { createStackNavigator } from "@react-navigation/stack";
 import type { RootStackParamList } from "types/NavigatorTypes";
 import RegisterScreen from "screens/RegisterScreen/RegisterScreen";
 import LoginScreen from "screens/LoginScreen/LoginScreen";
+import SplashScreen from "screens/SplashScreen/";
+import OtpScreen from "screens/OtpScreen/OtpScreen";
+import ForgotPasswordScreen from "screens/ForgotPassword/ForgotPasswordScreen";
+import ChangePasswordScreen from "screens/ChangePassword/ChangePasswordScreen";
+import EmailVerifyScreen from "screens/EmailVerify/EmailVerifyScreen";
+
 import TabNavigator from "./TabNavigator";
 
 const Main = createStackNavigator<RootStackParamList>();
@@ -53,14 +59,47 @@ const options: StackNavigationOptions = {
 
 const MainNavigator = () => {
   return (
-    <Main.Navigator screenOptions={options}>
+    <Main.Navigator screenOptions={options} initialRouteName="SplashScreen">
+      <Main.Screen
+        name="SplashScreen"
+        component={SplashScreen}
+        options={{ headerShown: false }}
+      />
       <Main.Screen
         name="TabNavigator"
         component={TabNavigator}
         options={{ headerShown: false, gestureEnabled: false }}
       />
-      <Main.Screen name="LoginScreen" component={LoginScreen} />
-      <Main.Screen name="RegisterScreen" component={RegisterScreen} />
+      <Main.Screen
+        name="LoginScreen"
+        component={LoginScreen}
+        options={{ headerShown: false, gestureEnabled: false }}
+      />
+      <Main.Screen
+        name="RegisterScreen"
+        component={RegisterScreen}
+        options={{ headerShown: false, gestureEnabled: false }}
+      />
+      <Main.Screen
+        name="OtpScreen"
+        component={OtpScreen}
+        options={{ headerShown: false, gestureEnabled: false }}
+      />
+      <Main.Screen
+        name="ForgotPasswordScreen"
+        component={ForgotPasswordScreen}
+        options={{ headerShown: false, gestureEnabled: false }}
+      />
+      <Main.Screen
+        name="ChangePasswordScreen"
+        component={ChangePasswordScreen}
+        options={{ headerShown: false, gestureEnabled: false }}
+      />
+      <Main.Screen
+        name="EmailVerifyScreen"
+        component={EmailVerifyScreen}
+        options={{ headerShown: false, gestureEnabled: false }}
+      />
     </Main.Navigator>
   );
 };
