@@ -5,8 +5,8 @@ import {
   View,
   SafeAreaView,
   Image,
-  TextInput,
-  Alert,
+  // TextInput,
+  // Alert,
   TouchableOpacity,
 } from "react-native";
 // eslint-disable-next-line import/order
@@ -22,7 +22,7 @@ import styles from "./LoginScreenStyles";
 const LoginScreen = () => {
   const {
     control,
-    handleSubmit,
+    // handleSubmit,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -31,9 +31,9 @@ const LoginScreen = () => {
     },
   });
 
-  const onSubmit = (data: any) => {
-    // console.warn(data);
-  };
+  // const onSubmit = (data: any) => {
+  //   // console.warn(data);
+  // };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -116,8 +116,7 @@ const LoginScreen = () => {
           type={"dark"}
           title="Masuk"
           onPress={() => {
-            handleSubmit(onSubmit);
-            // NavigationService.navigate("TabNavigator");
+            NavigationService.navigate("OtpScreen");
           }}
         />
         <Space height={30} />

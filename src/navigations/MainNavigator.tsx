@@ -5,6 +5,7 @@ import type { RootStackParamList } from "types/NavigatorTypes";
 import RegisterScreen from "screens/RegisterScreen/RegisterScreen";
 import LoginScreen from "screens/LoginScreen/LoginScreen";
 import SplashScreen from "screens/SplashScreen/";
+import OtpScreen from "screens/OtpScreen/OtpScreen";
 
 import TabNavigator from "./TabNavigator";
 
@@ -74,6 +75,11 @@ const MainNavigator = () => {
       <Main.Screen
         name="RegisterScreen"
         component={RegisterScreen}
+        options={{ headerShown: false, gestureEnabled: false }}
+      />
+      <Main.Screen
+        name="OtpScreen"
+        component={OtpScreen}
         options={{ headerShown: false, gestureEnabled: false }}
       />
     </Main.Navigator>

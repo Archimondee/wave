@@ -59,7 +59,7 @@ const Component = ({
           borderColor: colors.secondary300,
         },
         type === "dark" && {
-          backgroundColor: buttonColor ? buttonColor : colors.secondary500,
+          backgroundColor: buttonColor ? buttonColor : colors.primary500,
           borderWidth: 0,
         },
         style,

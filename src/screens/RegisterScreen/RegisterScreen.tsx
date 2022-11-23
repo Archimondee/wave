@@ -5,11 +5,10 @@ import {
   View,
   SafeAreaView,
   Image,
-  TextInput,
-  Alert,
+  // TextInput,
+  // Alert,
   TouchableOpacity,
 } from "react-native";
-// eslint-disable-next-line import/order
 import { useForm, Controller } from "react-hook-form";
 import "../../i18n";
 import { Button, Input, Space, Text } from "components";
@@ -21,7 +20,7 @@ import styles from "./RegisterScreenStyles";
 const RegisterScreen = () => {
   const {
     control,
-    handleSubmit,
+    // handleSubmit,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -69,7 +68,7 @@ const RegisterScreen = () => {
           rules={{
             maxLength: 100,
           }}
-          render={({ field: { onChange, onBlur, value } }) => (
+          render={({ field: { onChange, value } }) => (
             <Input
               placeholder="Eg. John Doe"
               title="Nama Lengkap"
@@ -85,7 +84,7 @@ const RegisterScreen = () => {
           rules={{
             maxLength: 100,
           }}
-          render={({ field: { onChange, onBlur, value } }) => (
+          render={({ field: { onChange, value } }) => (
             <Input
               placeholder="example@mail.com"
               title="Email"
@@ -101,7 +100,7 @@ const RegisterScreen = () => {
           rules={{
             maxLength: 100,
           }}
-          render={({ field: { onChange, onBlur, value } }) => (
+          render={({ field: { onChange, value } }) => (
             <Input
               placeholder="Masukkan kata sandi"
               title="Kata Sandi"

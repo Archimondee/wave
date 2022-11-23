@@ -1,5 +1,5 @@
-import colors from "configs/colors";
-import fonts from "configs/fonts";
+// import colors from "configs/colors";
+// import fonts from "configs/fonts";
 import { StyleSheet } from "react-native";
 
 const styles = (focused?: boolean) =>
@@ -8,13 +8,13 @@ const styles = (focused?: boolean) =>
       width: 20,
       height: 20,
       resizeMode: "contain",
-      //color: focused ? '#F2994A' : 'white',
-      tintColor: focused ? colors.burtuqaliOrange : colors.mossGlen,
+      color: focused ? "#F2994A" : "white",
+      // tintColor: focused ? colors.burtuqaliOrange : colors.mossGlen,
     },
     title: {
       textAlign: "center",
       fontSize: 10,
-      fontFamily: fonts.RobotoRegular,
+      // fontFamily: fonts.RobotoRegular,
       //color: focused ? colors.burtuqaliOrange : colors.mossGlen,
       //marginBottom: 3,
       // borderTopWidth: 1,
