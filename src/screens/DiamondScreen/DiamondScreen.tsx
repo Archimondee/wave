@@ -2,7 +2,7 @@ import { DiamondCard, Header, Space, TabList } from "components";
 import React, { useState } from "react";
 import { ScrollView, View } from "react-native";
 import globalStyles from "utils/GlobalStyles";
-import { scaledHorizontal } from "utils/ScaledService";
+import { scaledVertical } from "utils/ScaledService";
 
 import GiftScreen from "./GiftScreen/GiftScreen";
 import SuccessScreen from "./SuccessScreen/SuccessScreen";
@@ -33,19 +33,23 @@ const DiamondScreen = () => {
     <View style={globalStyles().container}>
       <Header title="Berlian & Riwayat Transaksi" titleOn="left" />
 
+      <Space height={20} />
+      <DiamondCard onPress={() => window.console.log("To topup")} />
+      <Space height={20} />
+      <TabList
+        item={tabList}
+        selectedTab={selectedTab}
+        setSelectedTab={setSelectedTab}
+      />
       <ScrollView
-        style={{ flex: 1, marginTop: scaledHorizontal(20) }}
+        style={{
+          flex: 1,
+        }}
         showsVerticalScrollIndicator={false}
       >
-        <DiamondCard onPress={() => window.console.log("To topup")} />
-        <Space height={20} />
-        <TabList
-          item={tabList}
-          selectedTab={selectedTab}
-          setSelectedTab={setSelectedTab}
-        />
-
-        {renderScreen()}
+        <View style={{ flex: 1, paddingBottom: scaledVertical(190) }}>
+          {renderScreen()}
+        </View>
       </ScrollView>
     </View>
   );

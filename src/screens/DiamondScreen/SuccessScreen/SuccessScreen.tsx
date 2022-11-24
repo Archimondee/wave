@@ -5,7 +5,14 @@ import { View, StyleSheet } from "react-native";
 import { scaledHorizontal, scaledVertical } from "utils/ScaledService";
 
 const SuccessScreen = () => {
-  const dataTest = [{ id: 1 }, { id: 2 }, { id: 3 }];
+  const dataTest = [
+    { id: 1 },
+    { id: 2 },
+    { id: 3 },
+    { id: 4 },
+    { id: 5 },
+    { id: 6 },
+  ];
   return (
     <View style={styles.container}>
       <View

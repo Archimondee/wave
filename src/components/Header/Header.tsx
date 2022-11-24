@@ -182,7 +182,7 @@ const HeaderCustom = ({
             {isNavigateSearchScreen ? (
               <Text
                 color={colors.neutral300}
-                style={{ paddingVertical: scaledVertical(20) }}
+                style={{ paddingVertical: scaledVertical(18) }}
               >
                 {placeholder}
               </Text>
@@ -274,7 +274,7 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 14,
     lineHeight: 15,
-    paddingVertical: isTablet() ? scale(2) : scaledVertical(25),
+    paddingVertical: scaledVertical(18),
     paddingRight: scaledHorizontal(5),
     color: colors.black,
     //height: scaledVertical(35),

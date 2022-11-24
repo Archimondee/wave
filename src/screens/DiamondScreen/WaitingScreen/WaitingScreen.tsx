@@ -2,13 +2,17 @@ import { Text } from "components";
 import color from "configs/colors";
 import images from "configs/images";
 import React from "react";
-import { View, StyleSheet, Image } from "react-native";
-import { scaledVertical } from "utils/ScaledService";
+import { View, Image } from "react-native";
 
 const WaitingScreen = () => {
   return (
-    <View style={styles.container}>
-      <View style={{ alignItems: "center", marginTop: scaledVertical(80) }}>
+    <View>
+      <View
+        style={{
+          alignItems: "center",
+          flex: 1,
+        }}
+      >
         <Image
           source={images.walletEmpty}
           style={{ height: 280, width: 280 }}
@@ -22,7 +26,3 @@ const WaitingScreen = () => {
 };
 
 export default WaitingScreen;
-
-const styles = StyleSheet.create({
-  container: { flex: 1 },
-});
