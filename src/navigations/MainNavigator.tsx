@@ -9,7 +9,6 @@ import OtpScreen from "screens/OtpScreen/OtpScreen";
 import ForgotPasswordScreen from "screens/ForgotPassword/ForgotPasswordScreen";
 import ChangePasswordScreen from "screens/ChangePassword/ChangePasswordScreen";
 import EmailVerifyScreen from "screens/EmailVerify/EmailVerifyScreen";
-
 import TabNavigator from "./TabNavigator";
 
 const Main = createStackNavigator<RootStackParamList>();

@@ -1,6 +1,6 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import LoginScreen from "screens/LoginScreen/LoginScreen";
+import ProfileScreen from "screens/ProfileScreen/ProfileScreen";
 
 const Profile = createStackNavigator();
 
@@ -10,7 +10,7 @@ const ProfileTab = () => {
       <Profile.Screen
         options={{ headerShown: false }}
         name="ProfileScreen"
-        component={LoginScreen}
+        component={ProfileScreen}
       />
     </Profile.Navigator>
   );

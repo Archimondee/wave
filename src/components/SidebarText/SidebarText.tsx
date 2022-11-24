@@ -41,7 +41,7 @@ const SideBarText = ({
       <View
         style={{
           borderLeftColor: color.primary500,
-          borderLeftWidth: index === selectedCategory ? 5 : 0,
+          borderLeftWidth: index === selectedCategory ? 5 : -1,
           borderTopLeftRadius: 5,
           borderBottomLeftRadius: 5,
         }}
@@ -55,8 +55,8 @@ const SideBarText = ({
           type={index === selectedCategory ? "bold" : "reguler"}
           style={{
             paddingVertical: scaledVertical(13),
-            borderLeftColor: color.primary500,
-            borderLeftWidth: 1,
+            //borderLeftColor: color.primary500,
+            //borderLeftWidth: 1,
           }}
         >
           {title}

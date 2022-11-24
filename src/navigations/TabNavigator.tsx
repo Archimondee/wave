@@ -86,21 +86,14 @@ const TabNavigator = () => {
     <View style={styles.container}>
       <CurvedBottomBar.Navigator
         style={{
-          shadowColor: "#000",
-          shadowOffset: {
-            width: 0,
-            height: 2,
-          },
-          shadowOpacity: 0.25,
-          shadowRadius: 3.84,
           marginHorizontal: 0,
-
-          elevation: 5,
         }}
         type={"DOWN"}
         height={100}
         circleWidth={60}
         bgColor="white"
+        strokeColor={color.neutral400}
+        strokeWidth={0.5}
         //borderTopLeftRight={true}
         initialRouteName="Beranda"
         renderCircle={({ navigate, routeName, selectedTab }: any) => (
@@ -212,16 +205,16 @@ const styles = StyleSheet.create({
     justifyContent: "center",
 
     borderWidth: 4,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    marginHorizontal: 0,
+    // shadowColor: "#000",
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 2,
+    // },
+    // shadowOpacity: 0.25,
+    // shadowRadius: 3.84,
+    // marginHorizontal: 0,
 
-    elevation: 5,
+    // elevation: 5,
     bottom: 15,
   },
   // btnCircleUp: {

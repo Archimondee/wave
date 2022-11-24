@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import colors from "configs/colors";
 
-import Text from "../Text";
+import Text from "../Text/Text";
 
 import styles from "./styles";
 

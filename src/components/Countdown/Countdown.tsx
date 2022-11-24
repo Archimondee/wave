@@ -2,7 +2,7 @@ import colors from "configs/colors";
 import React, { memo, useEffect, useState, useCallback } from "react";
 import { View } from "react-native";
 
-import Text from "../Text";
+import Text from "../Text/Text";
 
 interface Props {
   minute: number;

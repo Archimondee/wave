@@ -8,6 +8,7 @@ export type RootStackParamList = {
   ForgotPasswordScreen: undefined;
   ChangePasswordScreen: undefined;
   EmailVerifyScreen: undefined;
+  HomeScreen: undefined;
 };
 
 export type RootType =
@@ -18,4 +19,5 @@ export type RootType =
   | "OtpScreen"
   | "ForgotPasswordScreen"
   | "ChangePasswordScreen"
-  | "EmailVerifyScreen";
+  | "EmailVerifyScreen"
+  | "HomeScreen";

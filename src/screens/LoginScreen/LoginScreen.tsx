@@ -138,7 +138,11 @@ const LoginScreen = () => {
           }}
         />
         <Space height={30} />
-        <Button type={"light"} title="Masuk dengan akun google" />
+        <Button
+          type={"light"}
+          title="Masuk dengan akun google"
+          onPress={() => NavigationService.navigate("TabNavigator")}
+        />
         <View style={styles.wrapFooter}>
           <Text size={14} color={colors.neutral400}>
             Belum Punya Akun?
