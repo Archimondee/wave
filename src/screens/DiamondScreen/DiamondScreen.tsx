@@ -30,7 +30,7 @@ const DiamondScreen = () => {
     }
   };
   return (
-    <View style={globalStyles().container}>
+    <View style={globalStyles().topSafeArea}>
       <Header title="Berlian & Riwayat Transaksi" titleOn="left" />
 
       <Space height={20} />
