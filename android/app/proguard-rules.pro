@@ -14,3 +14,9 @@
 -keep class com.swmansion.reanimated.** { *; }
 -keep class com.facebook.react.turbomodule.** { *; }
 -keep class com.transmarco.ninetonine.BuildConfig { *; }
+-keep public class com.horcrux.svg.** {*;}
+-keep class io.realm.** { *; }
+-keepclassmembers class com.android.installreferrer.api.** {
+  *;
+}
+-keep class com.google.android.gms.common.** {*;}
