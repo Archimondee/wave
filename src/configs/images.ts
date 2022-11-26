@@ -45,6 +45,8 @@ const images = {
   walletEmpty: require("../assets/images/Wallet-empty.png"),
   winner: require("../assets/images/winner.png"),
   witch: require("../assets/images/witch.png"),
+  bgDiamond: require("../assets/images/bg-diamond.png"),
+  bgVoucher: require("../assets/images/bg-voucher.png"),
 };
 
 export default images;

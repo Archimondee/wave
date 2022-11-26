@@ -10,6 +10,7 @@ import Space from "./Space/Space";
 import TabList from "./TabList/TabList";
 import Text from "./Text/Text";
 import Title from "./Title/Title";
+import DiamondWaitingCard from "./DiamondWaitingCard/DiamondWaitingCard";
 
 export {
   Space,
@@ -26,4 +27,5 @@ export {
   Title,
   Countdown,
   Input,
+  DiamondWaitingCard,
 };
