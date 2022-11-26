@@ -2,7 +2,7 @@ import color from "configs/colors";
 import icons from "configs/icons";
 import images from "configs/images";
 import React from "react";
-import { View, StyleSheet, TouchableOpacity, Image } from "react-native";
+import { View, TouchableOpacity, Image } from "react-native";
 import { scaledHorizontal, scaledVertical } from "utils/ScaledService";
 import Space from "../Space/Space";
 import Text from "../Text/Text";
@@ -137,7 +137,3 @@ const DiamondWaitingCard = ({ index }: DiamondWaitingCardProps) => {
 };
 
 export default DiamondWaitingCard;
-
-const styles = StyleSheet.create({
-  container: {},
-});

@@ -1,10 +1,8 @@
-import { DiamondWaitingCard, Space, Text, VerticalList } from "components";
-import color from "configs/colors";
-import icons from "configs/icons";
-import images from "configs/images";
+import { DiamondWaitingCard, VerticalList } from "components";
+
 import React from "react";
-import { View, Image, TouchableOpacity } from "react-native";
-import { scaledHorizontal, scaledVertical } from "utils/ScaledService";
+import { View } from "react-native";
+import { scaledVertical } from "utils/ScaledService";
 
 const WaitingScreen = () => {
   const dataTest = [
