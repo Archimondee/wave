@@ -9,10 +9,11 @@ import Button from "../Button/Button";
 import Text from "../Text/Text";
 
 interface DiamondCardProps {
-  onPress: () => void;
+  onPressTopup: () => void;
+  onPressVoucher: () => void;
 }
 
-const DiamondCard = ({ onPress }: DiamondCardProps) => {
+const DiamondCard = ({ onPressTopup, onPressVoucher }: DiamondCardProps) => {
   return (
     <View
       style={{
@@ -53,7 +54,7 @@ const DiamondCard = ({ onPress }: DiamondCardProps) => {
             </Text>
           </ImageBackground>
         </View>
-        <TouchableOpacity style={{ flex: 1 }}>
+        <TouchableOpacity style={{ flex: 1 }} onPress={onPressVoucher}>
           <ImageBackground
             source={images.bgVoucher}
             style={{
@@ -97,7 +98,7 @@ const DiamondCard = ({ onPress }: DiamondCardProps) => {
         </TouchableOpacity>
       </View>
       <View style={{ marginHorizontal: scaledHorizontal(10) }}>
-        <Button title="Top Up Berlian" onPress={onPress} />
+        <Button title="Top Up Berlian" onPress={onPressTopup} />
       </View>
 
       {/* <Text color={color.neutral500} size={14}>

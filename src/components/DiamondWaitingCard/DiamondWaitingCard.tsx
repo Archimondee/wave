@@ -59,13 +59,20 @@ const DiamondWaitingCard = ({ index }: DiamondWaitingCardProps) => {
       <View style={{ borderTopWidth: 1, borderTopColor: color.neutral300 }} />
 
       <View
-        style={{ paddingVertical: scaledVertical(20), flexDirection: "row" }}
+        style={{
+          paddingVertical: scaledVertical(20),
+          flexDirection: "row",
+          marginTop: scaledVertical(10),
+        }}
       >
         <Image source={images.diamond} style={{ height: 16, width: 16 }} />
         <Text
           color={color.neutral500}
           size={14}
-          style={{ fontWeight: "400", marginLeft: scaledHorizontal(10) }}
+          style={{
+            fontWeight: "400",
+            marginLeft: scaledHorizontal(10),
+          }}
         >
           50 Berlian + Bonus 1 Berlian & Novel
         </Text>

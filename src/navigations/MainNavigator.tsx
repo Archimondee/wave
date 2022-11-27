@@ -10,6 +10,8 @@ import ForgotPasswordScreen from "screens/ForgotPassword/ForgotPasswordScreen";
 import ChangePasswordScreen from "screens/ChangePassword/ChangePasswordScreen";
 import EmailVerifyScreen from "screens/EmailVerify/EmailVerifyScreen";
 import TabNavigator from "./TabNavigator";
+import TopupScreen from "screens/TopupScreen/TopupScreen";
+import PaymentConfirmScreen from "screens/PaymentConfirmScreen/PaymentConfirmScreen";
 
 const Main = createStackNavigator<RootStackParamList>();
 const options: StackNavigationOptions = {
@@ -97,6 +99,16 @@ const MainNavigator = () => {
       <Main.Screen
         name="EmailVerifyScreen"
         component={EmailVerifyScreen}
+        options={{ headerShown: false, gestureEnabled: false }}
+      />
+      <Main.Screen
+        name="TopupScreen"
+        component={TopupScreen}
+        options={{ headerShown: false, gestureEnabled: false }}
+      />
+      <Main.Screen
+        name="PaymentConfirmScreen"
+        component={PaymentConfirmScreen}
         options={{ headerShown: false, gestureEnabled: false }}
       />
     </Main.Navigator>

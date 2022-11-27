@@ -61,6 +61,7 @@ const icons = {
   bell: require("../assets/icons/bell.png"),
 
   chevronRight: require("../assets/icons/chevron-right.png"),
+  buttonLeft: require("../assets/icons/button-left.png"),
 };
 
 export default icons;
