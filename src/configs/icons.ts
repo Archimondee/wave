@@ -62,6 +62,9 @@ const icons = {
 
   chevronRight: require("../assets/icons/chevron-right.png"),
   buttonLeft: require("../assets/icons/button-left.png"),
+  giftVoucher: require("../assets/icons/gift-voucher.png"),
+  receiptPercent: require("../assets/icons/receipt-percent.png"),
+  coupon: require("../assets/icons/coupon.png"),
 };
 
 export default icons;

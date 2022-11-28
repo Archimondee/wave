@@ -11,6 +11,7 @@ export type RootStackParamList = {
   HomeScreen: undefined;
   TopupScreen: undefined;
   PaymentConfirmScreen: undefined;
+  VoucherScreen: undefined;
 };
 
 export type RootType =
@@ -24,4 +25,5 @@ export type RootType =
   | "EmailVerifyScreen"
   | "HomeScreen"
   | "TopupScreen"
-  | "PaymentConfirmScreen";
+  | "PaymentConfirmScreen"
+  | "VoucherScreen";

@@ -79,8 +79,8 @@ const HeaderCustom = ({
               <FastImage
                 source={icons.arrowLeft}
                 style={{
-                  height: scaledVertical(30),
-                  width: scaledHorizontal(30),
+                  height: scaledVertical(40),
+                  width: scaledHorizontal(40),
                 }}
                 tintColor={
                   color === colors.secondary500 || color === "black"

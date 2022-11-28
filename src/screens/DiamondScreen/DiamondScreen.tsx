@@ -37,7 +37,7 @@ const DiamondScreen = () => {
       <Space height={20} />
       <DiamondCard
         onPressTopup={() => NavigationService.navigate("TopupScreen")}
-        onPressVoucher={() => window.console.log("To topup")}
+        onPressVoucher={() => NavigationService.navigate("VoucherScreen")}
       />
       <Space height={20} />
       <TabList
