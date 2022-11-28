@@ -103,7 +103,7 @@ const Component = ({
             style={[
               {
                 fontSize: scaledFontSize(20),
-                color: colors.neutral700,
+                color: colors.neutral600,
                 fontFamily: fonts.inter,
               },
               style,

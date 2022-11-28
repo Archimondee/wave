@@ -12,6 +12,8 @@ import Text from "./Text/Text";
 import Title from "./Title/Title";
 import DiamondWaitingCard from "./DiamondWaitingCard/DiamondWaitingCard";
 import TopupList from "./TopupList/TopupList";
+import VoucherModal from "./VoucherModal/VoucherModal";
+import VoucherList from "./VoucherList/VoucherList";
 
 export {
   Space,
@@ -30,4 +32,6 @@ export {
   Input,
   DiamondWaitingCard,
   TopupList,
+  VoucherModal,
+  VoucherList,
 };

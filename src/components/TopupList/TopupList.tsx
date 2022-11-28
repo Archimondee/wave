@@ -98,7 +98,7 @@ const TopupList = ({ index, onPress }: TopupListProps) => {
             IDR 50.000
           </Text>
         </View>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={onPress}>
           <Image
             source={icons.buttonLeft}
             style={{ height: 28, width: 28 }}
