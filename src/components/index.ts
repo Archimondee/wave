@@ -14,6 +14,7 @@ import DiamondWaitingCard from "./DiamondWaitingCard/DiamondWaitingCard";
 import TopupList from "./TopupList/TopupList";
 import VoucherModal from "./VoucherModal/VoucherModal";
 import VoucherList from "./VoucherList/VoucherList";
+import ListPrizeDay from "./ListPrizeDay/ListPrizeDay";
 
 export {
   Space,
@@ -34,4 +35,5 @@ export {
   TopupList,
   VoucherModal,
   VoucherList,
+  ListPrizeDay,
 };
