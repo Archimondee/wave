@@ -59,6 +59,13 @@ const icons = {
   xmark: require("../assets/icons/x-mark.png"),
   xcircleRed: require("../assets/icons/x-circle-red.png"),
   bell: require("../assets/icons/bell.png"),
+  pencilSquare: require("../assets/icons/pencil-square.png"),
+  chevronRight: require("../assets/icons/chevron-right.png"),
+  lockClosed: require("../assets/icons/lock-closed.png"),
+  users: require("../assets/icons/users.png"),
+  cog6tooth: require("../assets/icons/cog-6-tooth.png"),
+  documentText: require("../assets/icons/document-text.png"),
+  megaphone: require("../assets/icons/megaphone.png"),
 };
 
 export default icons;

@@ -1,9 +1,7 @@
 import * as React from "react";
 import { Text, View, StyleSheet } from "react-native";
 
-interface HomeScreenProps {}
-
-const HomeScreen = (props: HomeScreenProps) => {
+const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <Text>HomeScreen</Text>

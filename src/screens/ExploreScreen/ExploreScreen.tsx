@@ -1,9 +1,7 @@
 import * as React from "react";
 import { Text, View, StyleSheet } from "react-native";
 
-interface ExploreScreenProps {}
-
-const ExploreScreen = (props: ExploreScreenProps) => {
+const ExploreScreen = () => {
   return (
     <View style={styles.container}>
       <Text>ExploreScreen</Text>

@@ -33,6 +33,7 @@ const images = {
   openBook: require("../assets/images/open-book.png"),
   openBook1: require("../assets/images/open-book1.png"),
   password: require("../assets/images/password.png"),
+  profileBackground: require("../assets/images/profile-background.png"),
   podium: require("../assets/images/podium.png"),
   screen1: require("../assets/images/screen-1.png"),
   screen2: require("../assets/images/screen-1.png"),
