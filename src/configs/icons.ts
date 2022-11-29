@@ -66,6 +66,11 @@ const icons = {
   cog6tooth: require("../assets/icons/cog-6-tooth.png"),
   documentText: require("../assets/icons/document-text.png"),
   megaphone: require("../assets/icons/megaphone.png"),
+
+  buttonLeft: require("../assets/icons/button-left.png"),
+  giftVoucher: require("../assets/icons/gift-voucher.png"),
+  receiptPercent: require("../assets/icons/receipt-percent.png"),
+  coupon: require("../assets/icons/coupon.png"),
 };
 
 export default icons;

@@ -9,6 +9,9 @@ import OtpScreen from "screens/OtpScreen/OtpScreen";
 import ForgotPasswordScreen from "screens/ForgotPassword/ForgotPasswordScreen";
 import ChangePasswordScreen from "screens/ChangePassword/ChangePasswordScreen";
 import EmailVerifyScreen from "screens/EmailVerify/EmailVerifyScreen";
+import TopupScreen from "screens/TopupScreen/TopupScreen";
+import PaymentConfirmScreen from "screens/PaymentConfirmScreen/PaymentConfirmScreen";
+import VoucherScreen from "screens/VoucherScreen/VoucherScreen";
 
 import TabNavigator from "./TabNavigator";
 
@@ -98,6 +101,21 @@ const MainNavigator = () => {
       <Main.Screen
         name="EmailVerifyScreen"
         component={EmailVerifyScreen}
+        options={{ headerShown: false, gestureEnabled: false }}
+      />
+      <Main.Screen
+        name="TopupScreen"
+        component={TopupScreen}
+        options={{ headerShown: false, gestureEnabled: false }}
+      />
+      <Main.Screen
+        name="PaymentConfirmScreen"
+        component={PaymentConfirmScreen}
+        options={{ headerShown: false, gestureEnabled: false }}
+      />
+      <Main.Screen
+        name="VoucherScreen"
+        component={VoucherScreen}
         options={{ headerShown: false, gestureEnabled: false }}
       />
     </Main.Navigator>
