@@ -1,25 +1,33 @@
 import color from "configs/colors";
 import icons from "configs/icons";
 import React from "react";
-import { View, TouchableOpacity, Image } from "react-native";
+import { View, TouchableOpacity, ScrollView } from "react-native";
 import FastImage from "react-native-fast-image";
 import { scaledHorizontal, scaledVertical } from "utils/ScaledService";
 import Button from "../Button";
 import Input from "../Input/Input";
+import { VerticalList } from "../List/List";
 import Space from "../Space/Space";
 import Text from "../Text/Text";
+import VoucherCodeList from "../VoucherCodeList/VoucherCodeList";
 
 interface VoucherModalProps {
   showVoucher: boolean;
   setShowVoucher: (args1: boolean) => void;
   voucherText: string;
   setVoucherText: (args1: string) => void;
+  dataVoucher: any;
+  selectedVoucher: {};
+  setSelectedVoucher: (args1: {}) => void;
 }
 
 const VoucherModal = ({
   setShowVoucher,
   voucherText,
   setVoucherText,
+  dataVoucher,
+  selectedVoucher,
+  setSelectedVoucher,
 }: VoucherModalProps) => {
   return (
     <View
@@ -83,14 +91,33 @@ const VoucherModal = ({
         </View>
       </View>
       <Space height={15} />
-      <View
+      <ScrollView
         style={{
           flex: 1,
-
-          alignItems: "center",
         }}
       >
-        <Image source={icons.giftVoucher} style={{ height: 100, width: 100 }} />
+        <VerticalList
+          //key={indexDate}
+          scrollEnabled={false}
+          data={dataVoucher}
+          listKey={"grid-vertical"}
+          keyExtractor={item => item?.id}
+          renderItem={({ item, index }: { item: any; index: number }) => {
+            window.console.log("data", item);
+            return (
+              <VoucherCodeList
+                key={index}
+                index={index}
+                selectedVoucher={selectedVoucher}
+                setSelectedVoucher={setSelectedVoucher}
+                item={item}
+              />
+            );
+          }}
+          isShowVerticalIndicator={false}
+        />
+        <Space height={30} />
+        {/* <Image source={icons.giftVoucher} style={{ height: 100, width: 100 }} />
         <Text
           size={14}
           color={color.neutral400}
@@ -102,8 +129,8 @@ const VoucherModal = ({
           }}
         >
           Voucher belum tersedia untuk transaksi ini
-        </Text>
-      </View>
+        </Text> */}
+      </ScrollView>
     </View>
   );
 };

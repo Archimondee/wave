@@ -13,6 +13,22 @@ import styles from "./PaymentConfirmScreenStyles";
 const PaymentConfirmScreen = () => {
   const [showVoucher, setShowVoucher] = useState(false);
   const [voucherText, setVoucherText] = useState("");
+  const [selectedVoucher, setSelectedVoucher] = useState({} as any);
+
+  const dataTest = [
+    { id: 1, title: "[GOPAY] 1000", code: "GOPAY1000" },
+    { id: 2, title: "[GOPAY] 2000", code: "GOPAY2000" },
+    { id: 3, title: "[GOPAY] 3000", code: "GOPAY3000" },
+    { id: 4, title: "[GOPAY] 4000", code: "GOPAY4000" },
+    { id: 5, title: "[GOPAY] 5000", code: "GOPAY5000" },
+    { id: 6, title: "[GOPAY] 6000", code: "GOPAY6000" },
+  ];
+
+  const handleSelectedVoucher = (selected: {}) => {
+    setSelectedVoucher(selected);
+    setShowVoucher(false);
+  };
+
   return (
     <View style={globalStyles(color.neutral100).topSafeArea}>
       <Header title="Top Up Berlian" titleOn="left" withBackIcon />
@@ -70,7 +86,9 @@ const PaymentConfirmScreen = () => {
             }}
           >
             <Text color={color.neutral500} size={14}>
-              Gunakan / masukkan kode
+              {selectedVoucher.code
+                ? selectedVoucher.code
+                : "Gunakan / masukkan kode"}
             </Text>
             <Image
               source={icons.chevronRight}
@@ -82,37 +100,40 @@ const PaymentConfirmScreen = () => {
               resizeMode={"contain"}
             />
           </TouchableOpacity>
-          <Space height={20} />
-          <View
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              borderStyle: "dashed",
-              borderColor: color.success500,
-              borderWidth: 1,
-              paddingVertical: scaledVertical(20),
-              paddingHorizontal: scaledHorizontal(10),
-              borderRadius: 5,
-              backgroundColor: color.success100,
-            }}
-          >
-            <Image
-              source={icons.receiptPercent}
+
+          {selectedVoucher.code ? (
+            <View
               style={{
-                height: 18,
-                width: 18,
-                tintColor: color.success500,
+                flexDirection: "row",
+                alignItems: "center",
+                borderStyle: "dashed",
+                borderColor: color.success500,
+                borderWidth: 1,
+                paddingVertical: scaledVertical(20),
+                paddingHorizontal: scaledHorizontal(10),
+                borderRadius: 5,
+                backgroundColor: color.success100,
+                marginTop: scaledVertical(20),
               }}
-              resizeMode={"contain"}
-            />
-            <Text
-              color={color.neutral500}
-              size={12}
-              style={{ marginLeft: scaledHorizontal(10) }}
             >
-              Gratis 50 poin lewat kode referral
-            </Text>
-          </View>
+              <Image
+                source={icons.receiptPercent}
+                style={{
+                  height: 18,
+                  width: 18,
+                  tintColor: color.success500,
+                }}
+                resizeMode={"contain"}
+              />
+              <Text
+                color={color.neutral500}
+                size={12}
+                style={{ marginLeft: scaledHorizontal(10) }}
+              >
+                {selectedVoucher.code}
+              </Text>
+            </View>
+          ) : null}
         </View>
         <Space height={20} />
         <View style={styles.container}>
@@ -176,6 +197,9 @@ const PaymentConfirmScreen = () => {
           setShowVoucher={setShowVoucher}
           voucherText={voucherText}
           setVoucherText={setVoucherText}
+          dataVoucher={dataTest}
+          selectedVoucher={selectedVoucher}
+          setSelectedVoucher={handleSelectedVoucher}
         />
       </Modal>
     </View>

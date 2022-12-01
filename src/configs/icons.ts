@@ -66,6 +66,9 @@ const icons = {
   giftVoucher: require("../assets/icons/gift-voucher.png"),
   receiptPercent: require("../assets/icons/receipt-percent.png"),
   coupon: require("../assets/icons/coupon.png"),
+
+  radioDeselect: require("../assets/icons/radio-deselect.png"),
+  radioSelected: require("../assets/icons/radio-selected.png"),
 };
 
 export default icons;
