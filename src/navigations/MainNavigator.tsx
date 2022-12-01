@@ -13,6 +13,7 @@ import TabNavigator from "./TabNavigator";
 import TopupScreen from "screens/TopupScreen/TopupScreen";
 import PaymentConfirmScreen from "screens/PaymentConfirmScreen/PaymentConfirmScreen";
 import VoucherScreen from "screens/VoucherScreen/VoucherScreen";
+import NovelScreen from "screens/NovelScreen/NovelScreen";
 
 const Main = createStackNavigator<RootStackParamList>();
 const options: StackNavigationOptions = {
@@ -115,6 +116,11 @@ const MainNavigator = () => {
       <Main.Screen
         name="VoucherScreen"
         component={VoucherScreen}
+        options={{ headerShown: false, gestureEnabled: false }}
+      />
+      <Main.Screen
+        name="NovelScreen"
+        component={NovelScreen}
         options={{ headerShown: false, gestureEnabled: false }}
       />
     </Main.Navigator>
