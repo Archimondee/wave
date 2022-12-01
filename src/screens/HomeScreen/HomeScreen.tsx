@@ -1,17 +1,16 @@
 import { Button, Header, ListPrizeDay, Space, Text } from "components";
-
-import icons from "configs/icons";
 import images from "configs/images";
 import React, { useState } from "react";
-
 import {
   View,
   TouchableOpacity,
   Image,
   useWindowDimensions,
+  ScrollView,
 } from "react-native";
 import Modal from "react-native-modal";
 import globalStyles from "utils/GlobalStyles";
+import NavigationService from "utils/NavigationService";
 import { scaledVertical } from "utils/ScaledService";
 import styles from "./HomeScreenStyles";
 
@@ -37,6 +36,13 @@ const HomeScreen = () => {
         placeholder="Cari judul novel"
         onPressGiftIcon={() => setShowPrize(true)}
       />
+      <ScrollView style={{ flex: 1 }}>
+        <TouchableOpacity
+          onPress={() => NavigationService.navigate("NovelScreen")}
+        >
+          <Text>Go to detail</Text>
+        </TouchableOpacity>
+      </ScrollView>
 
       <Modal
         animationIn="slideInUp"
