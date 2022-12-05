@@ -26,6 +26,11 @@ const icons = {
     waveTextOut: require("../assets/icons/logo/Wave-Text-Out.png"),
   },
 
+  //flag
+  flag: {
+    indonesia: require("../assets/icons/flags/flag-id.png"),
+  },
+
   arrowDown: require("../assets/icons/arrow-down.png"),
   arrowDownCircle: require("../assets/icons/arrow-down-circle.png"),
   arrowDownLeft: require("../assets/icons/arrow-down-left.png"),
@@ -59,6 +64,7 @@ const icons = {
   xmark: require("../assets/icons/x-mark.png"),
   xcircleRed: require("../assets/icons/x-circle-red.png"),
   bell: require("../assets/icons/bell.png"),
+  pencilSimple: require("../assets/icons/pencil-simple.png"),
   pencilSquare: require("../assets/icons/pencil-square.png"),
   chevronRight: require("../assets/icons/chevron-right.png"),
   lockClosed: require("../assets/icons/lock-closed.png"),
@@ -71,6 +77,7 @@ const icons = {
   giftVoucher: require("../assets/icons/gift-voucher.png"),
   receiptPercent: require("../assets/icons/receipt-percent.png"),
   coupon: require("../assets/icons/coupon.png"),
+  checkCircle: require("../assets/icons/check-circle.png"),
 };
 
 export default icons;

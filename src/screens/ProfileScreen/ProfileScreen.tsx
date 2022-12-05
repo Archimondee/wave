@@ -14,7 +14,7 @@ const ProfileScreen = () => {
       title: "Ubah Profile",
       icon: icons.pencilSquare,
       navigation: () => {
-        NavigationService.navigate("ChangePasswordScreen");
+        NavigationService.navigate("EditProfileScreen");
       },
     },
     {
@@ -22,7 +22,7 @@ const ProfileScreen = () => {
       title: "Ubah Kata Sandi",
       icon: icons.lockClosed,
       navigation: () => {
-        NavigationService.navigate("ChangePasswordScreen");
+        NavigationService.navigate("ProfileChangePasswordScreen");
       },
     },
     {
@@ -30,7 +30,7 @@ const ProfileScreen = () => {
       title: "Penulis Yang Diikuti",
       icon: icons.users,
       navigation: () => {
-        NavigationService.navigate("ChangePasswordScreen");
+        NavigationService.navigate("FollowedAuthorScreen");
       },
     },
   ];
@@ -40,19 +40,25 @@ const ProfileScreen = () => {
       id: 1,
       title: "Pengaturan Aplikasi",
       icon: icons.cog6tooth,
-      navigation: null,
+      navigation: () => {
+        NavigationService.navigate("SettingScreen");
+      },
     },
     {
       id: 2,
       title: "Kebihakan & Privasi",
       icon: icons.documentText,
-      navigation: null,
+      navigation: () => {
+        NavigationService.navigate("PrivacyPolicyScreen");
+      },
     },
     {
       id: 3,
       title: "Bantuan",
       icon: icons.megaphone,
-      navigation: null,
+      navigation: () => {
+        NavigationService.navigate("SettingScreen");
+      },
     },
   ];
 
@@ -60,21 +66,23 @@ const ProfileScreen = () => {
     // <SafeAreaView>
     <View style={styles.container}>
       <ScrollView>
-        <Image
-          style={{ height: 300, width: "100%" }}
-          source={images.profileBackground}
-        />
-        <View
-          style={{
-            position: "absolute",
-            alignSelf: "center",
-            borderRadius: 150,
-            backgroundColor: colors.neutral100,
-            width: 150,
-            height: 150,
-            top: 119,
-          }}
-        />
+        <View style={{ height: 300 }}>
+          <Image
+            style={{ height: "100%", width: "100%" }}
+            source={images.profileBackground}
+          />
+          <View
+            style={{
+              position: "absolute",
+              alignSelf: "center",
+              borderRadius: 150,
+              backgroundColor: "red",
+              width: "36%",
+              height: "50%",
+              top: 119,
+            }}
+          />
+        </View>
         <View style={styles.content}>
           <Space height={24} />
           <TouchableOpacity>
@@ -104,7 +112,6 @@ const ProfileScreen = () => {
                       Undang Teman
                     </Text>
                   </View>
-
                   <Space width={6} />
                   <View
                     style={{
@@ -134,7 +141,6 @@ const ProfileScreen = () => {
               </View>
             </View>
           </TouchableOpacity>
-
           <Space height={24} />
           <View style={styles.profile}>
             <View style={{ margin: 12 }}>
@@ -155,8 +161,8 @@ const ProfileScreen = () => {
               <Text type="reguler" size={16} color={colors.neutral300}>
                 Akun
               </Text>
-              {dataAkun.map(menu => (
-                <View>
+              {dataAkun.map((menu, index) => (
+                <View key={index}>
                   <Space height={25} />
                   <TouchableOpacity
                     style={{
@@ -196,14 +202,15 @@ const ProfileScreen = () => {
               <Text type="reguler" size={16} color={colors.neutral300}>
                 Aplikasi
               </Text>
-              {dataAplikasi.map(menu => (
-                <View>
+              {dataAplikasi.map((menu, index) => (
+                <View key={index}>
                   <Space height={25} />
                   <TouchableOpacity
                     style={{
                       flexDirection: "row",
                       justifyContent: "space-between",
                     }}
+                    onPress={menu.navigation}
                   >
                     <View
                       style={{
@@ -248,6 +255,7 @@ const ProfileScreen = () => {
             </View>
           </View>
         </View>
+        <Space height={20} />
       </ScrollView>
     </View>
     // </SafeAreaView>
