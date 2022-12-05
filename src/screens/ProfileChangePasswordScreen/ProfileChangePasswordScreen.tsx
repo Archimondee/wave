@@ -2,19 +2,18 @@ import React from "react";
 import {
   StyleSheet,
   SafeAreaView,
-  Image,
+  // Image,
   View,
-  TouchableOpacity,
+  // TouchableOpacity,
 } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 import colors from "configs/colors";
 // import images from "configs/images";
 import height from "utils/HeightPercent";
-import { Button, Input, Space, Text } from "components";
+import { Button, Input, Space, Header } from "components";
 // import ModalAlert from "components/ModalAlert";
 // import { scaledVertical } from "utils/ScaledService";
 import NavigationService from "utils/NavigationService";
-import icons from "configs/icons";
 // import { useRoute } from "@react-navigation/native";
 // import { useDispatch } from "react-redux";
 
@@ -70,18 +69,8 @@ const ProfileChangePasswordScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <Header title="Ubah Kata Sandi" titleOn="left" withBackIcon />
       <View style={styles.boxContainer}>
-        <View style={{ flexDirection: "row", alignItems: "center" }}>
-          <TouchableOpacity
-            style={{ flexDirection: "row" }}
-            onPress={() => NavigationService.back()}
-          >
-            <Image source={icons.arrowLeft} style={{ width: 24, height: 24 }} />
-          </TouchableOpacity>
-          <Text type="bold" size={16} style={{ marginLeft: 16 }}>
-            Ubah Kata Sandi
-          </Text>
-        </View>
         <Space height={32} />
         <Controller
           control={control}

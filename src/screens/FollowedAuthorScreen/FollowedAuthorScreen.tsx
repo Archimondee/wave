@@ -1,10 +1,9 @@
 import * as React from "react";
 import { View, Image, TouchableOpacity, SafeAreaView } from "react-native";
-import { Button, Space, Text } from "components";
+import { Button, Header, Space, Text } from "components";
 import color from "configs/colors";
 import images from "configs/images";
 import icons from "configs/icons";
-import NavigationService from "utils/NavigationService";
 import { FlatList } from "react-native-gesture-handler";
 
 import styles from "./FollowedAuthorScreenStyles";
@@ -96,23 +95,8 @@ const FollowedAuthorScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <Header title="Penulis Yang Diikuti" titleOn="left" withBackIcon />
       <View style={{ paddingHorizontal: 16, backgroundColor: color.neutral50 }}>
-        <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-          }}
-        >
-          <TouchableOpacity
-            style={{ flexDirection: "row" }}
-            onPress={() => NavigationService.back()}
-          >
-            <Image source={icons.arrowLeft} style={{ width: 24, height: 24 }} />
-          </TouchableOpacity>
-          <Text type="bold" size={16} style={{ marginLeft: 16 }}>
-            Penulis Yang Diikuti
-          </Text>
-        </View>
         <Space height={20} />
         <Text type="bold" size={14} color={color.neutral300}>
           Penulis yang diikuti

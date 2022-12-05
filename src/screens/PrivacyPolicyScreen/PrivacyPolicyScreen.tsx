@@ -1,11 +1,9 @@
 // import HeaderCustom from "components/HeaderCustom";
 // import api from "configs/api";
-import icons from "configs/icons";
-// import React, { useState, useEffect } from "react";
-import { View, SafeAreaView, TouchableOpacity, Image } from "react-native";
-import { Text } from "components";
+import React from "react";
+import { SafeAreaView } from "react-native";
+import { Header } from "components";
 import WebView from "react-native-webview";
-import NavigationService from "utils/NavigationService";
 
 const PrivacyPolicyScreen = () => {
   // const [dataTerms, setDataterms] = useState({} as any);
@@ -18,19 +16,7 @@ const PrivacyPolicyScreen = () => {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
-      <View style={{ marginVertical: 5 }}>
-        <View style={{ flexDirection: "row", alignItems: "center" }}>
-          <TouchableOpacity
-            style={{ flexDirection: "row" }}
-            onPress={() => NavigationService.back()}
-          >
-            <Image source={icons.arrowLeft} style={{ width: 24, height: 24 }} />
-          </TouchableOpacity>
-          <Text type="bold" size={16} style={{ marginLeft: 16 }}>
-            Ubah Kata Sandi
-          </Text>
-        </View>
-      </View>
+      <Header title="Kebijakan & Privasi" titleOn="left" withBackIcon />
       <WebView
         style={{ marginHorizontal: 16 }}
         scrollEnabled={true}

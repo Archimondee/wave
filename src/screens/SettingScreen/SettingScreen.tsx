@@ -18,11 +18,9 @@ import Modal from "react-native-modal";
 import { widthPercentage } from "utils/PercentageService";
 import RNFS, { stat } from "react-native-fs";
 import RNFetchBlob from "rn-fetch-blob";
-import { ModalAlert, Text, Space } from "components";
+import { ModalAlert, Text, Space, Header } from "components";
 import { scaledVertical } from "utils/ScaledService";
 import images from "configs/images";
-import NavigationService from "utils/NavigationService";
-
 // import { chooseLanguage } from "../../store/persist/actions";
 // import { useLanguage } from "../../hooks";
 
@@ -80,23 +78,9 @@ const SettingScreen = () => {
             withBackIcon
           /> */}
         </View>
+        <Header title="Ubah Kata Sandi" titleOn="left" withBackIcon />
         <View style={{ paddingHorizontal: 16 }}>
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
-            <TouchableOpacity
-              style={{ flexDirection: "row" }}
-              onPress={() => NavigationService.back()}
-            >
-              <Image
-                source={icons.arrowLeft}
-                style={{ width: 24, height: 24 }}
-              />
-            </TouchableOpacity>
-            <Text type="bold" size={16} style={{ marginLeft: 16 }}>
-              Pengaturan
-            </Text>
-          </View>
           <Space height={30} />
-
           <TouchableOpacity
             style={{
               height: 22,

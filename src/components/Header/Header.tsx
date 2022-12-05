@@ -267,7 +267,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     justifyContent: "space-between",
-    paddingHorizontal: scaledHorizontal(20),
+    paddingHorizontal: scaledHorizontal(10),
 
     marginTop:
       Platform.OS === "android" ? scaledVertical(20) : scaledVertical(10),
