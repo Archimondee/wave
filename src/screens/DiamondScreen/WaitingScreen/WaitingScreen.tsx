@@ -1,5 +1,4 @@
 import { DiamondWaitingCard, VerticalList } from "components";
-
 import React from "react";
 import { View } from "react-native";
 import { scaledVertical } from "utils/ScaledService";

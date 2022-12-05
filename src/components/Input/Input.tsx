@@ -62,7 +62,9 @@ const Component = ({
     <View>
       {title && (
         <>
-          <Text size={sizeTitle}>{title}</Text>
+          <Text color={colors.neutral400} size={sizeTitle}>
+            {title}
+          </Text>
           <Space height={16} />
         </>
       )}

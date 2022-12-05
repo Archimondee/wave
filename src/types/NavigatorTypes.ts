@@ -12,6 +12,11 @@ export type RootStackParamList = {
   TopupScreen: undefined;
   PaymentConfirmScreen: undefined;
   VoucherScreen: undefined;
+  EditProfileScreen: undefined;
+  FollowedAuthorScreen: undefined;
+  ProfileChangePasswordScreen: undefined;
+  SettingScreen: undefined;
+  PrivacyPolicyScreen: undefined;
   NovelScreen: undefined;
 };
 
@@ -28,4 +33,9 @@ export type RootType =
   | "TopupScreen"
   | "PaymentConfirmScreen"
   | "VoucherScreen"
+  | "EditProfileScreen"
+  | "FollowedAuthorScreen"
+  | "ProfileChangePasswordScreen"
+  | "SettingScreen"
+  | "PrivacyPolicyScreen"
   | "NovelScreen";

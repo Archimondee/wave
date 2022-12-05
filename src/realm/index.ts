@@ -4,12 +4,8 @@ import { Author } from "./novel";
 
 //
 
-export const {
-  RealmProvider,
-  useRealm,
-  useQuery,
-  useObject,
-} = createRealmContext({
-  schema: [Author],
-  deleteRealmIfMigrationNeeded: true,
-});
+export const { RealmProvider, useRealm, useQuery, useObject } =
+  createRealmContext({
+    schema: [Author],
+    deleteRealmIfMigrationNeeded: true,
+  });

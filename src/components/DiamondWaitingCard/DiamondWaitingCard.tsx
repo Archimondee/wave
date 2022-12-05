@@ -4,6 +4,7 @@ import images from "configs/images";
 import React from "react";
 import { View, TouchableOpacity, Image } from "react-native";
 import { scaledHorizontal, scaledVertical } from "utils/ScaledService";
+
 import Space from "../Space/Space";
 import Text from "../Text/Text";
 

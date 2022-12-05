@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistor, store } from "stores";
 import { LogBox } from "react-native";
+
 import { RealmProvider } from "./src/realm";
 require("realm");
 

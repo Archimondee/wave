@@ -4,6 +4,7 @@ import DiamondCard from "./DiamondCard/DiamondCard";
 import DiamondList from "./DiamondList/DiamondList";
 import Header from "./Header/Header";
 import Input from "./Input/Input";
+import ModalAlert from "./ModalAlert";
 import { HorizontalList, VerticalList, VirtualizedView } from "./List/List";
 import SideBarText from "./SidebarText/SidebarText";
 import Space from "./Space/Space";
@@ -32,6 +33,7 @@ export {
   Title,
   Countdown,
   Input,
+  ModalAlert,
   DiamondWaitingCard,
   TopupList,
   VoucherModal,

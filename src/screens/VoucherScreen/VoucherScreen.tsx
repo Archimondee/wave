@@ -1,5 +1,4 @@
 import { Header, Space, VerticalList, VoucherList } from "components";
-
 import React from "react";
 import { View } from "react-native";
 import globalStyles from "utils/GlobalStyles";
@@ -27,7 +26,7 @@ const VoucherScreen = () => {
         isShowVerticalIndicator={false}
       />
 
-      <View style={{ marginHorizontal: scaledHorizontal(20) }}></View>
+      <View style={{ marginHorizontal: scaledHorizontal(20) }} />
     </View>
   );
 };

@@ -9,11 +9,17 @@ import OtpScreen from "screens/OtpScreen/OtpScreen";
 import ForgotPasswordScreen from "screens/ForgotPassword/ForgotPasswordScreen";
 import ChangePasswordScreen from "screens/ChangePassword/ChangePasswordScreen";
 import EmailVerifyScreen from "screens/EmailVerify/EmailVerifyScreen";
-import TabNavigator from "./TabNavigator";
 import TopupScreen from "screens/TopupScreen/TopupScreen";
 import PaymentConfirmScreen from "screens/PaymentConfirmScreen/PaymentConfirmScreen";
 import VoucherScreen from "screens/VoucherScreen/VoucherScreen";
+import EditProfileScreen from "screens/EditProfileScreen/EditProfileScreen";
+import FollowedAuthorScreen from "screens/FollowedAuthorScreen/FollowedAuthorScreen";
+import ProfileChangePasswordScreen from "screens/ProfileChangePasswordScreen/ProfileChangePasswordScreen";
+import SettingScreen from "screens/SettingScreen/SettingScreen";
+import PrivacyPolicyScreen from "screens/PrivacyPolicyScreen/PrivacyPolicyScreen";
 import NovelScreen from "screens/NovelScreen/NovelScreen";
+
+import TabNavigator from "./TabNavigator";
 
 const Main = createStackNavigator<RootStackParamList>();
 const options: StackNavigationOptions = {
@@ -116,6 +122,31 @@ const MainNavigator = () => {
       <Main.Screen
         name="VoucherScreen"
         component={VoucherScreen}
+        options={{ headerShown: false, gestureEnabled: false }}
+      />
+      <Main.Screen
+        name="EditProfileScreen"
+        component={EditProfileScreen}
+        options={{ headerShown: false, gestureEnabled: false }}
+      />
+      <Main.Screen
+        name="FollowedAuthorScreen"
+        component={FollowedAuthorScreen}
+        options={{ headerShown: false, gestureEnabled: false }}
+      />
+      <Main.Screen
+        name="ProfileChangePasswordScreen"
+        component={ProfileChangePasswordScreen}
+        options={{ headerShown: false, gestureEnabled: false }}
+      />
+      <Main.Screen
+        name="SettingScreen"
+        component={SettingScreen}
+        options={{ headerShown: false, gestureEnabled: false }}
+      />
+      <Main.Screen
+        name="PrivacyPolicyScreen"
+        component={PrivacyPolicyScreen}
         options={{ headerShown: false, gestureEnabled: false }}
       />
       <Main.Screen

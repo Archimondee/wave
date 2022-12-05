@@ -12,6 +12,7 @@ import Modal from "react-native-modal";
 import globalStyles from "utils/GlobalStyles";
 import NavigationService from "utils/NavigationService";
 import { scaledVertical } from "utils/ScaledService";
+
 import styles from "./HomeScreenStyles";
 
 const HomeScreen = () => {

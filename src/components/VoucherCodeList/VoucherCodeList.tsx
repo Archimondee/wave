@@ -3,6 +3,7 @@ import icons from "configs/icons";
 import React from "react";
 import { View, TouchableOpacity, Image } from "react-native";
 import { scaledHorizontal, scaledVertical } from "utils/ScaledService";
+
 import Text from "../Text/Text";
 
 interface VoucherCodeListProps {

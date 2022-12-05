@@ -3,6 +3,7 @@ import images from "configs/images";
 import React from "react";
 import { View, Image, StyleSheet } from "react-native";
 import { scaledHorizontal, scaledVertical } from "utils/ScaledService";
+
 import Text from "../Text/Text";
 
 interface ListPrizeDayProps {

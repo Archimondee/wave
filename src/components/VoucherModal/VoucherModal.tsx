@@ -4,6 +4,7 @@ import React from "react";
 import { View, TouchableOpacity, ScrollView } from "react-native";
 import FastImage from "react-native-fast-image";
 import { scaledHorizontal, scaledVertical } from "utils/ScaledService";
+
 import Button from "../Button";
 import Input from "../Input/Input";
 import { VerticalList } from "../List/List";
@@ -17,7 +18,9 @@ interface VoucherModalProps {
   voucherText: string;
   setVoucherText: (args1: string) => void;
   dataVoucher: any;
+  // eslint-disable-next-line @typescript-eslint/ban-types
   selectedVoucher: {};
+  // eslint-disable-next-line @typescript-eslint/ban-types
   setSelectedVoucher: (args1: {}) => void;
 }
 

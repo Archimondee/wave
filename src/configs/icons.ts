@@ -26,6 +26,11 @@ const icons = {
     waveTextOut: require("../assets/icons/logo/Wave-Text-Out.png"),
   },
 
+  //flag
+  flag: {
+    indonesia: require("../assets/icons/flags/flag-id.png"),
+  },
+
   arrowDown: require("../assets/icons/arrow-down.png"),
   arrowDownCircle: require("../assets/icons/arrow-down-circle.png"),
   arrowDownLeft: require("../assets/icons/arrow-down-left.png"),
@@ -60,12 +65,20 @@ const icons = {
   xcircleRed: require("../assets/icons/x-circle-red.png"),
   xcircleBlack: require("../assets/icons/x-circle-solid.png"),
   bell: require("../assets/icons/bell.png"),
-
+  pencilSimple: require("../assets/icons/pencil-simple.png"),
+  pencilSquare: require("../assets/icons/pencil-square.png"),
   chevronRight: require("../assets/icons/chevron-right.png"),
+  lockClosed: require("../assets/icons/lock-closed.png"),
+  users: require("../assets/icons/users.png"),
+  cog6tooth: require("../assets/icons/cog-6-tooth.png"),
+  documentText: require("../assets/icons/document-text.png"),
+  megaphone: require("../assets/icons/megaphone.png"),
+
   buttonLeft: require("../assets/icons/button-left.png"),
   giftVoucher: require("../assets/icons/gift-voucher.png"),
   receiptPercent: require("../assets/icons/receipt-percent.png"),
   coupon: require("../assets/icons/coupon.png"),
+  checkCircle: require("../assets/icons/check-circle.png"),
 
   radioDeselect: require("../assets/icons/radio-deselect.png"),
   radioSelected: require("../assets/icons/radio-selected.png"),

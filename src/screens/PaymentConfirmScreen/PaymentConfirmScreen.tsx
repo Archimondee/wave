@@ -4,10 +4,10 @@ import icons from "configs/icons";
 import images from "configs/images";
 import React, { useState } from "react";
 import { Image, ScrollView, View, TouchableOpacity } from "react-native";
-
 import Modal from "react-native-modal";
 import globalStyles from "utils/GlobalStyles";
 import { scaledHorizontal, scaledVertical } from "utils/ScaledService";
+
 import styles from "./PaymentConfirmScreenStyles";
 
 const PaymentConfirmScreen = () => {
@@ -24,6 +24,7 @@ const PaymentConfirmScreen = () => {
     { id: 6, title: "[GOPAY] 6000", code: "GOPAY6000" },
   ];
 
+  // eslint-disable-next-line @typescript-eslint/ban-types
   const handleSelectedVoucher = (selected: {}) => {
     setSelectedVoucher(selected);
     setShowVoucher(false);
