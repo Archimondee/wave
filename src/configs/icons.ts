@@ -63,6 +63,7 @@ const icons = {
   search: require("../assets/icons/magnifying-glass.png"),
   xmark: require("../assets/icons/x-mark.png"),
   xcircleRed: require("../assets/icons/x-circle-red.png"),
+  xcircleBlack: require("../assets/icons/x-circle-solid.png"),
   bell: require("../assets/icons/bell.png"),
   pencilSimple: require("../assets/icons/pencil-simple.png"),
   pencilSquare: require("../assets/icons/pencil-square.png"),
@@ -78,6 +79,10 @@ const icons = {
   receiptPercent: require("../assets/icons/receipt-percent.png"),
   coupon: require("../assets/icons/coupon.png"),
   checkCircle: require("../assets/icons/check-circle.png"),
+
+  radioDeselect: require("../assets/icons/radio-deselect.png"),
+  radioSelected: require("../assets/icons/radio-selected.png"),
+  arrowLeftGrey: require("../assets/icons/arrow-left-grey.png"),
 };
 
 export default icons;

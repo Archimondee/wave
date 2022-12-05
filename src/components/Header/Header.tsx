@@ -34,6 +34,7 @@ interface HeaderCustomProps {
   isNavigateSearchScreen?: boolean;
   withGiftIcon?: boolean;
   withNotificationIcon?: boolean;
+  onPressGiftIcon?: () => void;
 }
 
 const HeaderCustom = ({
@@ -52,6 +53,7 @@ const HeaderCustom = ({
   isNavigateSearchScreen,
   withGiftIcon,
   withNotificationIcon,
+  onPressGiftIcon,
 }: HeaderCustomProps) => {
   return (
     <View>
@@ -223,7 +225,7 @@ const HeaderCustom = ({
         >
           {withGiftIcon ? (
             <TouchableOpacity
-              onPress={NavigationService.back}
+              onPress={onPressGiftIcon}
               //style={{ justifyContent: "flex-end" }}
             >
               <FastImage

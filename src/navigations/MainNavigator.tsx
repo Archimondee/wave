@@ -17,6 +17,7 @@ import FollowedAuthorScreen from "screens/FollowedAuthorScreen/FollowedAuthorScr
 import ProfileChangePasswordScreen from "screens/ProfileChangePasswordScreen/ProfileChangePasswordScreen";
 import SettingScreen from "screens/SettingScreen/SettingScreen";
 import PrivacyPolicyScreen from "screens/PrivacyPolicyScreen/PrivacyPolicyScreen";
+import NovelScreen from "screens/NovelScreen/NovelScreen";
 
 import TabNavigator from "./TabNavigator";
 
@@ -146,6 +147,11 @@ const MainNavigator = () => {
       <Main.Screen
         name="PrivacyPolicyScreen"
         component={PrivacyPolicyScreen}
+        options={{ headerShown: false, gestureEnabled: false }}
+      />
+      <Main.Screen
+        name="NovelScreen"
+        component={NovelScreen}
         options={{ headerShown: false, gestureEnabled: false }}
       />
     </Main.Navigator>

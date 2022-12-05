@@ -17,6 +17,7 @@ export type RootStackParamList = {
   ProfileChangePasswordScreen: undefined;
   SettingScreen: undefined;
   PrivacyPolicyScreen: undefined;
+  NovelScreen: undefined;
 };
 
 export type RootType =
@@ -36,4 +37,5 @@ export type RootType =
   | "FollowedAuthorScreen"
   | "ProfileChangePasswordScreen"
   | "SettingScreen"
-  | "PrivacyPolicyScreen";
+  | "PrivacyPolicyScreen"
+  | "NovelScreen";
