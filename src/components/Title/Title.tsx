@@ -13,7 +13,7 @@ interface TitleProps {
 const Title = ({ title, size }: TitleProps) => {
   return (
     <View style={styles.container}>
-      <Text color={color.neutral500} type={"bold"} size={size || 20}>
+      <Text color={color.neutral500} type={"bold"} size={size || 16}>
         {title}
       </Text>
     </View>

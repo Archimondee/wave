@@ -17,6 +17,9 @@ import VoucherModal from "./VoucherModal/VoucherModal";
 import VoucherList from "./VoucherList/VoucherList";
 import ListPrizeDay from "./ListPrizeDay/ListPrizeDay";
 import HeaderNovel from "./HeaderNovel/HeaderNovel";
+import ImageCache from "react-native-fast-image";
+import NovelGrid from "./NovelGrid/NovelGrid";
+import CarouselInfinite from "./CarouselInfinite/CarouselInfinite";
 
 export {
   Space,
@@ -40,4 +43,7 @@ export {
   VoucherList,
   ListPrizeDay,
   HeaderNovel,
+  ImageCache,
+  NovelGrid,
+  CarouselInfinite,
 };

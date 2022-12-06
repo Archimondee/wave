@@ -83,6 +83,8 @@ const icons = {
   radioDeselect: require("../assets/icons/radio-deselect.png"),
   radioSelected: require("../assets/icons/radio-selected.png"),
   arrowLeftGrey: require("../assets/icons/arrow-left-grey.png"),
+
+  star: require("../assets/icons/star.png"),
 };
 
 export default icons;
