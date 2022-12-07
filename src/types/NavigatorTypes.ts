@@ -9,6 +9,23 @@ export type RootStackParamList = {
   ChangePasswordScreen: undefined;
   EmailVerifyScreen: undefined;
   HomeScreen: undefined;
+  TopupScreen: undefined;
+  PaymentConfirmScreen: undefined;
+  VoucherScreen: undefined;
+  EditProfileScreen: undefined;
+  FollowedAuthorScreen: undefined;
+  ProfileChangePasswordScreen: undefined;
+  SettingScreen: undefined;
+  PrivacyPolicyScreen: undefined;
+  NovelScreen: undefined;
+  BottomModal: {
+    type: "ReviewModal";
+    id?: number;
+    novel_title?: string;
+    typeReview?: "normal" | "incoming" | "claim";
+    freebies_id?: number;
+    updated_at?: string;
+  };
 };
 
 export type RootType =
@@ -21,3 +38,13 @@ export type RootType =
   | "ChangePasswordScreen"
   | "EmailVerifyScreen"
   | "HomeScreen";
+  | "TopupScreen"
+  | "PaymentConfirmScreen"
+  | "VoucherScreen"
+  | "EditProfileScreen"
+  | "FollowedAuthorScreen"
+  | "ProfileChangePasswordScreen"
+  | "SettingScreen"
+  | "PrivacyPolicyScreen"
+  | "NovelScreen"
+  | "BottomModal";
