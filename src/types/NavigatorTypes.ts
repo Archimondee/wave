@@ -37,7 +37,7 @@ export type RootType =
   | "ForgotPasswordScreen"
   | "ChangePasswordScreen"
   | "EmailVerifyScreen"
-  | "HomeScreen";
+  | "HomeScreen"
   | "TopupScreen"
   | "PaymentConfirmScreen"
   | "VoucherScreen"

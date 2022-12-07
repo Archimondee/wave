@@ -62,7 +62,9 @@ const Component = ({
     <View>
       {title && (
         <>
-          <Text size={sizeTitle}>{title}</Text>
+          <Text color={colors.neutral400} size={sizeTitle}>
+            {title}
+          </Text>
           <Space height={16} />
         </>
       )}
@@ -103,7 +105,7 @@ const Component = ({
             style={[
               {
                 fontSize: scaledFontSize(20),
-                color: colors.neutral700,
+                color: colors.neutral600,
                 fontFamily: fonts.inter,
               },
               style,

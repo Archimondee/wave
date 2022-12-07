@@ -7,6 +7,7 @@ import {
   TextStyle,
   TouchableOpacity,
   View,
+  ViewStyle,
 } from "react-native";
 import colors from "configs/colors";
 
@@ -21,7 +22,7 @@ interface Props {
   disabled: boolean;
   icon?: any;
   onPress?: () => void;
-  style?: TextStyle | TextStyle[];
+  style?: ViewStyle | ViewStyle[];
   fontSize?: number;
   fontType?: "bold" | "reguler";
   iconStyle?: ImageStyle | ImageStyle[];

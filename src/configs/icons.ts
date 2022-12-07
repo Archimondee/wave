@@ -26,6 +26,11 @@ const icons = {
     waveTextOut: require("../assets/icons/logo/Wave-Text-Out.png"),
   },
 
+  //flag
+  flag: {
+    indonesia: require("../assets/icons/flags/flag-id.png"),
+  },
+
   arrowDown: require("../assets/icons/arrow-down.png"),
   arrowDownCircle: require("../assets/icons/arrow-down-circle.png"),
   arrowDownLeft: require("../assets/icons/arrow-down-left.png"),
@@ -58,6 +63,7 @@ const icons = {
   search: require("../assets/icons/magnifying-glass.png"),
   xmark: require("../assets/icons/x-mark.png"),
   xcircleRed: require("../assets/icons/x-circle-red.png"),
+  xcircleBlack: require("../assets/icons/x-circle-solid.png"),
   bell: require("../assets/icons/bell.png"),
   pencilSimple: require("../assets/icons/pencil-simple.png"),
   pencilSquare: require("../assets/icons/pencil-square.png"),

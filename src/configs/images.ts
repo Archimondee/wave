@@ -33,6 +33,7 @@ const images = {
   openBook: require("../assets/images/open-book.png"),
   openBook1: require("../assets/images/open-book1.png"),
   password: require("../assets/images/password.png"),
+  profileBackground: require("../assets/images/profile-background.png"),
   podium: require("../assets/images/podium.png"),
   screen1: require("../assets/images/screen-1.png"),
   screen2: require("../assets/images/screen-1.png"),
@@ -45,6 +46,10 @@ const images = {
   walletEmpty: require("../assets/images/Wallet-empty.png"),
   winner: require("../assets/images/winner.png"),
   witch: require("../assets/images/witch.png"),
+  bgDiamond: require("../assets/images/bg-diamond.png"),
+  bgVoucher: require("../assets/images/bg-voucher.png"),
+  diamondGrey: require("../assets/images/diamond-grey.png"),
+  exampleBook: require("../assets/images/example-book.png"),
 };
 
 export default images;

@@ -2,6 +2,7 @@ import { DiamondCard, Header, Space, TabList } from "components";
 import React, { useState } from "react";
 import { ScrollView, View } from "react-native";
 import globalStyles from "utils/GlobalStyles";
+import NavigationService from "utils/NavigationService";
 import { scaledVertical } from "utils/ScaledService";
 
 import GiftScreen from "./GiftScreen/GiftScreen";
@@ -30,11 +31,14 @@ const DiamondScreen = () => {
     }
   };
   return (
-    <View style={globalStyles().container}>
+    <View style={globalStyles().topSafeArea}>
       <Header title="Berlian & Riwayat Transaksi" titleOn="left" />
 
       <Space height={20} />
-      <DiamondCard onPress={() => window.console.log("To topup")} />
+      <DiamondCard
+        onPressTopup={() => NavigationService.navigate("TopupScreen")}
+        onPressVoucher={() => NavigationService.navigate("VoucherScreen")}
+      />
       <Space height={20} />
       <TabList
         item={tabList}

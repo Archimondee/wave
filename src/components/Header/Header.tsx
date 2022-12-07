@@ -34,6 +34,7 @@ interface HeaderCustomProps {
   isNavigateSearchScreen?: boolean;
   withGiftIcon?: boolean;
   withNotificationIcon?: boolean;
+  onPressGiftIcon?: () => void;
 }
 
 const HeaderCustom = ({
@@ -52,6 +53,7 @@ const HeaderCustom = ({
   isNavigateSearchScreen,
   withGiftIcon,
   withNotificationIcon,
+  onPressGiftIcon,
 }: HeaderCustomProps) => {
   return (
     <View>
@@ -79,8 +81,8 @@ const HeaderCustom = ({
               <FastImage
                 source={icons.arrowLeft}
                 style={{
-                  height: scaledVertical(30),
-                  width: scaledHorizontal(30),
+                  height: scaledVertical(40),
+                  width: scaledHorizontal(40),
                 }}
                 tintColor={
                   color === colors.secondary500 || color === "black"
@@ -223,7 +225,7 @@ const HeaderCustom = ({
         >
           {withGiftIcon ? (
             <TouchableOpacity
-              onPress={NavigationService.back}
+              onPress={onPressGiftIcon}
               //style={{ justifyContent: "flex-end" }}
             >
               <FastImage
@@ -265,7 +267,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     justifyContent: "space-between",
-    paddingHorizontal: scaledHorizontal(20),
+    paddingHorizontal: scaledHorizontal(10),
 
     marginTop:
       Platform.OS === "android" ? scaledVertical(20) : scaledVertical(10),
