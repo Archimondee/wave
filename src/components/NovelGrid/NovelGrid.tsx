@@ -1,20 +1,22 @@
 import { ImageCache } from "components";
 import color from "configs/colors";
 import icons from "configs/icons";
-import images from "configs/images";
+//import images from "configs/images";
 import React from "react";
-import { View, Image, Dimensions } from "react-native";
+import { View, Image, Dimensions, TouchableOpacity } from "react-native";
+import type { NovelType } from "types/NovelTypes";
 import { scaledHorizontal, scaledVertical } from "utils/ScaledService";
 import Text from "../Text/Text";
 
 interface NovelGridProps {
   index: number;
+  item: NovelType;
 }
 
-const NovelGrid = ({ index }: NovelGridProps) => {
+const NovelGrid = ({ index, item }: NovelGridProps) => {
   const { width } = Dimensions.get("screen");
   return (
-    <View
+    <TouchableOpacity
       key={index}
       style={{
         flexDirection: "row",
@@ -24,7 +26,7 @@ const NovelGrid = ({ index }: NovelGridProps) => {
       }}
     >
       <ImageCache
-        source={images.exampleBook}
+        source={{ uri: item?.novel_cover }}
         style={{
           height: scaledVertical(180),
           width: scaledHorizontal(80),
@@ -46,7 +48,7 @@ const NovelGrid = ({ index }: NovelGridProps) => {
           numberOfLines={3}
           type={"bold"}
         >
-          Love At First Sight
+          {item?.novel_title}
         </Text>
         <View
           style={{
@@ -64,11 +66,11 @@ const NovelGrid = ({ index }: NovelGridProps) => {
               marginTop: scaledVertical(3),
             }}
           >
-            4.6
+            {item?.novel_rating}
           </Text>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

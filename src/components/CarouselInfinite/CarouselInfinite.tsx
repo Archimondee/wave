@@ -1,11 +1,11 @@
 import color from "configs/colors";
 import React from "react";
 import { View, FlatList, Animated, useWindowDimensions } from "react-native";
+import type { HighlightType } from "types/NovelTypes";
 import { scaledHorizontal, widthPercentage } from "utils/ScaledService";
 
 import { VerticalList } from "../List/List";
 import NovelGrid from "../NovelGrid/NovelGrid";
-Animated;
 
 interface CarouselInfiniteProps {
   dataCarousel: any;
@@ -16,7 +16,13 @@ const CarouselInfinite = ({ dataCarousel }: CarouselInfiniteProps) => {
   const scrollX = new Animated.Value(0);
   const position = Animated.divide(scrollX, width);
   return (
-    <View style={{ marginBottom: -15, marginLeft: scaledHorizontal(-22) }}>
+    <View
+      style={{
+        marginBottom: -15,
+        marginLeft: scaledHorizontal(-22),
+        paddingHorizontal: scaledHorizontal(20),
+      }}
+    >
       <FlatList
         data={dataCarousel}
         //ref={flatList}
@@ -30,7 +36,6 @@ const CarouselInfinite = ({ dataCarousel }: CarouselInfiniteProps) => {
         decelerationRate="fast"
         showsHorizontalScrollIndicator={false}
         renderItem={({ item, index }: { item: any; index: number }) => {
-          window.console.log("data", index);
           return (
             <View
               style={{
@@ -38,6 +43,7 @@ const CarouselInfinite = ({ dataCarousel }: CarouselInfiniteProps) => {
                 flex: 1,
                 paddingLeft: scaledHorizontal(20),
               }}
+              key={index}
             >
               <VerticalList
                 key={"_"}
@@ -45,9 +51,14 @@ const CarouselInfinite = ({ dataCarousel }: CarouselInfiniteProps) => {
                 listKey={"grid-big"}
                 numColumns={2}
                 keyExtractor={item => item?.id}
-                renderItem={({ item, index }: { item: any; index: number }) => {
-                  window.console.log("item", item, index);
-                  return <NovelGrid index={index} />;
+                renderItem={({
+                  item,
+                  index,
+                }: {
+                  item: HighlightType;
+                  index: number;
+                }) => {
+                  return <NovelGrid index={index} item={item.novel} />;
                 }}
                 isShowVerticalIndicator={false}
                 scrollEnabled={false}

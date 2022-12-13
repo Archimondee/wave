@@ -20,6 +20,11 @@ import HeaderNovel from "./HeaderNovel/HeaderNovel";
 import ImageCache from "react-native-fast-image";
 import NovelGrid from "./NovelGrid/NovelGrid";
 import CarouselInfinite from "./CarouselInfinite/CarouselInfinite";
+import FastImageBackground from "./FastImageBackground/FastImageBackground";
+import Book from "./Book/Book";
+import Line from "./Line/Line";
+import VerticalBook from "./VerticalBook/VerticalBook";
+import CategoryCard from "./CategoryCard/CategoryCard";
 
 export {
   Space,
@@ -46,4 +51,9 @@ export {
   ImageCache,
   NovelGrid,
   CarouselInfinite,
+  FastImageBackground,
+  Book,
+  Line,
+  VerticalBook,
+  CategoryCard,
 };

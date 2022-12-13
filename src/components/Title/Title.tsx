@@ -1,7 +1,7 @@
 import color from "configs/colors";
 import React from "react";
 import { View, StyleSheet } from "react-native";
-import { scaledVertical } from "utils/ScaledService";
+import { scaledHorizontal, scaledVertical } from "utils/ScaledService";
 
 import Text from "../Text/Text";
 
@@ -28,5 +28,7 @@ const styles = StyleSheet.create({
     borderLeftColor: color.primary500,
     paddingVertical: scaledVertical(10),
     paddingLeft: scaledVertical(10),
+    marginLeft: scaledHorizontal(20),
+    marginVertical: scaledVertical(30),
   },
 });

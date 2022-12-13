@@ -297,5 +297,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     borderStyle: "solid",
     marginHorizontal: scaledHorizontal(20),
+    marginBottom: scaledVertical(30),
   },
 });
