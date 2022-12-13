@@ -4,6 +4,7 @@ import type { StackNavigationOptions } from "@react-navigation/stack";
 import { createStackNavigator } from "@react-navigation/stack";
 import type { RootStackParamList } from "types/NavigatorTypes";
 import { navigationRef } from "utils/NavigationService";
+import { Modal } from "components";
 
 import MainNavigator from "./MainNavigator";
 
@@ -95,27 +96,27 @@ const options: StackNavigationOptions = {
 //   }),
 // };
 
-// const halfModalBottomOptions: StackNavigationOptions = {
-//   cardStyle: { backgroundColor: "transparent" },
-//   presentation: "transparentModal",
-//   headerShown: false,
-//   cardOverlayEnabled: true,
-//   cardStyleInterpolator: ({ current: { progress } }) => ({
-//     cardStyle: {
-//       opacity: progress.interpolate({
-//         inputRange: [0, 0.75, 1],
-//         outputRange: [0, 0.5, 1],
-//       }),
-//     },
-//     overlayStyle: {
-//       opacity: progress.interpolate({
-//         inputRange: [0, 1],
-//         outputRange: [0, 0.5],
-//         extrapolate: "clamp",
-//       }),
-//     },
-//   }),
-// };
+const halfModalBottomOptions: StackNavigationOptions = {
+  cardStyle: { backgroundColor: "transparent" },
+  presentation: "transparentModal",
+  headerShown: false,
+  cardOverlayEnabled: true,
+  cardStyleInterpolator: ({ current: { progress } }) => ({
+    cardStyle: {
+      opacity: progress.interpolate({
+        inputRange: [0, 0.75, 1],
+        outputRange: [0, 0.5, 1],
+      }),
+    },
+    overlayStyle: {
+      opacity: progress.interpolate({
+        inputRange: [0, 1],
+        outputRange: [0, 0.5],
+        extrapolate: "clamp",
+      }),
+    },
+  }),
+};
 
 const AppNavigator = () => {
   return (
@@ -125,6 +126,11 @@ const AppNavigator = () => {
           name="MainNavigator"
           component={MainNavigator}
           options={{ headerShown: false }}
+        />
+        <App.Screen
+          name="BottomModal"
+          component={Modal}
+          options={halfModalBottomOptions}
         />
       </App.Navigator>
     </NavigationContainer>

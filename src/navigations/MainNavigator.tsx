@@ -18,6 +18,9 @@ import ProfileChangePasswordScreen from "screens/ProfileChangePasswordScreen/Pro
 import SettingScreen from "screens/SettingScreen/SettingScreen";
 import PrivacyPolicyScreen from "screens/PrivacyPolicyScreen/PrivacyPolicyScreen";
 import NovelScreen from "screens/NovelScreen/NovelScreen";
+import ReviewScreen from "screens/ReviewScreen/ReviewScreen";
+import SelectChapterScreen from "screens/SelectChapterScreen/SelectChapterScreen";
+import ReadNovelScreen from "screens/ReadNovelScreen/ReadNovelScreen";
 
 import TabNavigator from "./TabNavigator";
 
@@ -152,6 +155,21 @@ const MainNavigator = () => {
       <Main.Screen
         name="NovelScreen"
         component={NovelScreen}
+        options={{ headerShown: false, gestureEnabled: false }}
+      />
+      <Main.Screen
+        name="ReviewScreen"
+        component={ReviewScreen}
+        options={{ headerShown: false, gestureEnabled: false }}
+      />
+      <Main.Screen
+        name="SelectChapterScreen"
+        component={SelectChapterScreen}
+        options={{ headerShown: false, gestureEnabled: false }}
+      />
+      <Main.Screen
+        name="ReadNovelScreen"
+        component={ReadNovelScreen}
         options={{ headerShown: false, gestureEnabled: false }}
       />
     </Main.Navigator>
