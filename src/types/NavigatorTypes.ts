@@ -26,6 +26,9 @@ export type RootStackParamList = {
     freebies_id?: number;
     updated_at?: string;
   };
+  ReviewScreen: undefined;
+  SelectChapterScreen: undefined;
+  ReadNovelScreen: undefined;
 };
 
 export type RootType =
@@ -47,4 +50,7 @@ export type RootType =
   | "SettingScreen"
   | "PrivacyPolicyScreen"
   | "NovelScreen"
-  | "BottomModal";
+  | "BottomModal"
+  | "ReviewScreen"
+  | "SelectChapterScreen"
+  | "ReadNovelScreen";

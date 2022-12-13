@@ -1,8 +1,10 @@
 import color from "configs/colors";
 import icons from "configs/icons";
 import React from "react";
-import { View, ImageBackground, Image, TouchableOpacity } from "react-native";
+import { View, ImageBackground, TouchableOpacity } from "react-native";
+import FastImage from "react-native-fast-image";
 import NavigationService from "utils/NavigationService";
+import { scale } from "utils/Responsive";
 import { scaledHorizontal } from "utils/ScaledService";
 
 interface HeaderNovelProps {
@@ -14,14 +16,14 @@ const HeaderNovel = ({ top, image }: HeaderNovelProps) => {
   return (
     <ImageBackground
       source={image}
-      style={{ height: 120 + top }}
+      style={{ height: scale(140) }}
       resizeMode={"cover"}
     >
       <View
         style={{ backgroundColor: color.neutral500, flex: 1, opacity: 0.8 }}
       >
         <TouchableOpacity onPress={() => NavigationService.back()}>
-          <Image
+          <FastImage
             source={icons.arrowLeftGrey}
             style={{
               height: 44,

@@ -1,11 +1,9 @@
-// import { BookSkeleton, BookTitleSkeleton } from "assets/skeleton/NovelSkeleton";
-// import Button from "components/Button";
-// import FastImageBackground from "components/FastImageBackground";
-import { Text, FastImageBackground, Button } from "components";
+import { Text, Button } from "components";
 import colors from "configs/colors";
 import icons from "configs/icons";
 import React from "react";
-import { View } from "react-native";
+import { TouchableOpacity, View } from "react-native";
+import FastImage from "react-native-fast-image";
 import type { NovelType } from "types/NovelTypes";
 import { isTablet, scale } from "utils/Responsive";
 import { scaledHorizontal, scaledVertical } from "utils/ScaledService";
@@ -13,33 +11,39 @@ import { scaledHorizontal, scaledVertical } from "utils/ScaledService";
 interface TopDetailNovelProps {
   data: NovelType;
   isLoading: boolean;
+  onPressCover?: (e: any) => void;
 }
 
-const TopDetailNovel = ({ data, isLoading }: TopDetailNovelProps) => {
+const TopDetailNovel = ({
+  data,
+  isLoading,
+  onPressCover,
+}: TopDetailNovelProps) => {
   return (
     <View style={{ flexDirection: "row" }}>
       {isLoading ? (
         // <BookSkeleton />
         <></>
       ) : (
-        <View
+        <TouchableOpacity
+          onPress={onPressCover}
           style={{
+            zIndex: 1,
             position: "absolute",
             top: isTablet() ? scale(-120) : -85,
             paddingLeft: 10,
           }}
         >
-          <FastImageBackground
-            source={data?.novel_cover}
+          <FastImage
+            source={data?.novel_cover as any}
             style={{
               height: isTablet() ? scale(224) : 224,
               width: isTablet() ? scale(140) : 140,
+              borderRadius: 10,
             }}
             resizeMode="stretch"
-            imageStyle={{ borderRadius: 10 }}
-            children={undefined}
           />
-        </View>
+        </TouchableOpacity>
       )}
 
       <View
@@ -92,7 +96,6 @@ const TopDetailNovel = ({ data, isLoading }: TopDetailNovelProps) => {
                   isLoading={false}
                 />
               </View>
-              {/* <View style={{ flex: 1 }} /> */}
             </View>
           </View>
         )}

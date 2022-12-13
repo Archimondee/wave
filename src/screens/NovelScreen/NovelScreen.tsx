@@ -18,6 +18,7 @@ import React, { useState } from "react";
 import { ScrollView, StatusBar, View, TouchableOpacity } from "react-native";
 import FastImage from "react-native-fast-image";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import Modal from "react-native-modal";
 import type { CommentType } from "types/CommentTypes";
 import type { CategoriesType } from "types/NovelTypes";
 import NavigationService from "utils/NavigationService";
@@ -31,6 +32,7 @@ const NovelScreen = () => {
   const [isLoadingComment] = useState(false);
   const [token] = useState(true);
   const [all, setAll] = useState(false);
+  const [showModalCover, setModalCover] = useState(false);
 
   const gotoReview = () => {
     // NavigationService.navigate("ReviewScreen");
@@ -70,6 +72,7 @@ const NovelScreen = () => {
         <Button
           title={"Baca"}
           style={styles.buttonContainer}
+          onPress={() => NavigationService.navigate("SelectChapterScreen")}
           // onPress={
           //   () => {
           //     wait(100)
@@ -170,13 +173,18 @@ const NovelScreen = () => {
       ],
     },
   };
+
   return (
     <>
       <ScrollView style={{ backgroundColor: colors.neutral50 }}>
         <StatusBar barStyle={"light-content"} />
         <HeaderNovel top={top} image={images.exampleBook} />
         <View style={styles.containerTop}>
-          <TopDetailNovel data={detailNovel.data.data} isLoading={isLoading} />
+          <TopDetailNovel
+            data={detailNovel.data.data}
+            isLoading={isLoading}
+            onPressCover={() => setModalCover(true)}
+          />
         </View>
         <View style={{ paddingHorizontal: scaledHorizontal(16) }}>
           <RatingDetailNovel
@@ -266,7 +274,7 @@ const NovelScreen = () => {
             </Text>
             {commentNovelData.data ? (
               <TouchableOpacity
-              // onPress={gotoReview}
+                onPress={() => NavigationService.navigate("ReviewScreen")}
               >
                 <Text
                   color={colors.primary500}
@@ -377,7 +385,6 @@ const NovelScreen = () => {
         <Space height={100} />
       </ScrollView>
       <View style={styles.bottomContainer}>
-        {/* {( */}
         <TouchableOpacity style={styles.bottomLeftContainer}>
           <FastImage
             source={icons.bookmark}
@@ -385,10 +392,22 @@ const NovelScreen = () => {
             resizeMode={"contain"}
           />
         </TouchableOpacity>
-        {/* )} */}
-
         {convertTypeComponent()}
       </View>
+      <Modal
+        isVisible={showModalCover}
+        onBackdropPress={() => setModalCover(false)}
+      >
+        <FastImage
+          style={{
+            height: "70%",
+            width: "70%",
+            alignSelf: "center",
+          }}
+          resizeMode={"contain"}
+          source={detailNovel.data.data.novel_cover}
+        />
+      </Modal>
     </>
   );
 };
