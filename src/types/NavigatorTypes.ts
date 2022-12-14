@@ -29,6 +29,7 @@ export type RootStackParamList = {
   ReviewScreen: undefined;
   SelectChapterScreen: undefined;
   ReadNovelScreen: undefined;
+  SearchScreen: undefined;
 };
 
 export type RootType =
@@ -53,4 +54,5 @@ export type RootType =
   | "BottomModal"
   | "ReviewScreen"
   | "SelectChapterScreen"
-  | "ReadNovelScreen";
+  | "ReadNovelScreen"
+  | "SearchScreen";
