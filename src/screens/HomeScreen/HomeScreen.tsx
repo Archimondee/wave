@@ -1,3 +1,4 @@
+/* eslint-disable radix */
 import {
   Book,
   Button,
@@ -15,14 +16,15 @@ import images from "configs/images";
 import React, { useCallback, useState } from "react";
 import { View, Image, useWindowDimensions, ScrollView } from "react-native";
 import Modal from "react-native-modal";
-import { dataContents } from "../../assets/fake/contents";
-import { dataHighlight } from "../../assets/fake/highlight";
 import globalStyles from "utils/GlobalStyles";
-import { scaledVertical } from "utils/ScaledService";
+import { scaledHorizontal, scaledVertical } from "utils/ScaledService";
 import type { ContentType, NovelType, CategoriesType } from "types/NovelTypes";
 
-import styles from "./HomeScreenStyles";
+import { dataHighlight } from "../../assets/fake/highlight";
+import { dataContents } from "../../assets/fake/contents";
 import { dataCategories } from "../../assets/fake/categories";
+
+import styles from "./HomeScreenStyles";
 
 const HomeScreen = () => {
   const [showPrize, setShowPrize] = useState(false);
@@ -39,9 +41,9 @@ const HomeScreen = () => {
   ];
 
   const restructureArray = () => {
-    let totalList = 3;
-    let totalData = 6;
-    let newArray = [];
+    const totalList = 3;
+    const totalData = 6;
+    const newArray = [];
     let i = 0;
     for (i = 0; i < totalList; i++) {
       if (
@@ -124,7 +126,7 @@ const HomeScreen = () => {
           );
         } else if (content?.type === 2) {
           component.push(
-            <View key={content?.id}>
+            <View key={content?.id} style={{}}>
               <Title title="Kategori" />
               {_renderCategory(dataCategories)}
               <View key={content?.id}>
@@ -143,6 +145,9 @@ const HomeScreen = () => {
                     />
                   )}
                   isShowVerticalIndicator={false}
+                  contentContainerStyle={{
+                    paddingHorizontal: scaledHorizontal(10),
+                  }}
                 />
               </View>
               {/* {loadingIndicator ? (

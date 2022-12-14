@@ -4,6 +4,11 @@ import { ScrollView, View } from "react-native";
 import globalStyles from "utils/GlobalStyles";
 import { scaledHorizontal, scaledVertical } from "utils/ScaledService";
 
+import BuyScreen from "./BuyScreen/BuyScreen";
+import CommentScreen from "./CommentScreen/CommentScreen";
+import ListScreen from "./ListScreen/ListScreen";
+import ReadScreen from "./ReadScreen/ReadScreen";
+
 const CollectionScreen = () => {
   const dataSideBar = [
     { id: 1, title: "Dibeli" },
@@ -12,7 +17,40 @@ const CollectionScreen = () => {
     { id: 4, title: "Komentar" },
     { id: 5, title: "" },
   ];
-  const [selectedCategory, setSelectedCategory] = useState(0);
+  const [selectedCategory, setSelectedCategory] = useState(1);
+
+  const renderContent = () => {
+    switch (selectedCategory) {
+      case 0:
+        return (
+          <>
+            <BuyScreen />
+          </>
+        );
+      case 1:
+        return (
+          <>
+            <ReadScreen />
+          </>
+        );
+      case 2:
+        return (
+          <>
+            <ListScreen />
+          </>
+        );
+      case 3:
+        return (
+          <>
+            <CommentScreen />
+          </>
+        );
+
+      default:
+        return <></>;
+    }
+  };
+
   return (
     <View style={globalStyles().topSafeArea}>
       <Header withSearchBar placeholder="Cari di koleksi" />
@@ -27,7 +65,7 @@ const CollectionScreen = () => {
       >
         <View
           style={{
-            width: "35%",
+            width: "32%",
             borderRadius: 10,
           }}
         >
@@ -54,11 +92,12 @@ const CollectionScreen = () => {
         <ScrollView
           style={{
             marginLeft: scaledHorizontal(10),
-            width: "65%",
-            backgroundColor: "yellow",
+            width: "68%",
           }}
           showsVerticalScrollIndicator={false}
-        />
+        >
+          {renderContent()}
+        </ScrollView>
       </View>
     </View>
   );

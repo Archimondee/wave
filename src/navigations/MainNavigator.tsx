@@ -1,6 +1,9 @@
 import React from "react";
-import type { StackNavigationOptions } from "@react-navigation/stack";
-import { createStackNavigator } from "@react-navigation/stack";
+import {
+  CardStyleInterpolators,
+  StackNavigationOptions,
+  createStackNavigator,
+} from "@react-navigation/stack";
 import type { RootStackParamList } from "types/NavigatorTypes";
 import RegisterScreen from "screens/RegisterScreen/RegisterScreen";
 import LoginScreen from "screens/LoginScreen/LoginScreen";
@@ -176,7 +179,11 @@ const MainNavigator = () => {
       <Main.Screen
         name="SearchScreen"
         component={SearchScreen}
-        options={{ headerShown: false, gestureEnabled: false }}
+        options={{
+          headerShown: false,
+          gestureEnabled: false,
+          cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS,
+        }}
       />
     </Main.Navigator>
   );

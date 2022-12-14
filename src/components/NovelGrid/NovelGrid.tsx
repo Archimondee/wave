@@ -6,6 +6,7 @@ import React from "react";
 import { View, Image, Dimensions, TouchableOpacity } from "react-native";
 import type { NovelType } from "types/NovelTypes";
 import { scaledHorizontal, scaledVertical } from "utils/ScaledService";
+
 import Text from "../Text/Text";
 
 interface NovelGridProps {

@@ -1,5 +1,5 @@
 import React, { useCallback, useRef, useState } from "react";
-import { StyleSheet, SafeAreaView, View } from "react-native";
+import { StyleSheet, SafeAreaView, View, ScrollView } from "react-native";
 import Modal from "react-native-modal";
 import color from "configs/colors";
 import {
@@ -13,9 +13,14 @@ import {
   Sort,
   Space,
   SortModal,
+  HorizontalList,
+  Book,
 } from "components";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import NavigationService from "utils/NavigationService";
+import type { NovelType } from "types/NovelTypes";
+
+import { dataContents } from "../../assets/fake/contents";
 
 const SearchScreen = () => {
   const [searchText, setSearchText] = useState("" as any);
@@ -141,70 +146,93 @@ const SearchScreen = () => {
         onSubmit={onSubmit}
         onDeleteInput={onDeleteInput}
       />
-      {!isSearch ? (
-        <View>
-          <VerticalList
-            listKey="dataFuture"
-            data={recentSearch}
-            keyExtractor={item => item.data}
-            renderItem={({ item, index }: { item: any; index: any }) => (
-              <LastSearchComponent
-                item={item}
-                index={index}
-                onClickSearch={onClickSeach}
-              />
-            )}
-            isShowVerticalIndicator={false}
-          />
-          <Section size={14} title={"Cerita Paling Populer"} />
-        </View>
-      ) : (
-        <View style={{ paddingHorizontal: 16 }}>
-          <Space height={24} />
-          <Sort
-            bookTotal={searchResult.length}
-            selected={selected}
-            onPress={() => setShowSort(true)}
-          />
-          <Space height={24} />
-          <VerticalList
-            listKey="dataFuture"
-            data={searchResult}
-            keyExtractor={item => item.data}
-            renderItem={({ item, index }: { item: any; index: any }) => (
-              <View key={index}>
-                <TouchableOpacity
-                  onPress={() => NavigationService.navigate("NovelScreen")}
-                >
-                  <Text> {item.data}</Text>
-                </TouchableOpacity>
-              </View>
-            )}
-            isShowVerticalIndicator={false}
-          />
-          <Modal
-            animationIn="slideInUp"
-            animationOut="slideOutDown"
-            isVisible={showSort}
-            onDismiss={() => setShowSort(false)}
-            onBackdropPress={() => setShowSort(false)}
-            onBackButtonPress={() => setShowSort(false)}
-            useNativeDriver={true}
-            useNativeDriverForBackdrop={true}
-            style={{ flex: 1, justifyContent: "flex-end", margin: 0 }}
-          >
-            <SortModal
-              selected={selected}
-              option={dataSorting}
-              onClose={() => setShowSort(false)}
-              onPressOption={e => {
-                setShowSort(false);
-                setSelected(e);
-              }}
+      <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
+        {!isSearch ? (
+          <View>
+            <VerticalList
+              listKey="dataFuture"
+              data={recentSearch}
+              keyExtractor={item => item.data}
+              renderItem={({ item, index }: { item: any; index: any }) => (
+                <LastSearchComponent
+                  item={item}
+                  index={index}
+                  onClickSearch={onClickSeach}
+                />
+              )}
+              isShowVerticalIndicator={false}
             />
-          </Modal>
-        </View>
-      )}
+            <Section size={14} title={"Cerita Paling Populer"} />
+            <HorizontalList
+              data={dataContents[0].novels}
+              keyExtractor={item => item?.id}
+              isShowHorizontalIndicator={false}
+              renderItem={({
+                item,
+                index,
+              }: {
+                item: NovelType;
+                index: any;
+              }) => (
+                <Book
+                  contentType="popular"
+                  type="small"
+                  item={item}
+                  index={index}
+                  dataLength={dataContents[0].novels}
+                />
+              )}
+              isShowVerticalIndicator={false}
+            />
+          </View>
+        ) : (
+          <View style={{ paddingHorizontal: 16 }}>
+            <Space height={24} />
+            <Sort
+              bookTotal={searchResult.length}
+              selected={selected}
+              onPress={() => setShowSort(true)}
+            />
+            <Space height={24} />
+            <VerticalList
+              listKey="dataFuture"
+              data={searchResult}
+              keyExtractor={item => item.data}
+              renderItem={({ item, index }: { item: any; index: any }) => (
+                <View key={index}>
+                  <TouchableOpacity
+                    onPress={() => NavigationService.navigate("NovelScreen")}
+                  >
+                    <Text> {item.data}</Text>
+                  </TouchableOpacity>
+                </View>
+              )}
+              isShowVerticalIndicator={false}
+            />
+            <Modal
+              animationIn="slideInUp"
+              animationOut="slideOutDown"
+              isVisible={showSort}
+              onDismiss={() => setShowSort(false)}
+              onBackdropPress={() => setShowSort(false)}
+              onBackButtonPress={() => setShowSort(false)}
+              useNativeDriver={true}
+              useNativeDriverForBackdrop={true}
+              style={{ flex: 1, justifyContent: "flex-end", margin: 0 }}
+            >
+              <SortModal
+                selected={selected}
+                option={dataSorting}
+                onClose={() => setShowSort(false)}
+                onPressOption={e => {
+                  setShowSort(false);
+                  setSelected(e);
+                }}
+              />
+            </Modal>
+          </View>
+        )}
+      </ScrollView>
     </SafeAreaView>
   );
 };

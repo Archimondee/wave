@@ -5,7 +5,7 @@ import { scaledVertical } from "utils/ScaledService";
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    paddingHorizontal: 20,
+    paddingHorizontal: 10,
   },
   image: {
     borderRadius: 10,
@@ -30,6 +30,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     borderRadius: 16,
     paddingTop: scaledVertical(20),
+    flex: 1,
+    alignItems: "flex-end",
   },
   containerGray: {
     height: 6,

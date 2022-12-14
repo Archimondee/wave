@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 export const dataContents: any = [
   {
     id: 2,

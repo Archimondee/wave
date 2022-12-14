@@ -10,6 +10,7 @@ import type { NovelType } from "types/NovelTypes";
 import { isTablet, scale } from "utils/Responsive";
 import { scaledHorizontal, scaledVertical } from "utils/ScaledService";
 import { wait } from "utils/Utils";
+
 import Line from "../Line/Line";
 import Text from "../Text/Text";
 
@@ -28,6 +29,7 @@ interface VerticalBookProps {
   fromCollection?: boolean;
   collectionAnalytic?: string;
   novel_title?: string;
+  size?: "big" | "small";
 }
 
 const VerticalBook = ({
@@ -38,6 +40,7 @@ const VerticalBook = ({
   // freebiesId = 0,
   updated_at,
   typeCollection,
+  size,
 }: // fromCollection,
 // collectionAnalytic,
 // novel_title,
@@ -86,25 +89,47 @@ VerticalBookProps) => {
       }}
     >
       <View style={styles.container}>
-        <FastImage
-          source={{ uri: item?.novel_cover }}
-          style={[
-            styles.image,
-            {
-              height: isTablet()
-                ? type === "progress"
-                  ? scale(110)
-                  : scale(100)
-                : scale(150),
-              width: isTablet()
-                ? type === "progress"
-                  ? scale(75)
-                  : scale(70)
-                : scaledHorizontal(130),
-            },
-          ]}
-          resizeMode={"cover"}
-        />
+        {size === "small" ? (
+          <FastImage
+            source={{ uri: item?.novel_cover }}
+            style={[
+              styles.image,
+              {
+                height: isTablet()
+                  ? type === "progress"
+                    ? scale(110)
+                    : scale(100)
+                  : scale(120),
+                width: isTablet()
+                  ? type === "progress"
+                    ? scale(75)
+                    : scale(70)
+                  : scaledHorizontal(95),
+              },
+            ]}
+            resizeMode={"cover"}
+          />
+        ) : (
+          <FastImage
+            source={{ uri: item?.novel_cover }}
+            style={[
+              styles.image,
+              {
+                height: isTablet()
+                  ? type === "progress"
+                    ? scale(110)
+                    : scale(100)
+                  : scale(150),
+                width: isTablet()
+                  ? type === "progress"
+                    ? scale(75)
+                    : scale(70)
+                  : scaledHorizontal(130),
+              },
+            ]}
+            resizeMode={"cover"}
+          />
+        )}
 
         <View style={styles.containerContent}>
           {type === "progress" ? (
@@ -117,7 +142,7 @@ VerticalBookProps) => {
               //   })
               // }
               >
-                <Text numberOfLines={2} size={14} type={"bold"}>
+                <Text numberOfLines={3} size={14} type={"bold"}>
                   {item?.novel_title}
                 </Text>
               </TouchableOpacity>
@@ -131,11 +156,7 @@ VerticalBookProps) => {
               </Text>
             </View>
           ) : (
-            <View
-              style={{
-                height: isTablet() ? scale(75) : scale(120),
-              }}
-            >
+            <View style={{}}>
               <TouchableOpacity
               // onPress={() =>
               //   NavigationService.navigate("NovelScreen", {
@@ -144,18 +165,24 @@ VerticalBookProps) => {
               //   })
               // }
               >
-                <Text numberOfLines={2} size={14} type={"bold"}>
+                <Text numberOfLines={3} size={14} type={"bold"}>
                   {item?.novel_title}
                 </Text>
               </TouchableOpacity>
-
-              <Text style={styles.description} numberOfLines={3} size={12}>
-                {item?.novel_sinopsis}
-              </Text>
+              {size !== "small" ? (
+                <Text style={styles.description} numberOfLines={3} size={12}>
+                  {item?.novel_sinopsis}
+                </Text>
+              ) : null}
             </View>
           )}
 
-          <View style={[styles.containerCategory]}>
+          <View
+            style={[
+              styles.containerCategory,
+              { alignItems: type === "rating" ? "flex-start" : "flex-end" },
+            ]}
+          >
             {type === "rating" ? (
               <View
                 style={{
@@ -229,7 +256,7 @@ VerticalBookProps) => {
               </View>
             ) : type === "progress" ? (
               <View style={{ flex: 1 }}>
-                <View style={styles.containerGray} />
+                {/* <View style={styles.containerGray} /> */}
                 <View
                   style={[
                     styles.containerYellow,
@@ -242,11 +269,11 @@ VerticalBookProps) => {
                     },
                   ]}
                 />
-                <View style={styles.containerText}>
+                {/* <View style={styles.containerText}>
                   <Text size={12} color={colors.neutral400}>
                     {chapter_read}/{item?.chapters?.length}
                   </Text>
-                </View>
+                </View> */}
                 <View
                   style={{
                     flexDirection: "row",

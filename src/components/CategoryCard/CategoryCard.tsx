@@ -1,9 +1,10 @@
 import colors from "configs/colors";
 import React from "react";
 import { Image, TouchableOpacity } from "react-native";
-import { useDispatch } from "react-redux";
-import NavigationService from "utils/NavigationService";
+//import { useDispatch } from "react-redux";
+//import NavigationService from "utils/NavigationService";
 import { scaledHorizontal } from "utils/ScaledService";
+
 import Text from "../Text/Text";
 //import { selectedCategory } from "../../store/persist/actions";
 
@@ -24,8 +25,8 @@ const CategoryCard = ({
   index,
   dataLength,
   type,
-  id,
-}: CategoryCardProps) => {
+}: //id,
+CategoryCardProps) => {
   //const dispatch: any = useDispatch();
   return (
     <TouchableOpacity

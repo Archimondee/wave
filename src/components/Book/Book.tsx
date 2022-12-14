@@ -7,6 +7,7 @@ import type { NovelType } from "types/NovelTypes";
 //import NavigationService from "utils/NavigationService";
 import { isTablet, scale } from "utils/Responsive";
 import { scaledHorizontal } from "utils/ScaledService";
+
 import FastImageBackground from "../FastImageBackground/FastImageBackground";
 import Text from "../Text/Text";
 
@@ -80,6 +81,7 @@ const Book = ({
             size={type === "small" ? 10 : 18}
             type={"bold"}
             textAlign={"center"}
+            color={colors.neutral50}
           >
             {contentType === "number" ? index + 1 : "Populer"}
           </Text>

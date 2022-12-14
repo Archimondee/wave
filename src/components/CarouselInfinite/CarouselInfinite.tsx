@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-shadow */
 import color from "configs/colors";
 import React from "react";
 import { View, FlatList, Animated, useWindowDimensions } from "react-native";
