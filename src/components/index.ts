@@ -7,6 +7,7 @@ import DiamondList from "./DiamondList/DiamondList";
 import FastImageBackground from "./FastImageBackground/FastImageBackground";
 import Header from "./Header/Header";
 import Input from "./Input/Input";
+import LastSearchComponent from "./LastSearchComponent/LastSearchComponent";
 import Line from "./Line/Line";
 import Modal from "./Modal/Modal";
 import ModalAlert from "./ModalAlert";
@@ -14,6 +15,8 @@ import { HorizontalList, VerticalList, VirtualizedView } from "./List/List";
 import RatingDetailNovel from "./RatingDetailNovel/RatingDetailNovel";
 import Section from "./Section/Section";
 import SideBarText from "./SidebarText/SidebarText";
+import Sort from "./Sort/Sort";
+import SortModal from "./SortModal/SortModal";
 import Space from "./Space/Space";
 import StarRating from "./StarRating/StarRating";
 import StarRatingWidget from "./StarRatingWidget/StarRatingWidget";
@@ -33,6 +36,7 @@ export {
   Button,
   CategoryCard,
   Comment,
+  LastSearchComponent,
   Line,
   Space,
   StarRating,
@@ -47,6 +51,8 @@ export {
   RatingDetailNovel,
   Section,
   SideBarText,
+  Sort,
+  SortModal,
   DiamondCard,
   TabList,
   TopDetailNovel,
