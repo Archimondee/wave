@@ -20,7 +20,7 @@ const FastImageBackground = ({
   return (
     <View style={style}>
       <FastImage
-        source={source}
+        source={{ uri: source, priority: FastImage.priority.high }}
         resizeMode={resizeMode}
         style={[
           StyleSheet.absoluteFill,
