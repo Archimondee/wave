@@ -18,6 +18,18 @@ export type RootStackParamList = {
   SettingScreen: undefined;
   PrivacyPolicyScreen: undefined;
   NovelScreen: undefined;
+  BottomModal: {
+    type: "ReviewModal";
+    id?: number;
+    novel_title?: string;
+    typeReview?: "normal" | "incoming" | "claim";
+    freebies_id?: number;
+    updated_at?: string;
+  };
+  ReviewScreen: undefined;
+  SelectChapterScreen: undefined;
+  ReadNovelScreen: undefined;
+  SearchScreen: undefined;
 };
 
 export type RootType =
@@ -38,4 +50,9 @@ export type RootType =
   | "ProfileChangePasswordScreen"
   | "SettingScreen"
   | "PrivacyPolicyScreen"
-  | "NovelScreen";
+  | "NovelScreen"
+  | "BottomModal"
+  | "ReviewScreen"
+  | "SelectChapterScreen"
+  | "ReadNovelScreen"
+  | "SearchScreen";

@@ -68,6 +68,9 @@ const icons = {
   pencilSimple: require("../assets/icons/pencil-simple.png"),
   pencilSquare: require("../assets/icons/pencil-square.png"),
   chevronRight: require("../assets/icons/chevron-right.png"),
+  chevronUp: require("../assets/icons/chevron-up.png"),
+  chevronDown: require("../assets/icons/chevron-down.png"),
+  chevronLeft: require("../assets/icons/chevron-left.png"),
   lockClosed: require("../assets/icons/lock-closed.png"),
   users: require("../assets/icons/users.png"),
   cog6tooth: require("../assets/icons/cog-6-tooth.png"),
@@ -85,6 +88,14 @@ const icons = {
   arrowLeftGrey: require("../assets/icons/arrow-left-grey.png"),
 
   star: require("../assets/icons/star.png"),
+  language: require("../assets/icons/language.png"),
+  emptyStar: require("../assets/icons/empty-star.png"),
+  send: require("../assets/icons/send.png"),
+  bookmark: require("../assets/icons/bookmark.png"),
+  bookmarkSolid: require("../assets/icons/bookmark-solid.png"),
+  time: require("../assets/icons/time.png"),
+  switchOn: require("../assets/icons/switchOn.png"),
+  switchOff: require("../assets/icons/switchOff.png"),
 };
 
 export default icons;

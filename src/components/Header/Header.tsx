@@ -170,9 +170,11 @@ const HeaderCustom = ({
       >
         {withSearchBar ? (
           <TouchableOpacity
-            style={[styles.containerSearch, { marginTop: 5, flex: 1 }]}
+            style={[styles.containerSearch, { marginTop: 16, flex: 1 }]}
             onPress={() =>
-              isNavigateSearchScreen ? window.console.log("To search") : null
+              isNavigateSearchScreen
+                ? NavigationService.navigate("SearchScreen")
+                : null
             }
             activeOpacity={1}
           >
@@ -267,8 +269,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     justifyContent: "space-between",
-    paddingHorizontal: scaledHorizontal(10),
-
+    paddingHorizontal: scaledHorizontal(16),
     marginTop:
       Platform.OS === "android" ? scaledVertical(20) : scaledVertical(10),
   },
