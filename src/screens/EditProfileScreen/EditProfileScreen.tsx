@@ -186,7 +186,7 @@ const EditProfileScreen = () => {
             <View style={{ width: 140, height: 140 }}>
               <Image
                 // source={uploadLink ? { uri: uploadLink } : images.man}
-                source={images.witch}
+                source={images.profilePicture}
                 style={{ width: 140, height: 140, borderRadius: 70 }}
               />
               <View

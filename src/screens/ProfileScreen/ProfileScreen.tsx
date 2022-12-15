@@ -1,11 +1,19 @@
 import colors from "configs/colors";
 import images from "configs/images";
 import * as React from "react";
-import { View, StyleSheet, Image, TouchableOpacity } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  ImageBackground,
+} from "react-native";
 import { Text, Space } from "components";
 import { ScrollView } from "react-native-gesture-handler";
 import icons from "configs/icons";
 import NavigationService from "utils/NavigationService";
+import { scale } from "utils/Responsive";
+import FastImage from "react-native-fast-image";
 
 const ProfileScreen = () => {
   const dataAkun = [
@@ -63,26 +71,23 @@ const ProfileScreen = () => {
   ];
 
   return (
-    // <SafeAreaView>
     <View style={styles.container}>
       <ScrollView>
-        <View style={{ height: 300 }}>
-          <Image
-            style={{ height: "100%", width: "100%" }}
-            source={images.profileBackground}
-          />
-          <View
+        <ImageBackground
+          source={images.profileBackground}
+          style={{ height: scale(287), paddingTop: scale(114) }}
+          resizeMode={"cover"}
+        >
+          <FastImage
+            source={images.profilePicture}
             style={{
-              position: "absolute",
               alignSelf: "center",
               borderRadius: 150,
-              backgroundColor: "red",
-              width: "36%",
-              height: "50%",
-              top: 119,
+              width: scale(140),
+              height: scale(140),
             }}
           />
-        </View>
+        </ImageBackground>
         <View style={styles.content}>
           <Space height={24} />
           <TouchableOpacity>
@@ -258,7 +263,6 @@ const ProfileScreen = () => {
         <Space height={20} />
       </ScrollView>
     </View>
-    // </SafeAreaView>
   );
 };
 

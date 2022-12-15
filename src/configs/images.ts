@@ -51,6 +51,7 @@ const images = {
   diamondGrey: require("../assets/images/diamond-grey.png"),
   exampleBook: require("../assets/images/example-book.png"),
   notification: require("../assets/images/notification.png"),
+  profilePicture: require("../assets/images/profile-picture.png"),
 };
 
 export default images;
