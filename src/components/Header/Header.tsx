@@ -35,6 +35,7 @@ interface HeaderCustomProps {
   withGiftIcon?: boolean;
   withNotificationIcon?: boolean;
   onPressGiftIcon?: () => void;
+  onPressNotificationIcon?: () => void;
 }
 
 const HeaderCustom = ({
@@ -54,6 +55,7 @@ const HeaderCustom = ({
   withGiftIcon,
   withNotificationIcon,
   onPressGiftIcon,
+  onPressNotificationIcon,
 }: HeaderCustomProps) => {
   return (
     <View>
@@ -243,7 +245,7 @@ const HeaderCustom = ({
           ) : null}
           {withNotificationIcon ? (
             <TouchableOpacity
-              onPress={NavigationService.back}
+              onPress={onPressNotificationIcon}
               style={{ marginLeft: scaledHorizontal(10) }}
             >
               <FastImage

@@ -50,6 +50,7 @@ const images = {
   bgVoucher: require("../assets/images/bg-voucher.png"),
   diamondGrey: require("../assets/images/diamond-grey.png"),
   exampleBook: require("../assets/images/example-book.png"),
+  notification: require("../assets/images/notification.png"),
 };
 
 export default images;

@@ -36,6 +36,9 @@ const HomeScreen = () => {
         isNavigateSearchScreen
         placeholder="Cari judul novel"
         onPressGiftIcon={() => setShowPrize(true)}
+        onPressNotificationIcon={() =>
+          NavigationService.navigate("NotificationScreen")
+        }
       />
       <ScrollView style={{ flex: 1 }}>
         <TouchableOpacity
