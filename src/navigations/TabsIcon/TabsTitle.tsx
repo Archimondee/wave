@@ -12,32 +12,32 @@ export class TitleHome extends PureComponent<Props> {
     const { focused } = this.props;
 
     return (
-      <View>
+      <View style={styles(focused).borderStyle}>
         <Text style={styles(focused).title}>Home</Text>
       </View>
     );
   }
 }
 
-export class TitleCategory extends PureComponent<Props> {
+export class TitleExplore extends PureComponent<Props> {
   render() {
     const { focused } = this.props;
 
     return (
-      <View>
-        <Text style={styles(focused).title}>Category</Text>
+      <View style={styles(focused).borderStyle}>
+        <Text style={styles(focused).title}>Eksplor</Text>
       </View>
     );
   }
 }
 
-export class TitleWishlist extends PureComponent<Props> {
+export class TitleDiamond extends PureComponent<Props> {
   render() {
     const { focused } = this.props;
 
     return (
-      <View>
-        <Text style={styles(focused).title}>Wishlist</Text>
+      <View style={styles(focused).borderStyle}>
+        <Text style={styles(focused).title}>Berlian</Text>
       </View>
     );
   }
@@ -48,7 +48,7 @@ export class TitleProfile extends PureComponent<Props> {
     const { focused } = this.props;
 
     return (
-      <View>
+      <View style={styles(focused).borderStyle}>
         <Text style={styles(focused).title}>Profile</Text>
       </View>
     );

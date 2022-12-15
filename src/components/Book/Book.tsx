@@ -106,11 +106,11 @@ const Book = ({
           </Text>
         </View>
 
-        <View style={styles.containerCategory} key={index}>
+        {/* <View style={styles.containerCategory} key={index}>
           <Text style={{ letterSpacing: 0.25 }} textAlign={"center"} size={12}>
             {item?.categories[0]?.category_name}
           </Text>
-        </View>
+        </View> */}
       </View>
     </TouchableOpacity>
   );
