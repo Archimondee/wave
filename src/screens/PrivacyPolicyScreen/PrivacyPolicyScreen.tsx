@@ -20,7 +20,10 @@ const PrivacyPolicyScreen = () => {
       <WebView
         style={{ marginHorizontal: 16 }}
         scrollEnabled={true}
-        source={{ html: "<p>Test</p><p>privacy and policy</p>" }}
+        source={{
+          // eslint-disable-next-line max-len
+          html: "<H1>privacy and policy</H1><H3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum velit a libero varius, nec porta quam aliquam.</H3>",
+        }}
       />
     </SafeAreaView>
   );
