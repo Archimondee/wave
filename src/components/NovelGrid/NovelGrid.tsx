@@ -5,6 +5,7 @@ import icons from "configs/icons";
 import React from "react";
 import { View, Image, Dimensions, TouchableOpacity } from "react-native";
 import type { NovelType } from "types/NovelTypes";
+import NavigationService from "utils/NavigationService";
 import { scaledHorizontal, scaledVertical } from "utils/ScaledService";
 
 import Text from "../Text/Text";
@@ -25,6 +26,7 @@ const NovelGrid = ({ index, item }: NovelGridProps) => {
         marginVertical: scaledVertical(15),
         //marginRight: index > 6 ? 0 : scaledHorizontal(20),
       }}
+      onPress={() => NavigationService.navigate("NovelScreen")}
     >
       <ImageCache
         source={{ uri: item?.novel_cover }}

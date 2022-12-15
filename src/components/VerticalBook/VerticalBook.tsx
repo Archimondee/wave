@@ -7,6 +7,7 @@ import React, { memo, useEffect, useState } from "react";
 import { View, TouchableOpacity } from "react-native";
 import FastImage from "react-native-fast-image";
 import type { NovelType } from "types/NovelTypes";
+import NavigationService from "utils/NavigationService";
 import { isTablet, scale } from "utils/Responsive";
 import { scaledHorizontal, scaledVertical } from "utils/ScaledService";
 import { wait } from "utils/Utils";
@@ -85,6 +86,7 @@ VerticalBookProps) => {
             //   freebies_id: freebiesId,
             //   updated_at: updated_at,
             // });
+            NavigationService.navigate("NovelScreen");
           });
       }}
     >

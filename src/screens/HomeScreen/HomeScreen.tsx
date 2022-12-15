@@ -19,6 +19,7 @@ import Modal from "react-native-modal";
 import globalStyles from "utils/GlobalStyles";
 import { scaledHorizontal, scaledVertical } from "utils/ScaledService";
 import type { ContentType, NovelType, CategoriesType } from "types/NovelTypes";
+import NavigationService from "utils/NavigationService";
 
 import { dataHighlight } from "../../assets/fake/highlight";
 import { dataContents } from "../../assets/fake/contents";
@@ -270,6 +271,9 @@ const HomeScreen = () => {
         isNavigateSearchScreen
         placeholder="Cari judul novel"
         onPressGiftIcon={() => setShowPrize(true)}
+        onPressNotificationIcon={() =>
+          NavigationService.navigate("NotificationScreen")
+        }
       />
       <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
         {/* <TouchableOpacity

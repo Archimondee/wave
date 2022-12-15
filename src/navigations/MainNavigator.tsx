@@ -25,6 +25,7 @@ import ReviewScreen from "screens/ReviewScreen/ReviewScreen";
 import SelectChapterScreen from "screens/SelectChapterScreen/SelectChapterScreen";
 import ReadNovelScreen from "screens/ReadNovelScreen/ReadNovelScreen";
 import SearchScreen from "screens/SearchScreen/SearchScreen";
+import NotificationScreen from "screens/NotificationScreen/NotificationScreen";
 
 import TabNavigator from "./TabNavigator";
 
@@ -184,6 +185,11 @@ const MainNavigator = () => {
           gestureEnabled: false,
           cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS,
         }}
+      />
+      <Main.Screen
+        name="NotificationScreen"
+        component={NotificationScreen}
+        options={{ headerShown: false, gestureEnabled: false }}
       />
     </Main.Navigator>
   );
