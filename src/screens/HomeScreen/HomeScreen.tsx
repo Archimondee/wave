@@ -122,6 +122,9 @@ const HomeScreen = () => {
                 )}
                 isShowVerticalIndicator={false}
               />
+              <Title title="Chapter Baru Setiap Hari" />
+              <CarouselInfinite dataCarousel={restructureArray()} />
+              <Space height={20} />
             </View>,
           );
         } else if (content?.type === 2) {
@@ -274,10 +277,6 @@ const HomeScreen = () => {
         >
           <Text>Go to detail</Text>
         </TouchableOpacity> */}
-
-        <Title title="Chapter Baru Setiap Hari" />
-        <CarouselInfinite dataCarousel={restructureArray()} />
-        <Space height={20} />
 
         {RenderContent()}
         <Space height={100} />

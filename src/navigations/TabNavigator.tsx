@@ -1,246 +1,186 @@
-import { Space } from "components";
-import color from "configs/colors";
-import icons from "configs/icons";
 import React from "react";
-import {
-  Image,
-  StatusBar,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
-import { CurvedBottomBar } from "react-native-curved-bottom-bar";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { TouchableOpacity, View, Image } from "react-native";
+import icons from "configs/icons";
+import colors from "configs/colors";
+//import { useSelector } from "react-redux";
+//import type { StoreStateType } from "src/store";
+import { isTablet, scale } from "utils/Responsive";
+import { scaledVertical } from "utils/ScaledService";
+import { useIsFocused } from "@react-navigation/core";
 
-import CollectionTab from "./Tabs/CollectionTab";
-import DiamondTab from "./Tabs/DiamondTab";
-import ExploreTab from "./Tabs/ExploreTab";
+import {
+  TitleHome,
+  TitleDiamond,
+  TitleProfile,
+  TitleExplore,
+} from "./TabsIcon/TabsTitle";
+import {
+  IconDiamond,
+  IconExplore,
+  IconHome,
+  IconProfile,
+} from "./TabsIcon/TabsIcon";
 import HomeTab from "./Tabs/HomeTab";
 import ProfileTab from "./Tabs/ProfileTab";
+import CollectionTab from "./Tabs/CollectionTab";
+import ExploreTab from "./Tabs/ExploreTab";
+import DiamondTab from "./Tabs/DiamondTab";
 
-StatusBar.setBarStyle("dark-content");
+const Tab = createBottomTabNavigator();
 
-const TabNavigator = () => {
-  const _renderIcon = (routeName: string, selectedTab: string) => {
-    let icon = icons.home;
-
-    switch (routeName) {
-      case "Beranda":
-        icon = icons.home;
-
-        break;
-      case "Eksplor":
-        icon = icons.explore;
-
-        break;
-      case "Berlian":
-        icon = icons.diamond;
-
-        break;
-      case "Profil":
-        icon = icons.user;
-
-        break;
-    }
-
-    return (
+const CustomTabBarButton = ({ children, onPress }: any) => {
+  const isFocused = useIsFocused();
+  return (
+    <TouchableOpacity
+      style={{
+        top: isTablet() ? -20 : -25,
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+      onPress={onPress}
+    >
       <View
         style={{
-          alignItems: "center",
-          borderBottomColor:
-            selectedTab === routeName ? color.primary500 : "white",
-          borderBottomWidth: 2,
-          paddingBottom: 5,
+          width: 68,
+          height: 68,
+          borderRadius: 68 / 2,
+          backgroundColor: !isFocused ? colors.primary400 : colors.primary500,
+          borderWidth: 3,
+          borderColor: !isFocused ? colors.primary500 : colors.primary400,
         }}
       >
-        <Image
-          source={icon}
-          resizeMode="contain"
-          style={{
-            //top: 5,
-            width: 25,
-            height: 25,
-
-            tintColor:
-              selectedTab === routeName ? color.primary500 : color.neutral400,
-          }}
-        />
-        <Space height={5} />
-
-        <Text
-          style={{
-            color:
-              selectedTab === routeName ? color.primary500 : color.neutral400,
-            fontWeight: selectedTab === routeName ? "bold" : "500",
-            fontSize: 12,
-            fontFamily: "Inter",
-          }}
-        >
-          {routeName}
-        </Text>
+        {children}
       </View>
-    );
-  };
+    </TouchableOpacity>
+  );
+};
+
+const TabNavigator = () => {
+  // const userData = useSelector(
+  //   (state: StoreStateType) => state.persist.userData,
+  // );
 
   return (
-    <View style={styles.container}>
-      <CurvedBottomBar.Navigator
-        style={{
+    <Tab.Navigator
+      initialRouteName="Home"
+      screenOptions={{
+        tabBarStyle: {
+          borderTopWidth: 0,
+          shadowColor: "#000",
+          shadowOffset: {
+            width: 0,
+            height: 2,
+          },
+          shadowOpacity: 0.25,
+          shadowRadius: 3.84,
           marginHorizontal: 0,
+
+          elevation: 5,
+        },
+        tabBarShowLabel: isTablet() ? false : true,
+      }}
+    >
+      <Tab.Screen
+        name="Home"
+        component={HomeTab}
+        options={{
+          tabBarHideOnKeyboard: true,
+          headerShown: false,
+
+          tabBarLabel: ({ focused }) => <TitleHome focused={focused} />,
+          tabBarIcon: ({ focused }) => <IconHome focused={focused} />,
         }}
-        type={"DOWN"}
-        height={100}
-        circleWidth={60}
-        bgColor="white"
-        strokeColor={color.neutral400}
-        strokeWidth={0.5}
-        //borderTopLeftRight={true}
-        initialRouteName="Beranda"
-        renderCircle={({ navigate, routeName, selectedTab }: any) => (
-          <TouchableOpacity
-            style={[
-              styles.btnCircle,
-              {
-                backgroundColor:
-                  selectedTab === routeName
-                    ? color.primary500
-                    : color.primary400,
-                borderColor:
-                  selectedTab === routeName
-                    ? color.primary400
-                    : color.primary500,
-              },
-            ]}
-            onPress={() => navigate(routeName)}
-          >
+      />
+      <Tab.Screen
+        name="Explore"
+        component={ExploreTab}
+        options={{
+          tabBarHideOnKeyboard: true,
+          headerShown: false,
+
+          tabBarLabel: ({ focused }) => <TitleExplore focused={focused} />,
+          tabBarIcon: ({ focused }) => <IconExplore focused={focused} />,
+        }}
+      />
+      <Tab.Screen
+        name="Collection"
+        component={CollectionTab}
+        // listeners={({ navigation }) => ({
+        //   tabPress: e => {
+        //     e.preventDefault();
+
+        //     if (userData?.data?.data?.is_guest === 0) {
+        //       navigation.navigate("Collection");
+        //     } else {
+        //       navigation.navigate("LoginScreen", {
+        //         case: "NoLogin",
+        //         from: "Home",
+        //       });
+        //     }
+        //   },
+        // })}
+        options={() => ({
+          tabBarHideOnKeyboard: true,
+          headerShown: false,
+          tabBarLabel: "",
+          tabBarIcon: ({ focused }) => (
             <Image
-              source={
-                selectedTab === routeName ? icons.bookOpen : icons.bookBookmark
-              }
-              resizeMode="contain"
+              source={focused ? icons.bookOpen : icons.bookBookmark}
+              resizeMode="cover"
               style={{
-                tintColor: "white",
+                top: isTablet() ? scaledVertical(-2) : scale(5),
                 width: 30,
                 height: 30,
+                tintColor: colors.neutral50,
               }}
             />
-          </TouchableOpacity>
-        )}
-        tabBar={({ routeName, selectedTab, navigate }: any) => {
-          return (
-            <TouchableOpacity
-              onPress={() => navigate(routeName)}
-              style={{
-                flex: 1,
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              {_renderIcon(routeName, selectedTab)}
-            </TouchableOpacity>
-          );
+          ),
+
+          tabBarButton: props => (
+            <CustomTabBarButton
+              children={props.children}
+              onPress={props.onPress}
+            />
+          ),
+        })}
+      />
+      <Tab.Screen
+        name="Wallet"
+        component={DiamondTab}
+        // listeners={({ navigation }) => ({
+        //   tabPress: e => {
+        //     e.preventDefault();
+
+        //     if (userData?.data?.data?.is_guest === 0) {
+        //       navigation.navigate("Wallet");
+        //     } else {
+        //       navigation.navigate("LoginScreen", {
+        //         case: "NoLogin",
+        //         from: "Home",
+        //       });
+        //     }
+        //   },
+        // })}
+        options={{
+          tabBarHideOnKeyboard: true,
+          headerShown: false,
+          tabBarLabel: ({ focused }) => <TitleDiamond focused={focused} />,
+          tabBarIcon: ({ focused }) => <IconDiamond focused={focused} />,
         }}
-      >
-        <CurvedBottomBar.Screen
-          name="Beranda"
-          position="LEFT"
-          component={HomeTab}
-          options={{
-            tabBarHideOnKeyboard: true,
-            headerShown: false,
-          }}
-        />
-        <CurvedBottomBar.Screen
-          name="Eksplor"
-          component={ExploreTab}
-          position="LEFT"
-          options={{
-            tabBarHideOnKeyboard: true,
-            headerShown: false,
-          }}
-        />
-        <CurvedBottomBar.Screen
-          name="Collection"
-          position="CENTER"
-          component={CollectionTab}
-          options={{
-            tabBarHideOnKeyboard: true,
-            headerShown: false,
-          }}
-        />
-        <CurvedBottomBar.Screen
-          name="Berlian"
-          component={DiamondTab}
-          position="RIGHT"
-          options={{
-            tabBarHideOnKeyboard: true,
-            headerShown: false,
-          }}
-        />
-        <CurvedBottomBar.Screen
-          name="Profil"
-          component={ProfileTab}
-          position="RIGHT"
-          options={{
-            tabBarHideOnKeyboard: true,
-            headerShown: false,
-          }}
-        />
-      </CurvedBottomBar.Navigator>
-    </View>
+      />
+      <Tab.Screen
+        name="Profile"
+        component={ProfileTab}
+        options={{
+          tabBarHideOnKeyboard: true,
+          headerShown: false,
+          tabBarLabel: ({ focused }) => <TitleProfile focused={focused} />,
+          tabBarIcon: ({ focused }) => <IconProfile focused={focused} />,
+        }}
+      />
+    </Tab.Navigator>
   );
 };
 
 export default TabNavigator;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  btnCircle: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    alignItems: "center",
-    justifyContent: "center",
-
-    borderWidth: 4,
-    // shadowColor: "#000",
-    // shadowOffset: {
-    //   width: 0,
-    //   height: 2,
-    // },
-    // shadowOpacity: 0.25,
-    // shadowRadius: 3.84,
-    // marginHorizontal: 0,
-
-    // elevation: 5,
-    bottom: 15,
-  },
-  // btnCircleUp: {
-  //   width: 60,
-  //   height: 60,
-  //   borderRadius: 30,
-  //   alignItems: "center",
-  //   justifyContent: "center",
-  //   backgroundColor: "#E8E8E8",
-  //   bottom: 12,
-  //   shadowColor: "#000",
-  //   shadowOffset: {
-  //     width: 0,
-  //     height: 1,
-  //   },
-  //   shadowOpacity: 0.2,
-  //   shadowRadius: 1.41,
-  //   elevation: 1,
-  // },
-  // imgCircle: {
-  //   width: 30,
-  //   height: 30,
-  //   tintColor: "#48CEF6",
-  // },
-  // img: {
-  //   width: 30,
-  //   height: 30,
-  // },
-});

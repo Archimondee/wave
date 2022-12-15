@@ -12,28 +12,23 @@ export class IconHome extends PureComponent<Props> {
   render() {
     const { focused } = this.props;
 
-    return (
-      <Image
-        source={icons.logo.appColor}
-        style={[styles(focused).icon, { height: 35, width: 35 }]}
-      />
-    );
+    return <Image source={icons.home} style={[styles(focused).icon]} />;
   }
 }
 
-export class IconCategory extends PureComponent<Props> {
+export class IconExplore extends PureComponent<Props> {
   render() {
     const { focused } = this.props;
 
-    return <Image source={icons.logo.appColor} style={styles(focused).icon} />;
+    return <Image source={icons.explore} style={styles(focused).icon} />;
   }
 }
 
-export class IconWishlist extends PureComponent<Props> {
+export class IconDiamond extends PureComponent<Props> {
   render() {
     const { focused } = this.props;
 
-    return <Image source={icons.logo.appColor} style={styles(focused).icon} />;
+    return <Image source={icons.diamond} style={styles(focused).icon} />;
   }
 }
 
@@ -41,6 +36,6 @@ export class IconProfile extends PureComponent<Props> {
   render() {
     const { focused } = this.props;
 
-    return <Image source={icons.logo.appColor} style={styles(focused).icon} />;
+    return <Image source={icons.user} style={styles(focused).icon} />;
   }
 }
