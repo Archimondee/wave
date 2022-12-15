@@ -119,7 +119,7 @@ const NovelScreen = () => {
     },
   ];
 
-  const detailNovel = {
+  const detailNovel: any = {
     data: {
       data: {
         id: 1,

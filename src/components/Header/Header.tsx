@@ -299,6 +299,7 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     paddingHorizontal: 10,
     borderStyle: "solid",
-    marginHorizontal: scaledHorizontal(16),
+    marginHorizontal: scaledHorizontal(20),
+    marginBottom: scaledVertical(30),
   },
 });

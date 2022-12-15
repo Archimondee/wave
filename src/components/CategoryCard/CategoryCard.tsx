@@ -1,12 +1,12 @@
-import { Text } from "components";
 import colors from "configs/colors";
 import React from "react";
 import { Image, TouchableOpacity } from "react-native";
-// import { useDispatch } from "react-redux";
-// import NavigationService from "utils/NavigationService";
+//import { useDispatch } from "react-redux";
+//import NavigationService from "utils/NavigationService";
 import { scaledHorizontal } from "utils/ScaledService";
 
-// import { selectedCategory } from "../../store/persist/actions";
+import Text from "../Text/Text";
+//import { selectedCategory } from "../../store/persist/actions";
 
 import styles from "./styles";
 
@@ -25,15 +25,15 @@ const CategoryCard = ({
   index,
   dataLength,
   type,
-}: // id,
+}: //id,
 CategoryCardProps) => {
-  // const dispatch: any = useDispatch();
+  //const dispatch: any = useDispatch();
   return (
     <TouchableOpacity
-      onPress={() => {
-        // dispatch(selectedCategory(id || 0));
-        // NavigationService.navigate("Category");
-      }}
+      // onPress={() => {
+      //   //dispatch(selectedCategory(id || 0));
+      //   //NavigationService.navigate("Category");
+      // }}
       key={index}
       style={[
         styles.container,

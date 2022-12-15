@@ -1,3 +1,5 @@
+import ImageCache from "react-native-fast-image";
+
 import Button from "./Button/Button";
 import CategoryCard from "./CategoryCard/CategoryCard";
 import Countdown from "./Countdown/Countdown";
@@ -30,6 +32,10 @@ import VoucherModal from "./VoucherModal/VoucherModal";
 import VoucherList from "./VoucherList/VoucherList";
 import ListPrizeDay from "./ListPrizeDay/ListPrizeDay";
 import HeaderNovel from "./HeaderNovel/HeaderNovel";
+import NovelGrid from "./NovelGrid/NovelGrid";
+import CarouselInfinite from "./CarouselInfinite/CarouselInfinite";
+import Book from "./Book/Book";
+import VerticalBook from "./VerticalBook/VerticalBook";
 import TopDetailNovel from "./TopDetailNovel/TopDetailNovel";
 
 export {
@@ -68,4 +74,9 @@ export {
   VoucherList,
   ListPrizeDay,
   HeaderNovel,
+  ImageCache,
+  NovelGrid,
+  CarouselInfinite,
+  Book,
+  VerticalBook,
 };
