@@ -4,7 +4,6 @@ import Modal from "react-native-modal";
 import color from "configs/colors";
 import {
   // Section,
-  Text,
   Header,
   // HorizontalList,
   VerticalList,
@@ -15,9 +14,8 @@ import {
   SortModal,
   HorizontalList,
   Book,
+  VerticalBook,
 } from "components";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import NavigationService from "utils/NavigationService";
 import type { NovelType } from "types/NovelTypes";
 
 import { dataContents } from "../../assets/fake/contents";
@@ -98,13 +96,6 @@ const SearchScreen = () => {
     { data: "Sherlock Holmes" },
   ];
 
-  const searchResult = [
-    { data: "Book 1" },
-    { data: "Book 2" },
-    { data: "Book 3" },
-    { data: "Book 4" },
-  ];
-
   const dataSorting = [
     {
       id: 1,
@@ -146,6 +137,16 @@ const SearchScreen = () => {
         onSubmit={onSubmit}
         onDeleteInput={onDeleteInput}
       />
+      {isSearch && (
+        <View style={{ paddingHorizontal: 16 }}>
+          <Sort
+            bookTotal={dataContents[4].novels.length}
+            selected={selected}
+            onPress={() => setShowSort(true)}
+          />
+        </View>
+      )}
+      <Space height={10} />
       <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
         {!isSearch ? (
           <View>
@@ -186,29 +187,23 @@ const SearchScreen = () => {
             />
           </View>
         ) : (
-          <View style={{ paddingHorizontal: 16 }}>
-            <Space height={24} />
-            <Sort
-              bookTotal={searchResult.length}
-              selected={selected}
-              onPress={() => setShowSort(true)}
-            />
-            <Space height={24} />
-            <VerticalList
-              listKey="dataFuture"
-              data={searchResult}
-              keyExtractor={item => item.data}
-              renderItem={({ item, index }: { item: any; index: any }) => (
-                <View key={index}>
-                  <TouchableOpacity
-                    onPress={() => NavigationService.navigate("NovelScreen")}
-                  >
-                    <Text> {item.data}</Text>
-                  </TouchableOpacity>
-                </View>
-              )}
-              isShowVerticalIndicator={false}
-            />
+          <>
+            <View style={{ paddingHorizontal: 4 }}>
+              <VerticalList
+                data={dataContents[4].novels}
+                keyExtractor={item => item?.id}
+                //listEmptyComponent={<HomeBookListVerticalSkeleton />}
+                renderItem={({ item }: { item: NovelType; index: any }) => (
+                  <VerticalBook
+                    key={item?.novel_title}
+                    item={item}
+                    type={"rating"}
+                    novelType="incoming"
+                  />
+                )}
+                isShowVerticalIndicator={false}
+              />
+            </View>
             <Modal
               animationIn="slideInUp"
               animationOut="slideOutDown"
@@ -230,7 +225,7 @@ const SearchScreen = () => {
                 }}
               />
             </Modal>
-          </View>
+          </>
         )}
       </ScrollView>
     </SafeAreaView>
