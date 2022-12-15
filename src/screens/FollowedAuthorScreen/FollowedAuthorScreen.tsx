@@ -95,7 +95,13 @@ const FollowedAuthorScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header title="Penulis Yang Diikuti" titleOn="left" withBackIcon />
+      <Header
+        withSearchBar
+        withBackIcon
+        title="Penulis Yang Diikuti"
+        titleOn="left"
+        placeholder="Cari Penulis"
+      />
       <View style={{ paddingHorizontal: 16, backgroundColor: color.neutral50 }}>
         <Space height={20} />
         <Text type="bold" size={14} color={color.neutral300}>
