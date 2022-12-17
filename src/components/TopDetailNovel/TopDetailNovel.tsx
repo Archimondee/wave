@@ -12,12 +12,14 @@ interface TopDetailNovelProps {
   data: NovelType;
   isLoading: boolean;
   onPressCover?: (e: any) => void;
+  onPressAuthor?: () => void;
 }
 
 const TopDetailNovel = ({
   data,
   isLoading,
   onPressCover,
+  onPressAuthor,
 }: TopDetailNovelProps) => {
   return (
     <View style={{ flexDirection: "row" }}>
@@ -66,9 +68,11 @@ const TopDetailNovel = ({
               {data?.novel_title}
             </Text>
             <View style={{ marginTop: scaledVertical(20) }}>
-              <Text size={14} color={colors.secondary500} numberOfLines={3}>
-                {data?.author?.username ?? "-"}
-              </Text>
+              <TouchableOpacity onPress={onPressAuthor}>
+                <Text size={14} color={colors.secondary500} numberOfLines={3}>
+                  {data?.author?.username ?? "-"}
+                </Text>
+              </TouchableOpacity>
               <Text
                 size={12}
                 color={colors.neutral400}

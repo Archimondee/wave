@@ -184,6 +184,9 @@ const NovelScreen = () => {
             data={detailNovel.data.data}
             isLoading={isLoading}
             onPressCover={() => setModalCover(true)}
+            onPressAuthor={() =>
+              NavigationService.navigate("AuthorProfileScreen")
+            }
           />
         </View>
         <View style={{ paddingHorizontal: scaledHorizontal(16) }}>

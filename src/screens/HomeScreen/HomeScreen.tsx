@@ -90,6 +90,7 @@ const HomeScreen = () => {
                     item={item}
                     index={index}
                     dataLength={content.novels.length}
+                    onPress={() => NavigationService.navigate("NovelScreen")}
                   />
                 )}
                 //listEmptyComponent={<HomeBookListSmallSkeleton type="small" />}
@@ -119,6 +120,7 @@ const HomeScreen = () => {
                     item={item}
                     index={index}
                     dataLength={content.novels.length}
+                    onPress={() => NavigationService.navigate("NovelScreen")}
                   />
                 )}
                 isShowVerticalIndicator={false}

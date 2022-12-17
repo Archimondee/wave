@@ -96,6 +96,7 @@ const icons = {
   time: require("../assets/icons/time.png"),
   switchOn: require("../assets/icons/switchOn.png"),
   switchOff: require("../assets/icons/switchOff.png"),
+  plus: require("../assets/icons/plus.png"),
 };
 
 export default icons;
