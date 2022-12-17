@@ -37,6 +37,7 @@ import CarouselInfinite from "./CarouselInfinite/CarouselInfinite";
 import Book from "./Book/Book";
 import VerticalBook from "./VerticalBook/VerticalBook";
 import TopDetailNovel from "./TopDetailNovel/TopDetailNovel";
+import HorizontalTabList from "./HorizontalTabList/HorizontalTabList";
 
 export {
   Button,
@@ -79,4 +80,5 @@ export {
   CarouselInfinite,
   Book,
   VerticalBook,
+  HorizontalTabList,
 };
