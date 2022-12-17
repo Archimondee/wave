@@ -16,9 +16,12 @@ import "../../i18n";
 import { Button, Input, Space, Text } from "components";
 import NavigationService from "utils/NavigationService";
 // import globalStyles from "utils/GlobalStyles";
+// eslint-disable-next-line import/order
 import colors from "configs/colors";
 
 // import { scaledVertical } from "utils/ScaledService";
+import { scale } from "utils/Responsive";
+
 import styles from "./LoginScreenStyles";
 
 const LoginScreen = () => {
@@ -139,6 +142,12 @@ const LoginScreen = () => {
         />
         <Space height={30} />
         <Button
+          iconStyle={{
+            width: scale(18),
+            height: scale(18),
+            tintColor: undefined,
+          }}
+          icon={images.google}
           type={"light"}
           title="Masuk dengan akun google"
           onPress={() => NavigationService.navigate("TabNavigator")}

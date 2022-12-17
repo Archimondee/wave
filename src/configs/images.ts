@@ -56,6 +56,7 @@ const images = {
   followedBy2: require("../assets/images/followedBy2.png"),
   followedBy3: require("../assets/images/followedBy3.png"),
   authorProfilePict: require("../assets/images/authorProfilePict.png"),
+  google: require("../assets/images/google.png"),
 };
 
 export default images;
