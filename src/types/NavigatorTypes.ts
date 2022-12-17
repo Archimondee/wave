@@ -32,6 +32,7 @@ export type RootStackParamList = {
   SearchScreen: undefined;
   NotificationScreen: undefined;
   AuthorProfileScreen: undefined;
+  ConfirmBuyNovelScreen: undefined;
 };
 
 export type RootType =
@@ -59,4 +60,5 @@ export type RootType =
   | "ReadNovelScreen"
   | "SearchScreen"
   | "NotificationScreen"
-  | "AuthorProfileScreen";
+  | "AuthorProfileScreen"
+  | "ConfirmBuyNovelScreen";

@@ -27,6 +27,7 @@ import ReadNovelScreen from "screens/ReadNovelScreen/ReadNovelScreen";
 import SearchScreen from "screens/SearchScreen/SearchScreen";
 import NotificationScreen from "screens/NotificationScreen/NotificationScreen";
 import AuthorProfileScreen from "screens/AuthorProfileScreen/AuthorProfileScreen";
+import ConfirmBuyNovelScreen from "screens/ConfirmBuyNovelScreen/ConfirmBuyNovelScreen";
 
 import TabNavigator from "./TabNavigator";
 
@@ -171,6 +172,11 @@ const MainNavigator = () => {
       <Main.Screen
         name="SelectChapterScreen"
         component={SelectChapterScreen}
+        options={{ headerShown: false, gestureEnabled: false }}
+      />
+      <Main.Screen
+        name="ConfirmBuyNovelScreen"
+        component={ConfirmBuyNovelScreen}
         options={{ headerShown: false, gestureEnabled: false }}
       />
       <Main.Screen

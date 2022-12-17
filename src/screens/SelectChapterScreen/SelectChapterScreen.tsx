@@ -175,6 +175,7 @@ const SelectChapterScreen = () => {
             icon={images.diamond}
             title="Buka semua bab 50 Berlian"
             style={{ flex: 1, minHeight: 42 }}
+            onPress={() => NavigationService.navigate("ConfirmBuyNovelScreen")}
           />
         )}
       </View>
