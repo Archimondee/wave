@@ -17,6 +17,7 @@ import {
   VerticalBook,
 } from "components";
 import type { NovelType } from "types/NovelTypes";
+import NavigationService from "utils/NavigationService";
 
 import { dataContents } from "../../assets/fake/contents";
 
@@ -181,6 +182,7 @@ const SearchScreen = () => {
                   item={item}
                   index={index}
                   dataLength={dataContents[0].novels}
+                  onPress={() => NavigationService.navigate("NovelScreen")}
                 />
               )}
               isShowVerticalIndicator={false}

@@ -86,7 +86,7 @@ VerticalBookProps) => {
             //   freebies_id: freebiesId,
             //   updated_at: updated_at,
             // });
-            NavigationService.navigate("NovelScreen");
+            NavigationService.push("NovelScreen");
           });
       }}
     >

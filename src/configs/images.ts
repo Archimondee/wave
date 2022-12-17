@@ -52,6 +52,10 @@ const images = {
   exampleBook: require("../assets/images/example-book.png"),
   notification: require("../assets/images/notification.png"),
   profilePicture: require("../assets/images/profile-picture.png"),
+  followedBy1: require("../assets/images/followedBy1.png"),
+  followedBy2: require("../assets/images/followedBy2.png"),
+  followedBy3: require("../assets/images/followedBy3.png"),
+  authorProfilePict: require("../assets/images/authorProfilePict.png"),
 };
 
 export default images;

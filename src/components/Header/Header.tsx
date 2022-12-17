@@ -87,7 +87,7 @@ const HeaderCustom = ({
                   width: scaledHorizontal(40),
                 }}
                 tintColor={
-                  color === colors.secondary500 || color === "black"
+                  color === colors.primary500 || color === "black"
                     ? colors.neutral50
                     : "black"
                 }
@@ -120,7 +120,7 @@ const HeaderCustom = ({
           >
             <Text
               color={
-                color === "black" || color === colors.secondary500
+                color === "black" || color === colors.primary500
                   ? "white"
                   : colors.neutral500
               }
@@ -272,7 +272,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     paddingHorizontal: scaledHorizontal(16),
-    marginTop:
+    marginBottom:
       Platform.OS === "android" ? scaledVertical(20) : scaledVertical(10),
   },
   textStyle: {

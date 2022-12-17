@@ -5,6 +5,7 @@ import color from "configs/colors";
 import images from "configs/images";
 import icons from "configs/icons";
 import { FlatList } from "react-native-gesture-handler";
+import NavigationService from "utils/NavigationService";
 
 import styles from "./FollowedAuthorScreenStyles";
 
@@ -45,6 +46,7 @@ const FollowedAuthorScreen = () => {
             justifyContent: "space-between",
             marginVertical: 12,
           }}
+          onPress={() => NavigationService.navigate("AuthorProfileScreen")}
         >
           <View
             style={{
@@ -85,6 +87,8 @@ const FollowedAuthorScreen = () => {
                 style={{ width: 97, borderRadius: 15 }}
                 type={"dark"}
                 title={"Ikuti"}
+                iconStyle={{ width: 14, height: 14 }}
+                icon={icons.plus}
               />
             </View>
           )}
