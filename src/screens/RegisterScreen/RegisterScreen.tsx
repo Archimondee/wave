@@ -207,7 +207,7 @@ const RegisterScreen = () => {
         <Button
           // buttonColor={colors.primary500}
           type={"light"}
-          title="Daftar lewat email"
+          title={!useEmail ? "Daftar lewat email" : "Daftar lewat nomor telepon"}
           onPress={() => setUseEmail(!useEmail)}
         />
         <Space height={30} />
