@@ -60,7 +60,7 @@ const ExploreScreen = () => {
   return (
     <>
       <View style={globalStyles().topSafeArea}>
-        <Header withSearchBar />
+        <Header withSearchBar placeholder="Cari novel" />
         <HorizontalTabList
           item={tabList}
           selectedTab={selectedTab}
