@@ -47,7 +47,7 @@ const SelectChapterScreen = () => {
             }}
           >
             <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Text size={scale(10)} type="bold">
+              <Text size={scale(10)} type="semibold">
                 Yah berlianmu kurang
               </Text>
               <Space width={8} />
@@ -56,7 +56,7 @@ const SelectChapterScreen = () => {
                 style={{ width: 24, height: 24 }}
               />
               <Space width={4} />
-              <Text size={scale(10)} type="bold">
+              <Text size={scale(10)} type="semibold">
                 35
               </Text>
             </View>
