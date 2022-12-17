@@ -296,6 +296,7 @@ export default OtpScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: colors.neutral50,
   },
   boxContainer: {
     height: height(100),
