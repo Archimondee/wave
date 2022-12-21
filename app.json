@@ -1,4 +1,10 @@
 {
   "name": "Wave",
-  "displayName": "Wave"
+  "displayName": "Wave",
+  "expo": {
+    "ios": {
+      "googleServicesFile": "./GoogleService-Info.plist"
+    },
+    "plugins": ["@react-native-google-signin/google-signin"]
+  }
 }

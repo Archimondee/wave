@@ -7,6 +7,7 @@ import Comment from "./Comment/Comment";
 import DiamondCard from "./DiamondCard/DiamondCard";
 import DiamondList from "./DiamondList/DiamondList";
 import FastImageBackground from "./FastImageBackground/FastImageBackground";
+import GoogleButton from "./GoogleButton/GoogleButton";
 import Header from "./Header/Header";
 import Input from "./Input/Input";
 import LastSearchComponent from "./LastSearchComponent/LastSearchComponent";
@@ -49,6 +50,7 @@ export {
   StarRating,
   StarRatingWidget,
   FastImageBackground,
+  GoogleButton,
   Header,
   Text,
   TextInput,

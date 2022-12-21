@@ -13,21 +13,21 @@ import {
 import { useForm, Controller } from "react-hook-form";
 import "../../i18n";
 
-import { Button, Input, Space, Text } from "components";
+import { Button, GoogleButton, Input, Space, Text } from "components";
 import NavigationService from "utils/NavigationService";
 // import globalStyles from "utils/GlobalStyles";
 // eslint-disable-next-line import/order
 import colors from "configs/colors";
 
 // import { scaledVertical } from "utils/ScaledService";
-import { scale } from "utils/Responsive";
+// import { scale } from "utils/Responsive";
 
 import styles from "./LoginScreenStyles";
 
 const LoginScreen = () => {
   const {
     control,
-    // handleSubmit,
+    handleSubmit,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -36,9 +36,10 @@ const LoginScreen = () => {
     },
   });
 
-  // const onSubmit = (data: any) => {
-  //   // console.warn(data);
-  // };
+  const onSubmit = (data: any) => {
+    window.console.log(data);
+    NavigationService.navigate("TabNavigator");
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -136,22 +137,10 @@ const LoginScreen = () => {
           // buttonColor={colors.primary500}
           type={"dark"}
           title="Masuk"
-          onPress={() => {
-            NavigationService.navigate("OtpScreen");
-          }}
+          onPress={handleSubmit(onSubmit)}
         />
         <Space height={30} />
-        <Button
-          iconStyle={{
-            width: scale(18),
-            height: scale(18),
-            tintColor: undefined,
-          }}
-          icon={images.google}
-          type={"light"}
-          title="Masuk dengan akun google"
-          onPress={() => NavigationService.navigate("TabNavigator")}
-        />
+        <GoogleButton />
         <View style={styles.wrapFooter}>
           <Text size={14} color={colors.neutral400}>
             Belum Punya Akun?
