@@ -72,7 +72,7 @@ const ProfileScreen = () => {
 
   return (
     <View style={styles.container}>
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <ImageBackground
           source={images.profileBackground}
           style={{ height: scale(287), paddingTop: scale(114) }}

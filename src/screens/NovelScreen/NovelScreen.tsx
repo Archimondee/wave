@@ -176,7 +176,10 @@ const NovelScreen = () => {
 
   return (
     <>
-      <ScrollView style={{ backgroundColor: colors.neutral50 }}>
+      <ScrollView
+        style={{ backgroundColor: colors.neutral50 }}
+        showsVerticalScrollIndicator={false}
+      >
         <StatusBar barStyle={"light-content"} />
         <HeaderNovel top={top} image={images.exampleBook} />
         <View style={styles.containerTop}>

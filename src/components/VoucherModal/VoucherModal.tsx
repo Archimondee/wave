@@ -98,6 +98,7 @@ const VoucherModal = ({
         style={{
           flex: 1,
         }}
+        showsVerticalScrollIndicator={false}
       >
         <VerticalList
           //key={indexDate}

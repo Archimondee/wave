@@ -33,7 +33,10 @@ const PaymentConfirmScreen = () => {
   return (
     <View style={globalStyles(color.neutral100).topSafeArea}>
       <Header title="Top Up Berlian" titleOn="left" withBackIcon />
-      <ScrollView style={{ flex: 1, paddingHorizontal: scaledHorizontal(20) }}>
+      <ScrollView
+        style={{ flex: 1, paddingHorizontal: scaledHorizontal(20) }}
+        showsVerticalScrollIndicator={false}
+      >
         <Space height={20} />
         <View style={styles.container}>
           <Text color={color.neutral500} size={16} type={"bold"}>

@@ -29,7 +29,8 @@ const author = {
   name: "M.R Anggara",
   image: images.authorProfilePict,
   // eslint-disable-next-line max-len
-  bio: "Seorang desainer freelance yang hobi menulis. Saya banyak menulis tentang puisi, cerita romantis dan cerita yang terinspirasi dari pengalaman pribadi yang dipermanis",
+  bio:
+    "Seorang desainer freelance yang hobi menulis. Saya banyak menulis tentang puisi, cerita romantis dan cerita yang terinspirasi dari pengalaman pribadi yang dipermanis",
 };
 const followedBy = [
   { id: 1, name: "Kevin.anggara", images: images.followedBy1 },
@@ -43,7 +44,10 @@ const AuthorProfileScreen = () => {
   const [showAll, setShowAll] = useState(false);
 
   return (
-    <ScrollView style={{ backgroundColor: colors.neutral100 }}>
+    <ScrollView
+      style={{ backgroundColor: colors.neutral100 }}
+      showsVerticalScrollIndicator={false}
+    >
       <View
         style={[
           globalStyles().topSafeArea,
