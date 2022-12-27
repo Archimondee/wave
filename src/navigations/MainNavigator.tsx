@@ -87,121 +87,121 @@ const MainNavigator = () => {
       <Main.Screen
         name="TabNavigator"
         component={TabNavigator}
-        options={{ headerShown: false, gestureEnabled: false }}
+        options={{ headerShown: false }}
       />
       <Main.Screen
         name="LoginScreen"
         component={LoginScreen}
-        options={{ headerShown: false, gestureEnabled: false }}
+        options={{ headerShown: false }}
       />
       <Main.Screen
         name="RegisterScreen"
         component={RegisterScreen}
-        options={{ headerShown: false, gestureEnabled: false }}
+        options={{ headerShown: false }}
       />
       <Main.Screen
         name="OtpScreen"
         component={OtpScreen}
-        options={{ headerShown: false, gestureEnabled: false }}
+        options={{ headerShown: false }}
       />
       <Main.Screen
         name="ForgotPasswordScreen"
         component={ForgotPasswordScreen}
-        options={{ headerShown: false, gestureEnabled: false }}
+        options={{ headerShown: false }}
       />
       <Main.Screen
         name="ChangePasswordScreen"
         component={ChangePasswordScreen}
-        options={{ headerShown: false, gestureEnabled: false }}
+        options={{ headerShown: false }}
       />
       <Main.Screen
         name="EmailVerifyScreen"
         component={EmailVerifyScreen}
-        options={{ headerShown: false, gestureEnabled: false }}
+        options={{ headerShown: false }}
       />
       <Main.Screen
         name="TopupScreen"
         component={TopupScreen}
-        options={{ headerShown: false, gestureEnabled: false }}
+        options={{ headerShown: false }}
       />
       <Main.Screen
         name="PaymentConfirmScreen"
         component={PaymentConfirmScreen}
-        options={{ headerShown: false, gestureEnabled: false }}
+        options={{ headerShown: false }}
       />
       <Main.Screen
         name="VoucherScreen"
         component={VoucherScreen}
-        options={{ headerShown: false, gestureEnabled: false }}
+        options={{ headerShown: false }}
       />
       <Main.Screen
         name="EditProfileScreen"
         component={EditProfileScreen}
-        options={{ headerShown: false, gestureEnabled: false }}
+        options={{ headerShown: false }}
       />
       <Main.Screen
         name="FollowedAuthorScreen"
         component={FollowedAuthorScreen}
-        options={{ headerShown: false, gestureEnabled: false }}
+        options={{ headerShown: false }}
       />
       <Main.Screen
         name="ProfileChangePasswordScreen"
         component={ProfileChangePasswordScreen}
-        options={{ headerShown: false, gestureEnabled: false }}
+        options={{ headerShown: false }}
       />
       <Main.Screen
         name="SettingScreen"
         component={SettingScreen}
-        options={{ headerShown: false, gestureEnabled: false }}
+        options={{ headerShown: false }}
       />
       <Main.Screen
         name="PrivacyPolicyScreen"
         component={PrivacyPolicyScreen}
-        options={{ headerShown: false, gestureEnabled: false }}
+        options={{ headerShown: false }}
       />
       <Main.Screen
         name="NovelScreen"
         component={NovelScreen}
-        options={{ headerShown: false, gestureEnabled: false }}
+        options={{ headerShown: false }}
       />
       <Main.Screen
         name="ReviewScreen"
         component={ReviewScreen}
-        options={{ headerShown: false, gestureEnabled: false }}
+        options={{ headerShown: false }}
       />
       <Main.Screen
         name="SelectChapterScreen"
         component={SelectChapterScreen}
-        options={{ headerShown: false, gestureEnabled: false }}
+        options={{ headerShown: false }}
       />
       <Main.Screen
         name="ConfirmBuyNovelScreen"
         component={ConfirmBuyNovelScreen}
-        options={{ headerShown: false, gestureEnabled: false }}
+        options={{ headerShown: false }}
       />
       <Main.Screen
         name="ReadNovelScreen"
         component={ReadNovelScreen}
-        options={{ headerShown: false, gestureEnabled: false }}
+        options={{ headerShown: false }}
       />
       <Main.Screen
         name="SearchScreen"
         component={SearchScreen}
         options={{
           headerShown: false,
-          gestureEnabled: false,
+
           cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS,
         }}
       />
       <Main.Screen
         name="NotificationScreen"
         component={NotificationScreen}
-        options={{ headerShown: false, gestureEnabled: false }}
+        options={{ headerShown: false }}
       />
       <Main.Screen
         name="AuthorProfileScreen"
         component={AuthorProfileScreen}
-        options={{ headerShown: false, gestureEnabled: false }}
+        options={{ headerShown: false }}
       />
     </Main.Navigator>
   );

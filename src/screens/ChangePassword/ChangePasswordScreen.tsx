@@ -1,5 +1,11 @@
 import React from "react";
-import { StyleSheet, SafeAreaView, Image, View } from "react-native";
+import {
+  StyleSheet,
+  SafeAreaView,
+  Image,
+  View,
+  ImageBackground,
+} from "react-native";
 import { useForm, Controller } from "react-hook-form";
 import colors from "configs/colors";
 import images from "configs/images";
@@ -9,6 +15,7 @@ import { Button, Input, Space, Text } from "components";
 // import { scaledVertical } from "utils/ScaledService";
 import NavigationService from "utils/NavigationService";
 import icons from "configs/icons";
+import { scaledHorizontal, scaledVertical } from "utils/ScaledService";
 // import { useRoute } from "@react-navigation/native";
 // import { useDispatch } from "react-redux";
 
@@ -70,24 +77,26 @@ const ChangePasswordScreen = () => {
           height: 150,
         }}
       >
-        <Image
+        <ImageBackground
           source={images.ellipse}
           style={{
             width: "100%",
             height: "100%",
             top: -50,
           }}
-        />
-        <Image
-          source={icons.logo.appWhite}
-          style={{
-            position: "absolute",
-            justifyContent: "center",
-            alignItems: "center",
-            top: -20,
-            transform: [{ scale: 0.4 }],
-          }}
-        />
+        >
+          <Space height={20} />
+          <Image
+            source={icons.logo.appWhite}
+            style={{
+              height: scaledVertical(240),
+              width: scaledHorizontal(240),
+              justifyContent: "center",
+              alignSelf: "center",
+            }}
+            resizeMode={"contain"}
+          />
+        </ImageBackground>
       </View>
       <View style={styles.boxContainer}>
         <Text

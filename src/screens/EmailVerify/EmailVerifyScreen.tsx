@@ -3,9 +3,16 @@ import icons from "configs/icons";
 import images from "configs/images";
 import React, { useEffect, useState } from "react";
 import { Text, Space } from "components";
-import { View, StyleSheet, Image, SafeAreaView } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Image,
+  SafeAreaView,
+  ImageBackground,
+} from "react-native";
 import NavigationService from "utils/NavigationService";
 import { wait } from "utils/Utils";
+import { scaledHorizontal, scaledVertical } from "utils/ScaledService";
 
 const CollectionScreen = () => {
   const [verified, setVerified] = useState(false);
@@ -22,24 +29,26 @@ const CollectionScreen = () => {
           height: 150,
         }}
       >
-        <Image
+        <ImageBackground
           source={images.ellipse}
           style={{
             width: "100%",
             height: "100%",
             top: -50,
           }}
-        />
-        <Image
-          source={icons.logo.appWhite}
-          style={{
-            position: "absolute",
-            justifyContent: "center",
-            alignItems: "center",
-            top: -20,
-            transform: [{ scale: 0.4 }],
-          }}
-        />
+        >
+          <Space height={20} />
+          <Image
+            source={icons.logo.appWhite}
+            style={{
+              height: scaledVertical(240),
+              width: scaledHorizontal(240),
+              justifyContent: "center",
+              alignSelf: "center",
+            }}
+            resizeMode={"contain"}
+          />
+        </ImageBackground>
       </View>
       <View
         style={{
