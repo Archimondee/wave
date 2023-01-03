@@ -6,13 +6,17 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { userReducer } from "./user/reducers";
 import type { UserState } from "./user/types";
+import type { QueueState } from "./queue/types";
+import { queueReducer } from "./queue/reducers";
 
 export interface StoreStateType {
   user: UserState;
+  queue: QueueState;
 }
 
 const rootReducer = combineReducers({
   user: userReducer,
+  queue: queueReducer,
 });
 
 export type AppState = ReturnType<typeof rootReducer>;
@@ -20,7 +24,7 @@ export type AppState = ReturnType<typeof rootReducer>;
 const persistConfig = {
   key: "root",
   storage: AsyncStorage,
-  whitelist: ["persist"], // select reducer to persist
+  whitelist: ["persist", "user"], // select reducer to persist
 };
 const persistedReducer = pReducer(persistConfig, rootReducer);
 

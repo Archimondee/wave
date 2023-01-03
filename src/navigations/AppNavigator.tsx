@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import type { StackNavigationOptions } from "@react-navigation/stack";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -7,6 +7,12 @@ import { navigationRef } from "utils/NavigationService";
 import { Modal } from "components";
 
 import MainNavigator from "./MainNavigator";
+import { useQueue } from "hooks";
+import { useRealm } from "../realm";
+import { useDispatch } from "react-redux";
+import NetInfo from "@react-native-community/netinfo";
+import type { QueueDataType } from "types/QueueTypes";
+import { queueBackOnline } from "stores/queue/actions";
 
 const App = createStackNavigator<RootStackParamList>();
 
@@ -119,6 +125,27 @@ const halfModalBottomOptions: StackNavigationOptions = {
 };
 
 const AppNavigator = () => {
+  const queueData = useQueue();
+  const realm = useRealm();
+  const dispatch: any = useDispatch();
+
+  useEffect(() => {
+    const unsubscribe = NetInfo.addEventListener((state: any) => {
+      if (state.isConnected === true) {
+        if (queueData?.length > 0) {
+          queueData?.map(async (item: QueueDataType, index: number) => {
+            await dispatch(
+              queueBackOnline(item, index, queueData.length, realm),
+            );
+          });
+        }
+        //dispatch queue to request server & pop first queue list
+      }
+    });
+    return () => {
+      unsubscribe();
+    };
+  }, [queueData, dispatch, realm]);
   return (
     <NavigationContainer ref={navigationRef}>
       <App.Navigator screenOptions={options}>
