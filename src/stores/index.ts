@@ -8,15 +8,19 @@ import { userReducer } from "./user/reducers";
 import type { UserState } from "./user/types";
 import type { QueueState } from "./queue/types";
 import { queueReducer } from "./queue/reducers";
+import type { NovelState } from "./novel/types";
+import { novelReducer } from "./novel/reducers";
 
 export interface StoreStateType {
   user: UserState;
   queue: QueueState;
+  novel: NovelState;
 }
 
 const rootReducer = combineReducers({
   user: userReducer,
   queue: queueReducer,
+  novel: novelReducer,
 });
 
 export type AppState = ReturnType<typeof rootReducer>;

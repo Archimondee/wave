@@ -49,7 +49,7 @@ const Book = ({
       }}
     >
       <FastImageBackground
-        source={item?.novel_cover}
+        source={item?.cover_path}
         style={{
           // height: isTablet()
           //   ? type === "big"
@@ -78,7 +78,7 @@ const Book = ({
       >
         <View style={styles.leftContainer}>
           <Text
-            size={type === "small" ? 10 : 18}
+            size={type === "small" ? 10 : 14}
             type={"bold"}
             textAlign={"center"}
             color={colors.neutral50}
@@ -102,7 +102,7 @@ const Book = ({
             style={{ lineHeight: 20 }}
             type={type === "big" ? "bold" : "reguler"}
           >
-            {item?.novel_title}
+            {item?.title}
           </Text>
         </View>
 

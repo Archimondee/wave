@@ -13,23 +13,81 @@ import {
   VerticalList,
 } from "components";
 import images from "configs/images";
-import React, { useCallback, useState } from "react";
-import { View, Image, useWindowDimensions, ScrollView } from "react-native";
+import React, { useCallback, useEffect, useState } from "react";
+import {
+  View,
+  Image,
+  useWindowDimensions,
+  ScrollView,
+  BackHandler,
+  InteractionManager,
+} from "react-native";
 import Modal from "react-native-modal";
 import globalStyles from "utils/GlobalStyles";
 import { scaledHorizontal, scaledVertical } from "utils/ScaledService";
-import type { ContentType, NovelType, CategoriesType } from "types/NovelTypes";
+import type { ContentType, NovelType } from "types/NovelTypes";
 import NavigationService from "utils/NavigationService";
-
-import { dataHighlight } from "../../assets/fake/highlight";
-import { dataContents } from "../../assets/fake/contents";
-import { dataCategories } from "../../assets/fake/categories";
+//import { dataContents } from "../../assets/fake/contents";
+//import { dataCategories } from "../../assets/fake/categories";
 
 import styles from "./HomeScreenStyles";
+import { useListCategory, useListContent } from "hooks";
+import { useDispatch } from "react-redux";
+import { getCategoriesList, getContent } from "../../stores/novel/actions";
+import { wait } from "utils/Utils";
+import { useFocusEffect, useNavigationState } from "@react-navigation/core";
 
 const HomeScreen = () => {
   const [showPrize, setShowPrize] = useState(false);
+  const [isLoadingContent, setIsLoadingContent] = useState(true);
+  const [isLoadingCategory, setIsLoadingCategory] = useState(true);
   const { width } = useWindowDimensions();
+  const routes: any = useNavigationState(state => state.routes);
+
+  const dispatch: any = useDispatch();
+  const listContent = useListContent();
+  const listCategory = useListCategory();
+
+  useEffect(() => {
+    dispatch(
+      getCategoriesList(() => {
+        wait(500).then(() => {
+          setIsLoadingCategory(false);
+        });
+      }),
+    );
+    dispatch(
+      getContent(() => {
+        wait(1000).then(() => {
+          wait(500).then(() => {
+            setIsLoadingContent(false);
+          });
+        });
+      }),
+    );
+  }, [dispatch]);
+
+  const backAction = () => {
+    const currentRoute = routes[routes.length - 1].name;
+
+    if (currentRoute.includes("Tab")) {
+      BackHandler.exitApp();
+    }
+    return true;
+  };
+
+  useFocusEffect(
+    useCallback(() => {
+      const task = InteractionManager.runAfterInteractions(() => {
+        BackHandler.addEventListener("hardwareBackPress", backAction);
+      });
+
+      return () => {
+        task.cancel();
+        BackHandler.removeEventListener("hardwareBackPress", backAction);
+      };
+    }, []),
+  );
 
   const day = [
     { id: 1 },
@@ -41,20 +99,20 @@ const HomeScreen = () => {
     { id: 7 },
   ];
 
-  const restructureArray = () => {
+  const restructureArray = (dataNovel: NovelType[]) => {
     const totalList = 3;
     const totalData = 6;
     const newArray = [];
     let i = 0;
     for (i = 0; i < totalList; i++) {
       if (
-        dataHighlight.slice(
+        dataNovel.slice(
           i === 0 ? 0 : totalData * i,
           i === 0 ? 6 : totalData * (i + 1),
         ).length > 0
       ) {
         newArray.push(
-          dataHighlight.slice(
+          dataNovel.slice(
             i === 0 ? 0 : totalData * i,
             i === 0 ? 6 : totalData * (i + 1),
           ),
@@ -67,45 +125,27 @@ const HomeScreen = () => {
 
   const RenderContent = useCallback(() => {
     const component: JSX.Element[] = [];
-    if (dataContents) {
-      dataContents.map((content: ContentType) => {
+    if (listContent.length >= 0) {
+      listContent.map((content: ContentType) => {
         if (content?.type === 1) {
           component.push(
-            <View key={content?.id}>
+            <View key={content?.uuid}>
               <Title title={content?.content_name} />
-              <HorizontalList
-                listKey={content?.content_name.slice(0, 5)}
-                data={content?.novels}
-                keyExtractor={item => item?.id}
-                renderItem={({
-                  item,
-                  index,
-                }: {
-                  item: NovelType;
-                  index: any;
-                }) => (
-                  <Book
-                    contentType="popular"
-                    type="small"
-                    item={item}
-                    index={index}
-                    dataLength={content.novels.length}
-                    onPress={() => NavigationService.navigate("NovelScreen")}
-                  />
-                )}
-                //listEmptyComponent={<HomeBookListSmallSkeleton type="small" />}
-                isShowVerticalIndicator={false}
+              <CarouselInfinite
+                dataCarousel={restructureArray(content.novel)}
               />
+              <Title title="Kategori" />
+              {_renderCategory(listCategory)}
             </View>,
           );
-        } else if (content?.type === 3) {
+        } else if (content?.type === 2) {
           component.push(
-            <View key={content?.id}>
+            <View key={content?.uuid}>
               <Title title={content?.content_name} />
               <HorizontalList
                 listKey={content.content_name}
-                data={content?.novels?.slice(0, 10)}
-                keyExtractor={item => item?.id}
+                data={content?.novel?.slice(0, 10)}
+                keyExtractor={item => item?.uuid}
                 isShowHorizontalIndicator={false}
                 renderItem={({
                   item,
@@ -119,32 +159,29 @@ const HomeScreen = () => {
                     type="big"
                     item={item}
                     index={index}
-                    dataLength={content.novels.length}
+                    dataLength={content.novel.length}
                     onPress={() => NavigationService.navigate("NovelScreen")}
                   />
                 )}
                 isShowVerticalIndicator={false}
               />
-              <Title title="Chapter Baru Setiap Hari" />
-              <CarouselInfinite dataCarousel={restructureArray()} />
+
               <Space height={20} />
             </View>,
           );
-        } else if (content?.type === 2) {
+        } else if (content?.type === 3) {
           component.push(
-            <View key={content?.id} style={{}}>
-              <Title title="Kategori" />
-              {_renderCategory(dataCategories)}
-              <View key={content?.id}>
+            <View key={content?.uuid} style={{}}>
+              <View key={content?.uuid}>
                 <Title title={content?.content_name} />
                 <VerticalList
                   listKey={content.content_name}
-                  data={content?.novels}
-                  keyExtractor={item => item?.id}
+                  data={content?.novel}
+                  keyExtractor={item => item?.uuid}
                   //listEmptyComponent={<HomeBookListVerticalSkeleton />}
                   renderItem={({ item }: { item: NovelType; index: any }) => (
                     <VerticalBook
-                      key={item?.novel_title}
+                      key={item?.title}
                       item={item}
                       type="category"
                       novelType="incoming"
@@ -180,7 +217,7 @@ const HomeScreen = () => {
     }
 
     return component;
-  }, []);
+  }, [listContent, listCategory]);
 
   const _renderCategory = (data: any) => {
     const splitUp = data.length / 2;
@@ -191,14 +228,8 @@ const HomeScreen = () => {
         <HorizontalList
           listKey="dataTop"
           data={data?.slice(0, data.length)}
-          keyExtractor={item => item?.id}
-          renderItem={({
-            item,
-            index,
-          }: {
-            item: CategoriesType;
-            index: any;
-          }) => (
+          keyExtractor={item => item?.uuid}
+          renderItem={({ item, index }: { item: any; index: any }) => (
             <CategoryCard
               title={item?.category_name}
               index={index}
@@ -215,17 +246,12 @@ const HomeScreen = () => {
 
     return (
       <>
+        <Space height={10} />
         <HorizontalList
           listKey="dataTop"
           data={data?.slice(0, parseInt(endListFirst))}
-          keyExtractor={item => item?.id}
-          renderItem={({
-            item,
-            index,
-          }: {
-            item: CategoriesType;
-            index: any;
-          }) => (
+          keyExtractor={item => item?.uuid}
+          renderItem={({ item, index }: { item: any; index: any }) => (
             <CategoryCard
               title={item?.category_name}
               index={index}
@@ -241,14 +267,8 @@ const HomeScreen = () => {
         <HorizontalList
           listKey="dataTop"
           data={data?.slice(parseInt(endListFirst), data.length)}
-          keyExtractor={item => item?.id}
-          renderItem={({
-            item,
-            index,
-          }: {
-            item: CategoriesType;
-            index: any;
-          }) => (
+          keyExtractor={item => item?.uuid}
+          renderItem={({ item, index }: { item: any; index: any }) => (
             <CategoryCard
               title={item?.category_name}
               index={index}
@@ -260,6 +280,7 @@ const HomeScreen = () => {
           )}
           isShowVerticalIndicator={false}
         />
+        <Space height={10} />
       </>
     );
   };

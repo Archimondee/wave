@@ -40,7 +40,7 @@ const SortModal = ({ option, onClose, onPressOption, selected }: SortProps) => {
         </TouchableOpacity>
       </View>
       <View>
-        {option.map((item: { title: string }) => {
+        {option.map((item: { title: string; id: number }) => {
           return (
             <TouchableOpacity
               style={{
@@ -48,6 +48,7 @@ const SortModal = ({ option, onClose, onPressOption, selected }: SortProps) => {
                 alignItems: "center",
                 flexDirection: "row",
               }}
+              key={item.id}
               onPress={() => onPressOption(item.title)}
             >
               <Image

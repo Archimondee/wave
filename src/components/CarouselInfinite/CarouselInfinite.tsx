@@ -2,7 +2,8 @@
 import color from "configs/colors";
 import React from "react";
 import { View, FlatList, Animated, useWindowDimensions } from "react-native";
-import type { HighlightType } from "types/NovelTypes";
+import type { NovelType } from "types/NovelTypes";
+
 import { scaledHorizontal, widthPercentage } from "utils/ScaledService";
 
 import { VerticalList } from "../List/List";
@@ -36,7 +37,7 @@ const CarouselInfinite = ({ dataCarousel }: CarouselInfiniteProps) => {
         scrollEventThrottle={16}
         decelerationRate="fast"
         showsHorizontalScrollIndicator={false}
-        renderItem={({ item, index }: { item: any; index: number }) => {
+        renderItem={({ item, index }: { item: NovelType; index: number }) => {
           return (
             <View
               style={{
@@ -51,15 +52,15 @@ const CarouselInfinite = ({ dataCarousel }: CarouselInfiniteProps) => {
                 data={item}
                 listKey={"grid-big"}
                 numColumns={2}
-                keyExtractor={item => item?.id}
+                keyExtractor={item => item?.uuid}
                 renderItem={({
                   item,
                   index,
                 }: {
-                  item: HighlightType;
+                  item: NovelType;
                   index: number;
                 }) => {
-                  return <NovelGrid index={index} item={item.novel} />;
+                  return <NovelGrid index={index} item={item} />;
                 }}
                 isShowVerticalIndicator={false}
                 scrollEnabled={false}

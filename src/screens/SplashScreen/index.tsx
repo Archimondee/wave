@@ -10,7 +10,7 @@ const SplashScreen = () => {
   const scaleValue = useRef(new Animated.Value(1)).current;
 
   useEffect(() => {
-    wait(2000).then(() => NavigationService.navigate("LoginScreen"));
+    wait(2000).then(() => NavigationService.navigate("TabNavigator"));
   }, []);
 
   Animated.timing(spinValue, {

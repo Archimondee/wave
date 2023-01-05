@@ -1,32 +1,17 @@
-import {
-  Header,
-  HorizontalTabList,
-  VerticalList,
-  Sort,
-  VerticalBook,
-  SortModal,
-} from "components";
-import * as React from "react";
+import { Header, HorizontalTabList, Sort, SortModal } from "components";
+import React, { useRef } from "react";
 import { useState } from "react";
 import { View } from "react-native";
-import type { NovelType } from "types/NovelTypes";
 import globalStyles from "utils/GlobalStyles";
 import Modal from "react-native-modal";
-
-import { dataContents } from "../../assets/fake/contents";
+import { useListCategory } from "hooks";
 
 const ExploreScreen = () => {
   const [showSort, setShowSort] = useState(false);
   const [selectedTab, setSelectedTab] = useState(0);
-
-  const tabList = [
-    { id: 1, title: "Romansa" },
-    { id: 2, title: "Fantasi" },
-    { id: 3, title: "Misteri" },
-    { id: 4, title: "Komedi" },
-    { id: 5, title: "Kehidupan" },
-    // { id: 6, title: "Fanfiction" },
-  ];
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const listCategories = useListCategory();
+  const flatlistRef: any = useRef();
 
   const dataSorting = [
     {
@@ -57,24 +42,31 @@ const ExploreScreen = () => {
 
   const [selected, setSelected] = useState(dataSorting[0]?.title);
 
+  const onSelectedCategory = (index: number, uuid: string) => {
+    flatlistRef?.current?.scrollToIndex({ index, animated: true });
+    setSelectedTab(index);
+    setSelectedCategory(uuid);
+  };
+
   return (
     <>
       <View style={globalStyles().topSafeArea}>
-        <Header withSearchBar placeholder="Cari novel" />
+        <Header withSearchBar placeholder="Cari novel" isNavigateSearchScreen />
         <HorizontalTabList
-          item={tabList}
+          item={listCategories}
           selectedTab={selectedTab}
-          setSelectedTab={setSelectedTab}
+          setSelectedTab={onSelectedCategory}
+          horizontalTabListRef={flatlistRef}
         />
         <View style={{ marginHorizontal: 16, marginVertical: 16 }}>
           <Sort
-            bookTotal={dataContents[selectedTab].novels.length}
+            bookTotal={10}
             selected={selected}
             onPress={() => setShowSort(true)}
           />
         </View>
 
-        <VerticalList
+        {/* <VerticalList
           data={dataContents[selectedTab].novels}
           keyExtractor={item => item?.id}
           //listEmptyComponent={<HomeBookListVerticalSkeleton />}
@@ -87,7 +79,7 @@ const ExploreScreen = () => {
             />
           )}
           isShowVerticalIndicator={false}
-        />
+        /> */}
       </View>
       <Modal
         animationIn="slideInUp"

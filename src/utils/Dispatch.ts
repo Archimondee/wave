@@ -3,6 +3,6 @@ interface Payload {
 }
 interface Params {
   type: string;
-  payload?: Payload;
+  payload?: Payload | any;
 }
 export type Dispatch = (params: Params | void) => void;

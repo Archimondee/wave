@@ -71,7 +71,7 @@ VerticalBookProps) => {
   }, []);
   return (
     <TouchableOpacity
-      key={item?.novel_title}
+      key={item?.title}
       onPress={() => {
         wait(100)
           .then(() => {
@@ -93,7 +93,7 @@ VerticalBookProps) => {
       <View style={styles.container}>
         {size === "small" ? (
           <FastImage
-            source={{ uri: item?.novel_cover }}
+            source={{ uri: item?.cover_path }}
             style={[
               styles.image,
               {
@@ -113,7 +113,7 @@ VerticalBookProps) => {
           />
         ) : (
           <FastImage
-            source={{ uri: item?.novel_cover }}
+            source={{ uri: item?.cover_path }}
             style={[
               styles.image,
               {
@@ -145,7 +145,7 @@ VerticalBookProps) => {
               // }
               >
                 <Text numberOfLines={3} size={14} type={"bold"}>
-                  {item?.novel_title}
+                  {item?.title}
                 </Text>
               </TouchableOpacity>
 
@@ -168,12 +168,12 @@ VerticalBookProps) => {
               // }
               >
                 <Text numberOfLines={3} size={14} type={"bold"}>
-                  {item?.novel_title}
+                  {item?.title}
                 </Text>
               </TouchableOpacity>
               {size !== "small" ? (
                 <Text style={styles.description} numberOfLines={3} size={12}>
-                  {item?.novel_sinopsis}
+                  {item?.sinopsis}
                 </Text>
               ) : null}
             </View>
@@ -210,7 +210,7 @@ VerticalBookProps) => {
                     }}
                     textAlign="center"
                   >
-                    {item.novel_rating}
+                    {item.rating}
                   </Text>
                 </View>
                 {typeCollection !== "list" && updated_at ? (
@@ -253,7 +253,7 @@ VerticalBookProps) => {
             ) : type === "category" ? (
               <View style={[styles.category]}>
                 <Text size={10} color={colors.neutral500} style={{}}>
-                  {item?.categories[0]?.category_name}
+                  {/* {item?.categories[0]?.category_name} */} Kategori
                 </Text>
               </View>
             ) : type === "progress" ? (

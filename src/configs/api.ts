@@ -13,6 +13,8 @@ export const host = axios.create({
 
 const api = {
   testApi: () => host.get("bpi/currentprice.json"),
+  getContent: () => host.get("on-boarding/content"),
+  getCategoryList: () => host.get("util/category/list"),
 };
 
 export default api;

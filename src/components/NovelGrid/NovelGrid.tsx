@@ -29,7 +29,7 @@ const NovelGrid = ({ index, item }: NovelGridProps) => {
       onPress={() => NavigationService.navigate("NovelScreen")}
     >
       <ImageCache
-        source={{ uri: item?.novel_cover }}
+        source={{ uri: item?.cover_path }}
         style={{
           height: scaledVertical(180),
           width: scaledHorizontal(80),
@@ -51,7 +51,7 @@ const NovelGrid = ({ index, item }: NovelGridProps) => {
           numberOfLines={3}
           type={"bold"}
         >
-          {item?.novel_title}
+          {item?.title}
         </Text>
         <View
           style={{
@@ -69,7 +69,7 @@ const NovelGrid = ({ index, item }: NovelGridProps) => {
               marginTop: scaledVertical(3),
             }}
           >
-            {item?.novel_rating}
+            {item?.rating}
           </Text>
         </View>
       </View>

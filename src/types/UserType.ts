@@ -1,0 +1,48 @@
+import type { NovelType } from "./NovelTypes";
+
+export interface AuthorType {
+  id: number;
+  uuid: string;
+  role_id: number;
+  winner_flage: number;
+  fake_user_flage: number;
+  user_uri?: string;
+  fullname: string;
+  email: string;
+  country_code: string;
+  phone: string;
+  gender: number;
+  dob?: string;
+  age?: string;
+  photo_profile_path: string;
+  photo_profile_filename: string;
+  is_guest?: null;
+  otp_pass?: string;
+  otp_valid_until?: string;
+  personal_bio?: string;
+  apns_token?: string;
+  fcm_token?: string;
+  google_token?: string;
+  device_token?: string;
+  email_verified_token?: string;
+  last_email_verified_date?: string;
+  active: number;
+  referral_code?: string;
+  created_at: string;
+  updated_at: string;
+  deleted_at?: string;
+  user_wallet?: any;
+  user_freeby?: any;
+  admin_log?: any;
+  user_collection?: any;
+  novel?: NovelType[];
+  // novel_comment?: any;
+  // topup_transaction?: any;
+  // novel_transaction?: any;
+  // bonus_coin_sender?: any;
+  // bonus_coin_receiver?: any;
+  // user_novel_progression?: any;
+  // user_reward?: any;
+  // giveaway_leaderboard?: any;
+  // role?: string;
+}

@@ -1,21 +1,25 @@
 import color from "configs/colors";
 import React from "react";
 import { View, TouchableOpacity } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
+import type { CategoryType } from "types/NovelTypes";
 import { scaledHorizontal, scaledVertical } from "utils/ScaledService";
+import { HorizontalList } from "../List/List";
 
 import Text from "../Text/Text";
 
 interface TabListProps {
-  item: { id: number; title: string }[];
+  item: CategoryType[];
   selectedTab: number;
-  setSelectedTab: (args: number) => void;
+  setSelectedTab: (args: number, uuid: string) => void;
+
+  horizontalTabListRef: any;
 }
 
 const HorizontalTabList = ({
   item,
   selectedTab,
   setSelectedTab,
+  horizontalTabListRef,
 }: TabListProps) => {
   return (
     <View
@@ -27,11 +31,15 @@ const HorizontalTabList = ({
         borderBottomColor: color.neutral200,
       }}
     >
-      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-        {item.map((tab, index) => {
+      <HorizontalList
+        listKey="dataTop"
+        data={item}
+        innerRef={horizontalTabListRef}
+        keyExtractor={tab => tab?.uuid}
+        renderItem={({ item, index }: { item: CategoryType; index: any }) => {
           return (
             <TouchableOpacity
-              onPress={() => setSelectedTab(index)}
+              onPress={() => setSelectedTab(index, item.uuid)}
               key={index}
               style={{
                 flex: 1,
@@ -51,12 +59,13 @@ const HorizontalTabList = ({
                   selectedTab === index ? color.primary500 : color.neutral400
                 }
               >
-                {tab.title}
+                {item?.category_name}
               </Text>
             </TouchableOpacity>
           );
-        })}
-      </ScrollView>
+        }}
+        isShowVerticalIndicator={false}
+      />
     </View>
   );
 };

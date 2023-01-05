@@ -20,7 +20,7 @@ import FastImage from "react-native-fast-image";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import Modal from "react-native-modal";
 import type { CommentType } from "types/CommentTypes";
-import type { CategoriesType } from "types/NovelTypes";
+
 import NavigationService from "utils/NavigationService";
 import { scaledHorizontal, scaledVertical } from "utils/ScaledService";
 
@@ -254,13 +254,7 @@ const NovelScreen = () => {
                 listKey="dataCategories"
                 data={dataCategory}
                 keyExtractor={item => item.id}
-                renderItem={({
-                  item,
-                  index,
-                }: {
-                  item: CategoriesType;
-                  index: any;
-                }) => (
+                renderItem={({ item, index }: { item: any; index: any }) => (
                   // console.warn(item)
                   <CategoryCard
                     title={item?.category_name}

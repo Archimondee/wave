@@ -8,3 +8,11 @@ export const useTestData = () => {
 export const useQueue = () => {
   return useSelector((state: StoreStateType) => state.queue.queue);
 };
+
+export const useListCategory = () => {
+  return useSelector((state: StoreStateType) => state.novel.listCategory);
+};
+
+export const useListContent = () => {
+  return useSelector((state: StoreStateType) => state.novel.contentBoarding);
+};
