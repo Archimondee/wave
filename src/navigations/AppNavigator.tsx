@@ -5,14 +5,15 @@ import { createStackNavigator } from "@react-navigation/stack";
 import type { RootStackParamList } from "types/NavigatorTypes";
 import { navigationRef } from "utils/NavigationService";
 import { Modal } from "components";
-
-import MainNavigator from "./MainNavigator";
 import { useQueue } from "hooks";
-import { useRealm } from "../realm";
 import { useDispatch } from "react-redux";
 import NetInfo from "@react-native-community/netinfo";
 import type { QueueDataType } from "types/QueueTypes";
 import { queueBackOnline } from "stores/queue/actions";
+
+import { useRealm } from "../realm";
+
+import MainNavigator from "./MainNavigator";
 
 const App = createStackNavigator<RootStackParamList>();
 

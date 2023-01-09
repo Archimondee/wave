@@ -12,22 +12,28 @@ import {
 } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 import "../../i18n";
-import { Button, Input, Space, Text } from "components";
+import { Button, Input, ModalAlert, Space, Text } from "components";
 import colors from "configs/colors";
 import NavigationService from "utils/NavigationService";
 import { isTablet, scale } from "utils/Responsive";
 import width from "utils/WidthPercent";
 import { useState } from "react";
 import { scaledHorizontal, scaledVertical } from "utils/ScaledService";
+import { useDispatch } from "react-redux";
+import { postLogin, postRegister } from "stores/persist/actions";
+import { wait } from "utils/Utils";
 
 import styles from "./RegisterScreenStyles";
 
 const RegisterScreen = () => {
-  const [useEmail, setUseEmail] = useState(false);
+  const [useEmail] = useState(true);
+  const dispatch: any = useDispatch();
+  const [modalError, setModalError] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
   const {
     control,
-    // handleSubmit,
+    handleSubmit,
     formState: { errors },
   } = useForm(
     useEmail
@@ -46,6 +52,41 @@ const RegisterScreen = () => {
           },
         },
   );
+
+  const onSubmit = (data: any) => {
+    const bodyData = {
+      nama: data.fullname,
+      email: data.email,
+      country_code: "62",
+      telepon: "800000000",
+      password: data.password,
+    };
+
+    const bodyLogin = {
+      email: data.email,
+      password: data.password,
+    };
+    // console.log(bodyData);
+    dispatch(
+      postRegister(
+        bodyData,
+        () => {
+          dispatch(
+            postLogin(bodyLogin, () => {
+              wait(500).then(() => {
+                NavigationService.navigate("TabNavigator");
+              });
+            }),
+          );
+        },
+        (status, err) => {
+          window.console.log(err);
+          setModalError(true);
+          setErrorMsg(status);
+        },
+      ),
+    );
+  };
   // const onSubmit = data => console.log(data);
 
   return (
@@ -85,7 +126,10 @@ const RegisterScreen = () => {
         <Controller
           control={control}
           rules={{
-            maxLength: 100,
+            required: {
+              value: true,
+              message: "Ini wajib diisi.",
+            },
           }}
           render={({ field: { onChange, value } }) => (
             <Input
@@ -93,7 +137,7 @@ const RegisterScreen = () => {
               title="Nama Lengkap"
               onChange={onChange}
               value={value}
-              // error={errors.password && errors.password.message}
+              error={errors.fullname && errors.fullname.message}
             />
           )}
           name="fullname"
@@ -166,7 +210,14 @@ const RegisterScreen = () => {
           <Controller
             control={control}
             rules={{
-              maxLength: 100,
+              required: {
+                value: true,
+                message: "Ini wajib diisi.",
+              },
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                message: "invalid email address",
+              },
             }}
             render={({ field: { onChange, value } }) => (
               <Input
@@ -174,7 +225,7 @@ const RegisterScreen = () => {
                 title="Email"
                 onChange={onChange}
                 value={value}
-                error={errors.password && errors.password.message}
+                error={errors.email && errors.email.message}
               />
             )}
             name="email"
@@ -184,7 +235,17 @@ const RegisterScreen = () => {
         <Controller
           control={control}
           rules={{
-            maxLength: 100,
+            required: {
+              value: true,
+              message: "Ini wajib diisi.",
+            },
+            pattern: {
+              value:
+                /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/i,
+              message:
+                // eslint-disable-next-line max-len
+                "Minimum 8 characters, at least one uppercase letter, one lowercase letter, one number and one special character",
+            },
           }}
           render={({ field: { onChange, value } }) => (
             <Input
@@ -203,19 +264,17 @@ const RegisterScreen = () => {
           // buttonColor={colors.primary500}
           type={"dark"}
           title="Lanjut"
-          onPress={() => {
-            NavigationService.navigate("TabNavigator");
-          }}
+          onPress={handleSubmit(onSubmit)}
         />
         <Space height={24} />
-        <Button
+        {/* <Button
           // buttonColor={colors.primary500}
           type={"light"}
           title={
             !useEmail ? "Daftar lewat email" : "Daftar lewat nomor telepon"
           }
           onPress={() => setUseEmail(!useEmail)}
-        />
+        /> */}
         <Space height={30} />
         {/* <Button
           fontType={"reguler"}
@@ -253,6 +312,22 @@ const RegisterScreen = () => {
           </TouchableOpacity>
         </View>
       </View>
+      <ModalAlert
+        containerStyle={{ minHeight: scaledVertical(200) }}
+        showModal={modalError}
+        onBackdropPress={() => setModalError(false)}
+        contentStyle={{
+          backgroundColor: "#fff",
+          borderRadius: 10,
+          minHeight: 210,
+          width: 280,
+          alignSelf: "center",
+        }}
+        hideModal={() => setModalError(false)}
+        description={errorMsg}
+        singleButton
+        icon={images.decline}
+      />
     </SafeAreaView>
   );
 };

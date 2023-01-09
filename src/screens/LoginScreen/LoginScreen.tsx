@@ -14,7 +14,7 @@ import {
 import { useForm, Controller } from "react-hook-form";
 import "../../i18n";
 
-import { Button, Input, Space, Text } from "components";
+import { Button, Input, ModalAlert, Space, Text } from "components";
 import NavigationService from "utils/NavigationService";
 // import globalStyles from "utils/GlobalStyles";
 // eslint-disable-next-line import/order
@@ -23,13 +23,42 @@ import colors from "configs/colors";
 // import { scaledVertical } from "utils/ScaledService";
 import { scale } from "utils/Responsive";
 import { scaledHorizontal, scaledVertical } from "utils/ScaledService";
+import { useDispatch } from "react-redux";
+import type { RouteProp } from "@react-navigation/core";
+import type { RootStackParamList } from "src/types/NavigatorTypes";
+import type { StackNavigationProp } from "@react-navigation/stack";
+import { postLogin } from "stores/persist/actions";
+import { useState } from "react";
+// import { useToken } from "hooks";
+import { wait } from "utils/Utils";
 
 import styles from "./LoginScreenStyles";
 
-const LoginScreen = () => {
+type LoginScreenRouteType = RouteProp<
+  RootStackParamList,
+  "LoginScreen"
+  // "LoginScreen" | "LoginModal"
+>;
+
+type LoginScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  "LoginScreen"
+  // "LoginScreen" | "LoginModal"
+>;
+
+type Prop = {
+  route: LoginScreenRouteType;
+  navigation: LoginScreenNavigationProp;
+};
+
+const LoginScreen = ({}: Prop) => {
+  // const token = useToken();
+  const dispatch: any = useDispatch();
+  const [modalError, setModalError] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
   const {
     control,
-    // handleSubmit,
+    handleSubmit,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -38,9 +67,51 @@ const LoginScreen = () => {
     },
   });
 
-  // const onSubmit = (data: any) => {
-  //   // console.warn(data);
-  // };
+  const onSubmit = (data: any) => {
+    const bodyData = {
+      email: data.email,
+      password: data.password,
+    };
+
+    dispatch(
+      postLogin(
+        bodyData,
+        () => {
+          wait(100)
+            .then(() => {
+              // logEvent("email_login", {
+              //   email: newVal,
+              //   password: "filled",
+              //   status: "login_success",
+              // });
+            })
+            .finally(() => {
+              wait(100).then(() => {
+                // if (route?.params?.from) {
+                //   NavigationService.replace("TabNavigator", {
+                //     screen: route?.params?.from,
+                //   });
+                // } else {
+                //   NavigationService.navigate("TabNavigator");
+                // }
+                NavigationService.navigate("TabNavigator");
+              });
+            });
+        },
+        (status, err) => {
+          setModalError(true);
+          setErrorMsg(err?.response?.data?.message);
+          if (err?.response?.status === 401) {
+            setErrorMsg(
+              "Email atau password yang anda masukan salah. Silahkan coba lagi!",
+            );
+          }
+          window.console.log(status);
+          window.console.log(err?.response?.data?.message);
+        },
+      ),
+    );
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -83,6 +154,10 @@ const LoginScreen = () => {
             required: {
               value: true,
               message: "Ini wajib diisi.",
+            },
+            pattern: {
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+              message: "invalid email address",
             },
           }}
           render={({ field: { onChange, value } }) => (
@@ -140,9 +215,7 @@ const LoginScreen = () => {
           // buttonColor={colors.primary500}
           type={"dark"}
           title="Masuk"
-          onPress={() => {
-            NavigationService.navigate("OtpScreen");
-          }}
+          onPress={handleSubmit(onSubmit)}
         />
         <Space height={30} />
         <Button
@@ -201,6 +274,22 @@ const LoginScreen = () => {
           </TouchableOpacity>
         </View>
       </View>
+      <ModalAlert
+        containerStyle={{ minHeight: scaledVertical(200) }}
+        showModal={modalError}
+        onBackdropPress={() => setModalError(false)}
+        contentStyle={{
+          backgroundColor: "#fff",
+          borderRadius: 10,
+          minHeight: 210,
+          width: 280,
+          alignSelf: "center",
+        }}
+        hideModal={() => setModalError(false)}
+        description={errorMsg}
+        singleButton
+        icon={images.password}
+      />
     </SafeAreaView>
   );
 };
