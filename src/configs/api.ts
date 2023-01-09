@@ -11,8 +11,20 @@ export const host = axios.create({
 //   };
 // };
 
+const getHeaderPublic: any = () => {
+  return {
+    headers: {
+      Accept: "*/*",
+      //"X-PUBLIC-TOKEN": Config.PUBLIC_KEY,
+    },
+  };
+};
+
 const api = {
   testApi: () => host.get("bpi/currentprice.json"),
+  postLogin: (body: any) => host.post("/login", body, getHeaderPublic()),
+  postRegister: (body: any) =>
+    host.post("/registration", body, getHeaderPublic()),
 };
 
 export default api;

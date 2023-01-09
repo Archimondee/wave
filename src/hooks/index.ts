@@ -8,3 +8,7 @@ export const useTestData = () => {
 export const useQueue = () => {
   return useSelector((state: StoreStateType) => state.queue.queue);
 };
+
+export const useToken = () => {
+  return useSelector((state: StoreStateType) => state.persist.token);
+};
