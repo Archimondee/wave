@@ -36,6 +36,12 @@ import { useDispatch } from "react-redux";
 import { getCategoriesList, getContent } from "../../stores/novel/actions";
 import { wait } from "utils/Utils";
 import { useFocusEffect, useNavigationState } from "@react-navigation/core";
+import {
+  CarouselBookSkeleton,
+  HomeBookListSmallSkeleton,
+  HomeBookListVerticalSkeleton,
+  HomeCategoryListSkeleton,
+} from "../../assets/skeleton/HomeSkeleton";
 
 const HomeScreen = () => {
   const [showPrize, setShowPrize] = useState(false);
@@ -50,18 +56,10 @@ const HomeScreen = () => {
 
   useEffect(() => {
     dispatch(
-      getCategoriesList(() => {
-        wait(500).then(() => {
-          setIsLoadingCategory(false);
-        });
-      }),
-    );
-    dispatch(
       getContent(() => {
+        dispatch(getCategoriesList());
         wait(1000).then(() => {
-          wait(500).then(() => {
-            setIsLoadingContent(false);
-          });
+          setIsLoadingContent(false);
         });
       }),
     );
@@ -305,7 +303,21 @@ const HomeScreen = () => {
           <Text>Go to detail</Text>
         </TouchableOpacity> */}
 
-        {RenderContent()}
+        {/* {RenderContent()} */}
+
+        {isLoadingContent ? (
+          <View>
+            <CarouselBookSkeleton />
+            <HomeCategoryListSkeleton />
+            <HomeCategoryListSkeleton />
+            <HomeBookListSmallSkeleton type="big" />
+
+            <HomeBookListVerticalSkeleton />
+          </View>
+        ) : (
+          RenderContent()
+        )}
+
         <Space height={100} />
       </ScrollView>
 

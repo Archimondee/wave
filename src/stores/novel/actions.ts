@@ -28,10 +28,15 @@ export const getContent = (
     let errorMessage = "";
     if (err instanceof AxiosError) {
       errorMessage = err.message;
+      // dispatch({
+      //   type: ADD_CONTENT_BOARDING_ERROR,
+      //   payload: { data: errorMessage },
+      // });
       dispatch({
-        type: ADD_CONTENT_BOARDING_ERROR,
-        payload: { data: errorMessage },
+        type: ADD_CONTENT_BOARDING_SUCCESS,
+        payload: dataContents,
       });
+      cb && cb();
       onError && onError();
     } else {
       dispatch({ type: ADD_CONTENT_BOARDING_ERROR });
