@@ -46,7 +46,6 @@ import {
 const HomeScreen = () => {
   const [showPrize, setShowPrize] = useState(false);
   const [isLoadingContent, setIsLoadingContent] = useState(true);
-  const [isLoadingCategory, setIsLoadingCategory] = useState(true);
   const { width } = useWindowDimensions();
   const routes: any = useNavigationState(state => state.routes);
 
